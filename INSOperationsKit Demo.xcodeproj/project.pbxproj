@@ -18,20 +18,39 @@
 		64DFC7A41B98A7D00009DB98 /* INSOperationsKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7A31B98A7D00009DB98 /* INSOperationsKitTests.m */; };
 		64DFC7A71B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; };
 		64DFC7A81B98A7D00009DB98 /* INSOperationsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B11B98A89E0009DB98 /* INSOperationQueue.h */; };
+		64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B11B98A89E0009DB98 /* INSOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7B41B98A89E0009DB98 /* INSOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B21B98A89E0009DB98 /* INSOperationQueue.m */; };
-		64DFC7B91B98AA5E0009DB98 /* INSBlockObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B71B98AA5E0009DB98 /* INSBlockObserver.h */; };
+		64DFC7B91B98AA5E0009DB98 /* INSBlockObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B71B98AA5E0009DB98 /* INSBlockObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7BA1B98AA5E0009DB98 /* INSBlockObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B81B98AA5E0009DB98 /* INSBlockObserver.m */; };
-		64DFC7BE1B98ABD30009DB98 /* INSOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7BC1B98ABD30009DB98 /* INSOperation.h */; };
+		64DFC7BE1B98ABD30009DB98 /* INSOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7BC1B98ABD30009DB98 /* INSOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7BF1B98ABD30009DB98 /* INSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7BD1B98ABD30009DB98 /* INSOperation.m */; };
-		64DFC7C31B98AC0A0009DB98 /* INSOperationConditionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */; };
+		64DFC7C31B98AC0A0009DB98 /* INSOperationConditionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7C41B98AC0A0009DB98 /* INSOperationConditionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */; };
-		64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */; };
+		64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7C91B98AF210009DB98 /* NSError+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */; };
-		64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */; };
+		64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7CD1B98EB520009DB98 /* NSOperation+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7CB1B98EB520009DB98 /* NSOperation+INSOperationKit.m */; };
 		64DFC7D01B98F07C0009DB98 /* INSExclusivityController.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CE1B98F07C0009DB98 /* INSExclusivityController.h */; };
 		64DFC7D11B98F07C0009DB98 /* INSExclusivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7CF1B98F07C0009DB98 /* INSExclusivityController.m */; };
+		64DFC7D41B99F8C70009DB98 /* INSBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7D21B99F8C70009DB98 /* INSBlockOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7D51B99F8C70009DB98 /* INSBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7D31B99F8C70009DB98 /* INSBlockOperation.m */; };
+		64DFC7D81B99FA150009DB98 /* INSGroupOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7D61B99FA150009DB98 /* INSGroupOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7D91B99FA150009DB98 /* INSGroupOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7D71B99FA150009DB98 /* INSGroupOperation.m */; };
+		64DFC7DC1B99FB370009DB98 /* INSDelayOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7DA1B99FB370009DB98 /* INSDelayOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7DD1B99FB370009DB98 /* INSDelayOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7DB1B99FB370009DB98 /* INSDelayOperation.m */; };
+		64DFC7E01B99FC840009DB98 /* INSURLSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7DE1B99FC840009DB98 /* INSURLSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7E11B99FC840009DB98 /* INSURLSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */; };
+		64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7E51B99FDC70009DB98 /* INSTimeoutObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E31B99FDC70009DB98 /* INSTimeoutObserver.m */; };
+		64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7E91B9A00300009DB98 /* INSMutallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */; };
+		64DFC7ED1B9A02900009DB98 /* INSReachabilityCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7EE1B9A02900009DB98 /* INSReachabilityCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */; };
+		64DFC7F11B9A04210009DB98 /* INSReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7F21B9A04210009DB98 /* INSReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */; };
+		64DFC7F31B9A0B2D0009DB98 /* INSOperationConditionProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7F41B9A0B2D0009DB98 /* INSOperationObserverProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B61B98AA190009DB98 /* INSOperationObserverProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7F71B9A0CF50009DB98 /* INSOperationTestCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F61B9A0CF50009DB98 /* INSOperationTestCondition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,13 +60,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 64DFC78F1B98A7D00009DB98;
 			remoteInfo = INSOperationsKit;
-		};
-		64DFC79E1B98A7D00009DB98 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 64DFC75A1B98A7C50009DB98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 64DFC7611B98A7C50009DB98;
-			remoteInfo = "INSOperationsKit Demo";
 		};
 		64DFC7A51B98A7D00009DB98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -99,12 +111,30 @@
 		64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOperationConditionResult.h; sourceTree = "<group>"; };
 		64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOperationConditionResult.m; sourceTree = "<group>"; };
 		64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationConditionProtocol.h; sourceTree = "<group>"; };
-		64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+INSOperationKit.h"; sourceTree = "<group>"; };
-		64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+INSOperationKit.m"; sourceTree = "<group>"; };
+		64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+INSOperationKit.h"; path = "../Conditions/NSError+INSOperationKit.h"; sourceTree = "<group>"; };
+		64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+INSOperationKit.m"; path = "../Conditions/NSError+INSOperationKit.m"; sourceTree = "<group>"; };
 		64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+INSOperationKit.h"; sourceTree = "<group>"; };
 		64DFC7CB1B98EB520009DB98 /* NSOperation+INSOperationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+INSOperationKit.m"; sourceTree = "<group>"; };
 		64DFC7CE1B98F07C0009DB98 /* INSExclusivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSExclusivityController.h; sourceTree = "<group>"; };
 		64DFC7CF1B98F07C0009DB98 /* INSExclusivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSExclusivityController.m; sourceTree = "<group>"; };
+		64DFC7D21B99F8C70009DB98 /* INSBlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSBlockOperation.h; sourceTree = "<group>"; };
+		64DFC7D31B99F8C70009DB98 /* INSBlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSBlockOperation.m; sourceTree = "<group>"; };
+		64DFC7D61B99FA150009DB98 /* INSGroupOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSGroupOperation.h; sourceTree = "<group>"; };
+		64DFC7D71B99FA150009DB98 /* INSGroupOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSGroupOperation.m; sourceTree = "<group>"; };
+		64DFC7DA1B99FB370009DB98 /* INSDelayOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDelayOperation.h; sourceTree = "<group>"; };
+		64DFC7DB1B99FB370009DB98 /* INSDelayOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDelayOperation.m; sourceTree = "<group>"; };
+		64DFC7DE1B99FC840009DB98 /* INSURLSessionTaskOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSURLSessionTaskOperation.h; sourceTree = "<group>"; };
+		64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSURLSessionTaskOperation.m; sourceTree = "<group>"; };
+		64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSTimeoutObserver.h; sourceTree = "<group>"; };
+		64DFC7E31B99FDC70009DB98 /* INSTimeoutObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSTimeoutObserver.m; sourceTree = "<group>"; };
+		64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSMutallyExclusiveCondition.h; sourceTree = "<group>"; };
+		64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSMutallyExclusiveCondition.m; sourceTree = "<group>"; };
+		64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSReachabilityCondition.h; sourceTree = "<group>"; };
+		64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSReachabilityCondition.m; sourceTree = "<group>"; };
+		64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSReachabilityManager.h; sourceTree = "<group>"; };
+		64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSReachabilityManager.m; sourceTree = "<group>"; };
+		64DFC7F51B9A0CF50009DB98 /* INSOperationTestCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOperationTestCondition.h; sourceTree = "<group>"; };
+		64DFC7F61B9A0CF50009DB98 /* INSOperationTestCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOperationTestCondition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +211,7 @@
 		64DFC7911B98A7D00009DB98 /* INSOperationsKit */ = {
 			isa = PBXGroup;
 			children = (
+				64DFC7EA1B9A003A0009DB98 /* Others */,
 				64DFC7C01B98ABF30009DB98 /* Conditions */,
 				64DFC7BB1B98ABC40009DB98 /* Operations */,
 				64DFC7B51B98AA070009DB98 /* Observers */,
@@ -202,6 +233,8 @@
 		64DFC7A01B98A7D00009DB98 /* INSOperationsKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				64DFC7F51B9A0CF50009DB98 /* INSOperationTestCondition.h */,
+				64DFC7F61B9A0CF50009DB98 /* INSOperationTestCondition.m */,
 				64DFC7A31B98A7D00009DB98 /* INSOperationsKitTests.m */,
 				64DFC7A11B98A7D00009DB98 /* Supporting Files */,
 			);
@@ -233,6 +266,8 @@
 				64DFC7B61B98AA190009DB98 /* INSOperationObserverProtocol.h */,
 				64DFC7B71B98AA5E0009DB98 /* INSBlockObserver.h */,
 				64DFC7B81B98AA5E0009DB98 /* INSBlockObserver.m */,
+				64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */,
+				64DFC7E31B99FDC70009DB98 /* INSTimeoutObserver.m */,
 			);
 			path = Observers;
 			sourceTree = "<group>";
@@ -244,6 +279,14 @@
 				64DFC7BD1B98ABD30009DB98 /* INSOperation.m */,
 				64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */,
 				64DFC7CB1B98EB520009DB98 /* NSOperation+INSOperationKit.m */,
+				64DFC7D21B99F8C70009DB98 /* INSBlockOperation.h */,
+				64DFC7D31B99F8C70009DB98 /* INSBlockOperation.m */,
+				64DFC7D61B99FA150009DB98 /* INSGroupOperation.h */,
+				64DFC7D71B99FA150009DB98 /* INSGroupOperation.m */,
+				64DFC7DA1B99FB370009DB98 /* INSDelayOperation.h */,
+				64DFC7DB1B99FB370009DB98 /* INSDelayOperation.m */,
+				64DFC7DE1B99FC840009DB98 /* INSURLSessionTaskOperation.h */,
+				64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -254,10 +297,23 @@
 				64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */,
 				64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */,
 				64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */,
-				64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */,
-				64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */,
+				64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */,
+				64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */,
+				64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */,
+				64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */,
 			);
 			path = Conditions;
+			sourceTree = "<group>";
+		};
+		64DFC7EA1B9A003A0009DB98 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */,
+				64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */,
+				64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */,
+				64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,13 +323,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DFC7ED1B9A02900009DB98 /* INSReachabilityCondition.h in Headers */,
 				64DFC7B91B98AA5E0009DB98 /* INSBlockObserver.h in Headers */,
 				64DFC7C31B98AC0A0009DB98 /* INSOperationConditionResult.h in Headers */,
+				64DFC7DC1B99FB370009DB98 /* INSDelayOperation.h in Headers */,
+				64DFC7F11B9A04210009DB98 /* INSReachabilityManager.h in Headers */,
 				64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */,
+				64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */,
 				64DFC7951B98A7D00009DB98 /* INSOperationsKit.h in Headers */,
 				64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */,
+				64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */,
 				64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */,
+				64DFC7E01B99FC840009DB98 /* INSURLSessionTaskOperation.h in Headers */,
 				64DFC7BE1B98ABD30009DB98 /* INSOperation.h in Headers */,
+				64DFC7D41B99F8C70009DB98 /* INSBlockOperation.h in Headers */,
+				64DFC7F31B9A0B2D0009DB98 /* INSOperationConditionProtocol.h in Headers */,
+				64DFC7F41B9A0B2D0009DB98 /* INSOperationObserverProtocol.h in Headers */,
+				64DFC7D81B99FA150009DB98 /* INSGroupOperation.h in Headers */,
 				64DFC7D01B98F07C0009DB98 /* INSExclusivityController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +396,6 @@
 			);
 			dependencies = (
 				64DFC79D1B98A7D00009DB98 /* PBXTargetDependency */,
-				64DFC79F1B98A7D00009DB98 /* PBXTargetDependency */,
 			);
 			name = INSOperationsKitTests;
 			productName = INSOperationsKitTests;
@@ -354,7 +419,6 @@
 					};
 					64DFC7991B98A7D00009DB98 = {
 						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 64DFC7611B98A7C50009DB98;
 					};
 				};
 			};
@@ -420,11 +484,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DFC7DD1B99FB370009DB98 /* INSDelayOperation.m in Sources */,
+				64DFC7EE1B9A02900009DB98 /* INSReachabilityCondition.m in Sources */,
 				64DFC7CD1B98EB520009DB98 /* NSOperation+INSOperationKit.m in Sources */,
+				64DFC7E11B99FC840009DB98 /* INSURLSessionTaskOperation.m in Sources */,
 				64DFC7BA1B98AA5E0009DB98 /* INSBlockObserver.m in Sources */,
+				64DFC7E91B9A00300009DB98 /* INSMutallyExclusiveCondition.m in Sources */,
 				64DFC7C41B98AC0A0009DB98 /* INSOperationConditionResult.m in Sources */,
 				64DFC7D11B98F07C0009DB98 /* INSExclusivityController.m in Sources */,
+				64DFC7D51B99F8C70009DB98 /* INSBlockOperation.m in Sources */,
 				64DFC7B41B98A89E0009DB98 /* INSOperationQueue.m in Sources */,
+				64DFC7E51B99FDC70009DB98 /* INSTimeoutObserver.m in Sources */,
+				64DFC7F21B9A04210009DB98 /* INSReachabilityManager.m in Sources */,
+				64DFC7D91B99FA150009DB98 /* INSGroupOperation.m in Sources */,
 				64DFC7C91B98AF210009DB98 /* NSError+INSOperationKit.m in Sources */,
 				64DFC7BF1B98ABD30009DB98 /* INSOperation.m in Sources */,
 			);
@@ -434,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DFC7F71B9A0CF50009DB98 /* INSOperationTestCondition.m in Sources */,
 				64DFC7A41B98A7D00009DB98 /* INSOperationsKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,11 +518,6 @@
 			isa = PBXTargetDependency;
 			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKit */;
 			targetProxy = 64DFC79C1B98A7D00009DB98 /* PBXContainerItemProxy */;
-		};
-		64DFC79F1B98A7D00009DB98 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 64DFC7611B98A7C50009DB98 /* INSOperationsKit Demo */;
-			targetProxy = 64DFC79E1B98A7D00009DB98 /* PBXContainerItemProxy */;
 		};
 		64DFC7A61B98A7D00009DB98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -636,7 +704,6 @@
 				INFOPLIST_FILE = "INSOperationsKitTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/INSOperationsKit Demo.app/INSOperationsKit Demo";
 			};
 			name = Debug;
 		};
@@ -650,7 +717,6 @@
 				INFOPLIST_FILE = "INSOperationsKitTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/INSOperationsKit Demo.app/INSOperationsKit Demo";
 			};
 			name = Release;
 		};

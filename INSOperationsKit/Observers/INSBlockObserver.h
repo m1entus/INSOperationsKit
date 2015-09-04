@@ -13,6 +13,10 @@ typedef void(^INSBlockObserverStartHandler)(INSOperation *operation);
 typedef void(^INSBlockObserverProduceHandler)(INSOperation *operation, NSOperation *producedOperation);
 typedef void(^INSBlockObserverFinishHandler)(INSOperation *operation, NSArray *errors);
 
+/**
+ The `BlockObserver` is a way to attach arbitrary blocks to significant events
+ in an `Operation`'s lifecycle.
+ */
 @interface INSBlockObserver : NSObject <INSOperationObserverProtocol>
 
 - (instancetype)initWithStartHandler:(INSBlockObserverStartHandler)startHandler

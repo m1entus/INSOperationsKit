@@ -28,7 +28,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "64DFC7991B98A7D00009DB98"
+               BuildableName = "INSOperationsKitTests.xctest"
+               BlueprintName = "INSOperationsKitTests"
+               ReferencedContainer = "container:INSOperationsKit Demo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "64DFC78F1B98A7D00009DB98"
+            BuildableName = "INSOperationsKit.framework"
+            BlueprintName = "INSOperationsKit"
+            ReferencedContainer = "container:INSOperationsKit Demo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"

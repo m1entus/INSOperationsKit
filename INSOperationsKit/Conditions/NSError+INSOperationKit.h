@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString *const INSOperationErrorDomain;
+extern NSString *const INSOperationErrorConditionKey;
 
 typedef NS_ENUM(NSUInteger, INSOperationError) {
     INSOperationErrorConditionFailed = 1,

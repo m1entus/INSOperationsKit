@@ -20,7 +20,7 @@
 
 - (NSError *)error {
     if (!self.success) {
-        return self.error;
+        return _error;
     } else {
         return nil;
     }

@@ -10,6 +10,8 @@
 
 NSString *const INSOperationErrorDomain = @"INSOperationErrorDomain";
 
+NSString *const INSOperationErrorConditionKey = @"INSOperationErrorConditionKey";
+
 @implementation NSError (INSOperationKit)
 
 + (instancetype)ins_operationErrorWithCode:(NSUInteger)code {

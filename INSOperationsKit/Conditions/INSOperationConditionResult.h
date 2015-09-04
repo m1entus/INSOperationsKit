@@ -10,7 +10,7 @@
 @class INSOperation;
 
 @interface INSOperationConditionResult : NSObject
-@property (nonatomic, readonly, getter=isSuccees) BOOL success;
+@property (nonatomic, readonly, assign, getter=isSuccees) BOOL success;
 @property (nonatomic, readonly) NSError *error;
 
 + (INSOperationConditionResult *)satisfiedResult;
