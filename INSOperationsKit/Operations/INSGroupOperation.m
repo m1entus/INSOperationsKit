@@ -18,6 +18,7 @@
 @implementation INSGroupOperation
 - (instancetype)initWithOperations:(NSArray /*NSOperations*/ *)operations {
     if (self = [super init]) {
+        _finishingOperation = [NSBlockOperation blockOperationWithBlock:^{}];
         _aggregatedErrors = [NSMutableArray array];
         _internalQueue = [[INSOperationQueue alloc] init];
         _internalQueue.suspended = YES;
