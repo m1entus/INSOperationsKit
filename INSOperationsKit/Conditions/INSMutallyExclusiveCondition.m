@@ -1,6 +1,6 @@
 //
 //  INSMutuallyExclusiveCondition.m
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -33,7 +33,7 @@
 #pragma mark - Subclass
 
 - (NSString *)name {
-    return [NSString stringWithFormat:@"MutuallyExclusive<%@>", self.className];
+    return [NSString stringWithFormat:@"INSMutallyExclusiveCondition<%@>", self.className];
 }
 
 - (BOOL)isMutuallyExclusive {

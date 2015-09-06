@@ -40,6 +40,22 @@
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testOperationCompletionBlock {
+    XCTestExpectation *executingExpectation = [self expectationWithDescription:@"executingExpectation"];
+    XCTestExpectation *completionExpectation = [self expectationWithDescription:@"completionExpectation"];
+    
+    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        [executingExpectation fulfill];
+    }];
+    
+    operation.completionBlock = ^() {
+        [completionExpectation fulfill];
+    };
+    
+    [self.operationQueue addOperation:operation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testBlockOperationWithNoConditionsAndNoDependencies {
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     
@@ -76,10 +92,7 @@
     }];
     
     [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
-        if (observedObject) {
-            return observedObject.cancelled;
-        }
-        return NO;
+        return observedObject.cancelled;
     }];
     
     XCTAssertFalse(operation.cancelled, @"Should not yet have cancelled the operation");
@@ -190,10 +203,7 @@
     INSGroupOperation *groupOperation = [[INSGroupOperation alloc] initWithOperations:@[operation1,operation2]];
     
     [self keyValueObservingExpectationForObject:groupOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
-        if (observedObject) {
-            return observedObject.finished;
-        }
-        return NO;
+        return observedObject.finished;
     }];
     
     [self.operationQueue addOperation:groupOperation];
@@ -223,10 +233,7 @@
     INSGroupOperation *groupOperation = [[INSGroupOperation alloc] initWithOperations:@[operation1,operation2]];
     
     [self keyValueObservingExpectationForObject:groupOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
-        if (observedObject) {
-            return observedObject.finished;
-        }
-        return NO;
+        return observedObject.finished;
     }];
     
     self.operationQueue.suspended = YES;
@@ -236,5 +243,295 @@
     
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
+
+- (void)testDelayOperation {
+    NSTimeInterval delay = 0.1f;
+    
+    NSDate *now = [NSDate date];
+    INSDelayOperation *delayOperation = [[INSDelayOperation alloc] initWithDelay:delay];
+    
+    [self keyValueObservingExpectationForObject:delayOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    [self.operationQueue addOperation:delayOperation];
+    [self waitForExpectationsWithTimeout:delay+1.0 handler:^(NSError *error) {
+        XCTAssertTrue([[NSDate date] timeIntervalSinceDate:now] >= delay, "Didn't delay long enough");
+    }];
+}
+
+- (void)testMutalExclusion {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
+    __block BOOL running = NO;
+    
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        running = YES;
+        [expectation fulfill];
+        completionBlock();
+    }];
+    
+    INSMutallyExclusiveCondition *mutallyExclusiveCondition = [INSMutallyExclusiveCondition mutualExclusiveForClass:[INSBlockOperation class]];
+    [operation addCondition:mutallyExclusiveCondition];
+    
+    self.operationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount;
+    
+    INSDelayOperation *delayOperation = [[INSDelayOperation alloc] initWithDelay:0.1];
+    [delayOperation addCondition:mutallyExclusiveCondition];
+    
+    [self keyValueObservingExpectationForObject:delayOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        XCTAssertFalse(running, @"delay operation should not yet have started execution");
+        return observedObject.finished;
+    }];
+    
+    [self.operationQueue addOperation:delayOperation];
+    [self.operationQueue addOperation:operation];
+    
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testSilientConditionFailure {
+    INSOperationTestCondition *testCondition = [[INSOperationTestCondition alloc] initWithConditionBlock:nil];
+    
+    testCondition.dependencyOperation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        XCTFail(@"should not run");
+        completionBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
+    
+    testCondition.block = ^BOOL() {
+        [expectation fulfill];
+        return NO;
+    };
+    
+    INSSilientCondition *silientCondition = [INSSilientCondition silientConditionForCondition:testCondition];
+    
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        XCTFail(@"should not run");
+        completionBlock();
+    }];
+    
+    [operation addCondition:silientCondition];
+    
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self.operationQueue addOperation:operation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testNegateConditionFailure {
+    
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        XCTFail(@"should not run");
+        completionBlock();
+    }];
+    
+    INSOperationTestCondition *testCondition = [[INSOperationTestCondition alloc] initWithConditionBlock:^BOOL{
+        return YES;
+    }];
+    
+    INSNegatedCondition *negatedCondition = [INSNegatedCondition negatedConditionForCondition:testCondition];
+    [operation addCondition:negatedCondition];
+    
+    
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self.operationQueue addOperation:operation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testNegateConditionSuccess {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
+    
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [expectation fulfill];
+        completionBlock();
+    }];
+    
+    INSOperationTestCondition *testCondition = [[INSOperationTestCondition alloc] initWithConditionBlock:^BOOL{
+        return NO;
+    }];
+    
+    INSNegatedCondition *negatedCondition = [INSNegatedCondition negatedConditionForCondition:testCondition];
+    [operation addCondition:negatedCondition];
+    
+    [self.operationQueue addOperation:operation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testNoCancelledDependenciesCondition {
+    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [dependencyOperation cancel];
+        completionBlock();
+    }];
+    
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        XCTFail(@"shouldn't run");
+        completionBlock();
+    }];
+    
+    INSNoCancelledDependenciesCondition *noCancelledCondition = [[INSNoCancelledDependenciesCondition alloc] init];
+    [operation addCondition:noCancelledCondition];
+    
+    [self keyValueObservingExpectationForObject:dependencyOperation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self keyValueObservingExpectationForObject:self.operationQueue keyPath:@"operationCount" handler:^BOOL(INSOperationQueue *observedObject, NSDictionary *change) {
+        return observedObject.operationCount == 0;
+    }];
+    
+    [operation addDependency:dependencyOperation];
+    
+    [self.operationQueue addOperation:operation];
+    [self.operationQueue addOperation:dependencyOperation];
+    
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testOperationsRunsEvenWhenDependencyCancelled {
+    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [dependencyOperation cancel];
+        completionBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
+    
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [expectation fulfill];
+        completionBlock();
+    }];
+    
+    [self keyValueObservingExpectationForObject:dependencyOperation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+
+    [operation addDependency:dependencyOperation];
+    
+    [self.operationQueue addOperation:operation];
+    [self.operationQueue addOperation:dependencyOperation];
+    
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testNoCancelledDependenciesConditionAndDependenciesCancelsInGroupOperation {
+    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [dependencyOperation cancel];
+        completionBlock();
+    }];
+    
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        XCTFail(@"shouldn't run");
+        completionBlock();
+    }];
+    
+    INSNoCancelledDependenciesCondition *noCancelledCondition = [[INSNoCancelledDependenciesCondition alloc] init];
+    [operation addCondition:noCancelledCondition];
+    [operation addDependency:dependencyOperation];
+    
+    INSGroupOperation *groupOperation = [INSGroupOperation operationWithOperations:@[dependencyOperation,operation]];
+    
+    [self keyValueObservingExpectationForObject:dependencyOperation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self keyValueObservingExpectationForObject:groupOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.isFinished;
+    }];
+    
+    [self.operationQueue addOperation:groupOperation];
+    
+    [self waitForExpectationsWithTimeout:1.0 handler:^(NSError *error) {
+        XCTAssertEqual(self.operationQueue.operationCount, 0, "");
+    }];
+}
+
+- (void)testCancelOperationAndCancelBeforeStart {
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        XCTFail(@"This should not run");
+        completionBlock();
+    }];
+    
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    self.operationQueue.suspended = YES;
+    [self.operationQueue addOperation:operation];
+    [operation cancel];
+    self.operationQueue.suspended = NO;
+    
+    [self waitForExpectationsWithTimeout:1.0 handler:^(NSError *error) {
+        XCTAssertTrue(operation.cancelled);
+        XCTAssertTrue(operation.finished);
+    }];
+}
+
+- (void)testCancelOperationAndCancelAfterStart {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
+    
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [operation cancel];
+        [expectation fulfill];
+        completionBlock();
+    }];
+    
+    [self.operationQueue addOperation:operation];
+    [self waitForExpectationsWithTimeout:1.0 handler:^(NSError *error) {
+        XCTAssertEqual(self.operationQueue.operationCount, 0);
+    }];
+}
+
+- (void)testBlockObserver {
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [operation produceOperation:[INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+            completionBlock();
+        }]];
+        completionBlock();
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"expectation"];
+    XCTestExpectation *expectation2 = [self expectationWithDescription:@"expectation2"];
+    XCTestExpectation *expectation3 = [self expectationWithDescription:@"expectation3"];
+    
+    INSBlockObserver *observer = [[INSBlockObserver alloc] initWithStartHandler:^(INSOperation *operation) {
+        [expectation fulfill];
+        
+    } produceHandler:^(INSOperation *operation, NSOperation *producedOperation) {
+        [expectation2 fulfill];
+        
+    } finishHandler:^(INSOperation *operation, NSArray *errors) {
+        [expectation3 fulfill];
+    }];
+    
+    [operation addObserver:observer];
+    [self.operationQueue addOperation:operation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testTimeoutObserver {
+    INSDelayOperation *delayOperation = [INSDelayOperation operationWithDelay:1.0];
+    INSTimeoutObserver *timeoutObserver = [[INSTimeoutObserver alloc] initWithTimeout:0.1];
+    
+    [delayOperation addObserver:timeoutObserver];
+    
+    [self keyValueObservingExpectationForObject:delayOperation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.isCancelled;
+    }];
+    [self.operationQueue addOperation:delayOperation];
+    [self waitForExpectationsWithTimeout:0.9 handler:nil];
+}
+
 
 @end

@@ -1,6 +1,6 @@
 //
 //  INSBlockOperation.m
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -9,7 +9,6 @@
 #import "INSBlockOperation.h"
 
 @interface INSBlockOperation ()
-@property (nonatomic, copy) INSBlockOperationBlock block;
 @end
 
 @implementation INSBlockOperation
@@ -28,6 +27,10 @@
         self.block = block;
     }
     return self;
+}
+
++ (instancetype)operationWithBlock:(INSBlockOperationBlock)block {
+    return [[[self class] alloc] initWithBlock:block];
 }
 
 /**
@@ -50,6 +53,10 @@
         });
     }];
     return self;
+}
+
++ (instancetype)operationWithMainQueueBlock:(dispatch_block_t)block {
+    return [[[self class] alloc] initWithMainQueueBlock:block];
 }
 
 - (void)execute {

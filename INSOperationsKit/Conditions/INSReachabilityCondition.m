@@ -1,6 +1,6 @@
 //
 //  INSReachabilityCondition.m
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -18,6 +18,10 @@
 
 @implementation INSReachabilityCondition
 
++ (instancetype)reachabilityCondition {
+    return [[[self class ]alloc] init];
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         self.reachabilityManager = [INSReachabilityManager managerForLocalAddress];
@@ -26,7 +30,7 @@
 }
 
 - (NSString *)name {
-    return NSStringFromClass([self class]);
+    return NSStringFromClass([INSReachabilityCondition class]);
 }
 
 - (BOOL)isMutuallyExclusive {

@@ -1,6 +1,6 @@
 //
 //  INSGroupOperation.m
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -16,6 +16,11 @@
 @end
 
 @implementation INSGroupOperation
+
++ (instancetype)operationWithOperations:(NSArray *)operations {
+    return [[[self class] alloc] initWithOperations:operations];
+}
+
 - (instancetype)initWithOperations:(NSArray /*NSOperations*/ *)operations {
     if (self = [super init]) {
         _finishingOperation = [NSBlockOperation blockOperationWithBlock:^{}];

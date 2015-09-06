@@ -1,6 +1,6 @@
 //
 //  INSReachabilityCondition.h
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -15,4 +15,5 @@
  Reachability is evaluated once when the operation to which this is attached is asked about its readiness.
  */
 @interface INSReachabilityCondition : NSObject <INSOperationConditionProtocol>
++ (instancetype)reachabilityCondition;
 @end

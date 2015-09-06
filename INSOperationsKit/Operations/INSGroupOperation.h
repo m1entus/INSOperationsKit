@@ -1,6 +1,6 @@
 //
 //  INSGroupOperation.h
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -22,7 +22,9 @@
  be executed before the rest of the operations in the initial chain of operations.
  */
 @interface INSGroupOperation : INSOperation
++ (instancetype)operationWithOperations:(NSArray *)operations;
 - (instancetype)initWithOperations:(NSArray /*NSOperations*/ *)operations;
+
 - (void)addOperation:(NSOperation *)operation;
 - (void)aggregateError:(NSError *)error;
 - (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors;

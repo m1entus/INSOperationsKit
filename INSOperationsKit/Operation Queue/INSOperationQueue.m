@@ -1,6 +1,6 @@
 //
 //  INSOperationQueue.m
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 03.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.

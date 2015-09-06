@@ -33,5 +33,8 @@ FOUNDATION_EXPORT const unsigned char INSOperationsKitVersionString[];
 #import <INSOperationsKit/INSOperationObserverProtocol.h>
 #import <INSOperationsKit/INSBlockObserver.h>
 #import <INSOperationsKit/INSTimeoutObserver.h>
+#import <INSOperationsKit/INSSilientCondition.h>
+#import <INSOperationsKit/INSNegatedCondition.h>
+#import <INSOperationsKit/INSNoCancelledDependenciesCondition.h>
 
 

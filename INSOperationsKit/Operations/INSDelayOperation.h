@@ -1,6 +1,6 @@
 //
 //  INSDelayOperation.h
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -22,5 +22,8 @@
  */
 @interface INSDelayOperation : INSOperation
 - (instancetype)initWithDelay:(NSTimeInterval)delay;
++ (instancetype)operationWithDelay:(NSTimeInterval)delay;
+
 - (instancetype)initWithDelayUntilDate:(NSDate *)date;
++ (instancetype)operationWithDelayUntilDate:(NSDate *)date;
 @end

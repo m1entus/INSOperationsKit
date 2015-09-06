@@ -1,6 +1,6 @@
 //
 //  INSURLSessionTaskOperation.h
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -22,4 +22,5 @@
 @interface INSURLSessionTaskOperation : INSOperation
 @property (nonatomic, strong, readonly) NSURLSessionTask *task;
 - (instancetype)initWithTask:(NSURLSessionTask *)task;
++ (instancetype)operationWithTask:(NSURLSessionTask *)task;
 @end

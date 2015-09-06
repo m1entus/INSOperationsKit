@@ -1,6 +1,6 @@
 //
 //  INSDelayOperation.m
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -22,11 +22,19 @@
     return self;
 }
 
++ (instancetype)operationWithDelay:(NSTimeInterval)delay {
+    return [[[self class] alloc] initWithDelay:delay];
+}
+
 - (instancetype)initWithDelayUntilDate:(NSDate *)date {
     if (self = [super init]) {
         self.delayDate = date;
     }
     return self;
+}
+
++ (instancetype)operationWithDelayUntilDate:(NSDate *)date {
+    return [[[self class] alloc] initWithDelayUntilDate:date];
 }
 
 - (void)execute {

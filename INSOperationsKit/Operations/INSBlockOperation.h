@@ -1,6 +1,6 @@
 //
 //  INSBlockOperation.h
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -8,11 +8,12 @@
 
 #import "INSOperation.h"
 
-typedef void(^INSBlockOperationCompletionBlock)();
-typedef void(^INSBlockOperationBlock)(INSBlockOperationCompletionBlock completionBlock);
+typedef void (^INSBlockOperationCompletionBlock)();
+typedef void (^INSBlockOperationBlock)(INSBlockOperationCompletionBlock completionBlock);
 
+/// A sublcass of `Operation` to execute a block.
 @interface INSBlockOperation : INSOperation
-
+@property (nonatomic, copy) INSBlockOperationBlock block;
 /**
  The designated initializer.
  
@@ -22,8 +23,8 @@ typedef void(^INSBlockOperationBlock)(INSBlockOperationCompletionBlock completio
  will never finish executing. If this parameter is `nil`, the operation
  will immediately finish.
  */
--(instancetype)initWithBlock:(INSBlockOperationBlock)block;
-
+- (instancetype)initWithBlock:(INSBlockOperationBlock)block;
++ (instancetype)operationWithBlock:(INSBlockOperationBlock)block;
 /**
  A convenience initializer to execute a block on the main queue.
  
@@ -32,6 +33,7 @@ typedef void(^INSBlockOperationBlock)(INSBlockOperationCompletionBlock completio
  the designated initializer). The operation will be automatically ended
  after the `mainQueueBlock` is executed.
  */
--(instancetype)initWithMainQueueBlock:(dispatch_block_t)block;
+- (instancetype)initWithMainQueueBlock:(dispatch_block_t)block;
++ (instancetype)operationWithMainQueueBlock:(dispatch_block_t)block;
 
 @end

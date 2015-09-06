@@ -42,5 +42,5 @@
 - (NSOperation *)dependencyForOperation:(INSOperation *)operation;
 
 /// Evaluate the condition, to see if it has been satisfied or not.
-- (void)evaluateForOperation:(INSOperation *)operation completion:(void (^)(INSOperationConditionResult *))completion;
+- (void)evaluateForOperation:(INSOperation *)operation completion:(void (^)(INSOperationConditionResult *result))completion;
 @end

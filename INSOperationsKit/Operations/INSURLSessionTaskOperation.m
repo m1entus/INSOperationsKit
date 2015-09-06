@@ -1,6 +1,6 @@
 //
 //  INSURLSessionTaskOperation.m
-//  INSOperationsKit Demo
+//  INSOperationsKit
 //
 //  Created by Michal Zaborowski on 04.09.2015.
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
@@ -23,6 +23,10 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
         self.task = task;
     }
     return self;
+}
+
++ (instancetype)operationWithTask:(NSURLSessionTask *)task {
+    return [[[self class] alloc] initWithTask:task];
 }
 
 - (void)execute {
