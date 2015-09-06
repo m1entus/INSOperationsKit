@@ -56,10 +56,4 @@
     });
 }
 
-- (void)cancel {
-    [super cancel];
-    [self finish];
-}
-
-
 @end

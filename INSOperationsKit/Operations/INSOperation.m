@@ -185,6 +185,10 @@
 }
 
 - (void)cancel {
+    if (self.isFinished) {
+        return;
+    }
+    
     self.cancelled = YES;
     if (self.state > INSOperationStateReady) {
         [self finish];
