@@ -48,9 +48,9 @@
         [executingExpectation fulfill];
     }];
     
-    operation.completionBlock = ^() {
-        [completionExpectation fulfill];
-    };
+    [operation ins_addCompletionBlock:^{
+       [completionExpectation fulfill]; 
+    }];
     
     [self.operationQueue addOperation:operation];
     [self waitForExpectationsWithTimeout:1.0 handler:nil];

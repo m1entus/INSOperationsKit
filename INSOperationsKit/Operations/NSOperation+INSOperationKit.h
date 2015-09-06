@@ -10,7 +10,7 @@
 
 @interface NSOperation (INSOperationKit)
 
-- (void)addCompletionBlock:(void (^)(void))block;
-- (void)addDependencies:(NSArray /*NSOperation*/ *)dependencies;
+- (void)ins_addCompletionBlock:(void (^)(void))block;
+- (void)ins_addDependencies:(NSArray /*NSOperation*/ *)dependencies;
 
 @end

@@ -61,7 +61,7 @@
     }];
 
     // After all the conditions have evaluated, this block will execute.
-    dispatch_group_notify(conditionGroup, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0), ^{
+    dispatch_group_notify(conditionGroup, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // Aggregate the errors that occurred, in order.
         NSArray *failures = [[results filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"error != nil"]] valueForKeyPath:@"error"];
         

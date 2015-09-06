@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for INSOperationsKit.
 FOUNDATION_EXPORT double INSOperationsKitVersionNumber;

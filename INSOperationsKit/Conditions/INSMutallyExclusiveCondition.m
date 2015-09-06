@@ -8,7 +8,10 @@
 
 #import "INSMutallyExclusiveCondition.h"
 #import "INSOperationConditionResult.h"
+
+#if TARGET_OS_IPHONE
 @import UIKit;
+#endif
 
 @interface INSMutallyExclusiveCondition ()
 @property (nonatomic, strong) NSString *className;
@@ -23,12 +26,14 @@
     return mutex;
 }
 
+#if TARGET_OS_IPHONE
 + (instancetype)alertMutallyExclusive {
     return [self mutualExclusiveForClass:[UIAlertController class]];
 }
 + (instancetype)viewControllerMutallyExclusive {
     return [self mutualExclusiveForClass:[UIViewController class]];
 }
+#endif
 
 #pragma mark - Subclass
 

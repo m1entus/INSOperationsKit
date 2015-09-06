@@ -15,6 +15,8 @@
 
 + (instancetype)mutualExclusiveForClass:(Class)klass;
 
+#if TARGET_OS_IPHONE
 + (instancetype)alertMutallyExclusive;
 + (instancetype)viewControllerMutallyExclusive;
+#endif
 @end

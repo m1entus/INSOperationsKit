@@ -83,7 +83,7 @@
          */
         __weak typeof(self) weakSelf = self;
         __weak NSOperation * weakOperation = operationToAdd;
-        [operationToAdd addCompletionBlock:^{
+        [operationToAdd ins_addCompletionBlock:^{
             INSOperationQueue *operationQueue = weakSelf;
             NSOperation *operation = weakOperation;
             if (operationQueue && operation){

@@ -57,6 +57,10 @@
 		64DFC7FF1B9CA0E90009DB98 /* INSNegatedCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */; };
 		64DFC8021B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8001B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC8031B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */; };
+		64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8041B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h */; };
+		64DFC8071B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */; };
+		64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */; };
+		64DFC80B1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +151,10 @@
 		64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSNegatedCondition.m; sourceTree = "<group>"; };
 		64DFC8001B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSNoCancelledDependenciesCondition.h; sourceTree = "<group>"; };
 		64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSNoCancelledDependenciesCondition.m; sourceTree = "<group>"; };
+		64DFC8041B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPhotosLibraryAccessCondition.h; sourceTree = "<group>"; };
+		64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessCondition.m; sourceTree = "<group>"; };
+		64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPhotosLibraryAccessOperation.h; sourceTree = "<group>"; };
+		64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +307,8 @@
 				64DFC7DB1B99FB370009DB98 /* INSDelayOperation.m */,
 				64DFC7DE1B99FC840009DB98 /* INSURLSessionTaskOperation.h */,
 				64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */,
+				64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */,
+				64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -319,6 +329,8 @@
 				64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */,
 				64DFC8001B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h */,
 				64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */,
+				64DFC8041B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h */,
+				64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -349,6 +361,7 @@
 				64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */,
 				64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */,
 				64DFC7951B98A7D00009DB98 /* INSOperationsKit.h in Headers */,
+				64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */,
 				64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */,
 				64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */,
 				64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */,
@@ -360,6 +373,7 @@
 				64DFC7F41B9A0B2D0009DB98 /* INSOperationObserverProtocol.h in Headers */,
 				64DFC8021B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h in Headers */,
 				64DFC7FE1B9CA0E90009DB98 /* INSNegatedCondition.h in Headers */,
+				64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */,
 				64DFC7D81B99FA150009DB98 /* INSGroupOperation.h in Headers */,
 				64DFC7D01B98F07C0009DB98 /* INSExclusivityController.h in Headers */,
 			);
@@ -507,8 +521,10 @@
 			files = (
 				64DFC7DD1B99FB370009DB98 /* INSDelayOperation.m in Sources */,
 				64DFC7EE1B9A02900009DB98 /* INSReachabilityCondition.m in Sources */,
+				64DFC8071B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m in Sources */,
 				64DFC7CD1B98EB520009DB98 /* NSOperation+INSOperationKit.m in Sources */,
 				64DFC7E11B99FC840009DB98 /* INSURLSessionTaskOperation.m in Sources */,
+				64DFC80B1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m in Sources */,
 				64DFC7BA1B98AA5E0009DB98 /* INSBlockObserver.m in Sources */,
 				64DFC7E91B9A00300009DB98 /* INSMutallyExclusiveCondition.m in Sources */,
 				64DFC7C41B98AC0A0009DB98 /* INSOperationConditionResult.m in Sources */,

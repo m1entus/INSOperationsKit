@@ -13,7 +13,7 @@
  Add a completion block to be executed after the `NSOperation` enters the
  "finished" state.
  */
-- (void)addCompletionBlock:(void (^)(void))block {
+- (void)ins_addCompletionBlock:(void (^)(void))block {
     void (^existing)(void) = self.completionBlock;
     if (existing) {
         /*
@@ -30,7 +30,7 @@
 }
 
 /// Add multiple depdendencies to the operation.
-- (void)addDependencies:(NSArray /*NSOperation*/ *)dependencies {
+- (void)ins_addDependencies:(NSArray /*NSOperation*/ *)dependencies {
     for (NSOperation *dependency in dependencies) {
         [self addDependency:dependency];
     }
