@@ -9,6 +9,7 @@
 #import "INSPhotosLibraryAccessCondition.h"
 #import "INSPhotosLibraryAccessOperation.h"
 #import "NSError+INSOperationKit.h"
+#import "INSOperationConditionResult.h"
 @import Photos;
 
 @implementation INSPhotosLibraryAccessCondition

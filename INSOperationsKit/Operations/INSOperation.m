@@ -23,6 +23,7 @@
 
 @implementation INSOperation
 @synthesize cancelled = _cancelled;
+@synthesize userInitiated = _userInitiated;
 
 // use the KVO mechanism to indicate that changes to "state" affect other properties as well
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
@@ -78,11 +79,18 @@
 }
 
 - (BOOL)userInitiated {
-    return self.qualityOfService == NSQualityOfServiceUserInitiated;
+    if ([self respondsToSelector:@selector(qualityOfService)]) {
+        return self.qualityOfService == NSQualityOfServiceUserInitiated;
+    }
+    
+    return _userInitiated;
 }
 - (void)setUserInitiated:(BOOL)newValue {
     NSAssert(self.state < INSOperationStateExecuting, @"Cannot modify userInitiated after execution has begun.");
-    self.qualityOfService = newValue ? NSQualityOfServiceUserInitiated : NSQualityOfServiceDefault;
+    if ([self respondsToSelector:@selector(setQualityOfService:)]) {
+        self.qualityOfService = newValue ? NSQualityOfServiceUserInitiated : NSQualityOfServiceDefault;
+    }
+    _userInitiated = newValue;
 }
 - (BOOL)isExecuting {
     return self.state == INSOperationStateExecuting;

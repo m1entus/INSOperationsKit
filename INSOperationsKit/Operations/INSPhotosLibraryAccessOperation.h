@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import <INSOperationsKit/INSOperationsKit.h>
+#import "INSOperation.h"
 
 @interface INSPhotosLibraryAccessOperation : INSOperation
 
