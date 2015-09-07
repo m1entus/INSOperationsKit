@@ -142,10 +142,11 @@
     
     NSMutableArray *fulfilledExpectations = [NSMutableArray array];
     
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         [fulfilledExpectations addObject:expectation];
         completionBlock();
+        operation;
     }];
     
     INSBlockOperation *operationDependency = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {

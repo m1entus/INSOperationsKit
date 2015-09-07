@@ -33,7 +33,7 @@ NSString *const INSNoCancelledDependenciesConditionErrorDependenciesKey = @"INSN
     
     NSMutableArray *cancelledDependencies = [NSMutableArray arrayWithCapacity:operation.dependencies.count];
     
-    [operation.dependencies enumerateObjectsUsingBlock:^(INSOperation *obj, NSUInteger idx, BOOL *stop) {
+    [operation.dependencies enumerateObjectsUsingBlock:^(NSOperation *obj, NSUInteger idx, BOOL *stop) {
         if (obj.isCancelled) {
             [cancelledDependencies addObject:obj];
         }

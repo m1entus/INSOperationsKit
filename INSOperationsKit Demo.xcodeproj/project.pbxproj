@@ -7,9 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6418E1271B9E18C600ABD1DD /* INSEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1261B9E18C600ABD1DD /* INSEarthquake.m */; };
+		6418E12C1B9E199E00ABD1DD /* INSCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E12B1B9E199E00ABD1DD /* INSCoreDataStack.m */; };
+		6418E1361B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1351B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m */; };
+		6418E13C1B9E31D300ABD1DD /* INSParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */; };
+		6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6418E1401B9E3D3100ABD1DD /* INSChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */; };
+		6418E1421B9E413100ABD1DD /* INSChainableOperationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
 		64DFC7681B98A7C50009DB98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7671B98A7C50009DB98 /* main.m */; };
-		64DFC76B1B98A7C50009DB98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC76A1B98A7C50009DB98 /* AppDelegate.m */; };
-		64DFC76E1B98A7C50009DB98 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC76D1B98A7C50009DB98 /* ViewController.m */; };
+		64DFC76B1B98A7C50009DB98 /* INSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC76A1B98A7C50009DB98 /* INSAppDelegate.m */; };
+		64DFC76E1B98A7C50009DB98 /* INSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC76D1B98A7C50009DB98 /* INSMainViewController.m */; };
 		64DFC7711B98A7C50009DB98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC76F1B98A7C50009DB98 /* Main.storyboard */; };
 		64DFC7731B98A7C50009DB98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC7721B98A7C50009DB98 /* Images.xcassets */; };
 		64DFC7761B98A7C50009DB98 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC7741B98A7C50009DB98 /* LaunchScreen.xib */; };
@@ -57,9 +65,9 @@
 		64DFC7FF1B9CA0E90009DB98 /* INSNegatedCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */; };
 		64DFC8021B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8001B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC8031B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */; };
-		64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8041B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h */; };
+		64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8041B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC8071B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */; };
-		64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */; };
+		64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC80B1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */; };
 /* End PBXBuildFile section */
 
@@ -95,13 +103,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6418E1241B9E18C600ABD1DD /* INSEarthquake+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "INSEarthquake+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6418E1251B9E18C600ABD1DD /* INSEarthquake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSEarthquake.h; sourceTree = "<group>"; };
+		6418E1261B9E18C600ABD1DD /* INSEarthquake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSEarthquake.m; sourceTree = "<group>"; };
+		6418E1281B9E18FC00ABD1DD /* INSCoreDataParsable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSCoreDataParsable.h; sourceTree = "<group>"; };
+		6418E12A1B9E199E00ABD1DD /* INSCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSCoreDataStack.h; sourceTree = "<group>"; };
+		6418E12B1B9E199E00ABD1DD /* INSCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSCoreDataStack.m; sourceTree = "<group>"; };
+		6418E1341B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDownloadEarthquakesOperation.h; sourceTree = "<group>"; };
+		6418E1351B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDownloadEarthquakesOperation.m; sourceTree = "<group>"; };
+		6418E13A1B9E31D300ABD1DD /* INSParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSParseOperation.h; sourceTree = "<group>"; };
+		6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSParseOperation.m; sourceTree = "<group>"; };
+		6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSChainOperation.h; sourceTree = "<group>"; };
+		6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSChainOperation.m; sourceTree = "<group>"; };
+		6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSChainableOperationProtocol.h; sourceTree = "<group>"; };
+		647B822E1B9E181E0051EB46 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		64DFC7621B98A7C50009DB98 /* INSOperationsKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DFC7661B98A7C50009DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64DFC7671B98A7C50009DB98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		64DFC7691B98A7C50009DB98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		64DFC76A1B98A7C50009DB98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		64DFC76C1B98A7C50009DB98 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		64DFC76D1B98A7C50009DB98 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		64DFC7691B98A7C50009DB98 /* INSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSAppDelegate.h; sourceTree = "<group>"; };
+		64DFC76A1B98A7C50009DB98 /* INSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INSAppDelegate.m; sourceTree = "<group>"; };
+		64DFC76C1B98A7C50009DB98 /* INSMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSMainViewController.h; sourceTree = "<group>"; };
+		64DFC76D1B98A7C50009DB98 /* INSMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INSMainViewController.m; sourceTree = "<group>"; };
 		64DFC7701B98A7C50009DB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64DFC7721B98A7C50009DB98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		64DFC7751B98A7C50009DB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -155,6 +177,7 @@
 		64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessCondition.m; sourceTree = "<group>"; };
 		64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPhotosLibraryAccessOperation.h; sourceTree = "<group>"; };
 		64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessOperation.m; sourceTree = "<group>"; };
+		757B7F30F0064A2F81F6C8C4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +207,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F256ACF4C59142FECD21FA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				757B7F30F0064A2F81F6C8C4 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6418E1291B9E198700ABD1DD /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				6418E1341B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.h */,
+				6418E1351B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m */,
+				6418E13A1B9E31D300ABD1DD /* INSParseOperation.h */,
+				6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		647B822C1B9E163E0051EB46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6418E12A1B9E199E00ABD1DD /* INSCoreDataStack.h */,
+				6418E12B1B9E199E00ABD1DD /* INSCoreDataStack.m */,
+				6418E1281B9E18FC00ABD1DD /* INSCoreDataParsable.h */,
+				6418E1241B9E18C600ABD1DD /* INSEarthquake+CoreDataProperties.h */,
+				6418E1251B9E18C600ABD1DD /* INSEarthquake.h */,
+				6418E1261B9E18C600ABD1DD /* INSEarthquake.m */,
+				647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		64DFC7591B98A7C50009DB98 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +247,7 @@
 				64DFC7A01B98A7D00009DB98 /* INSOperationsKitTests */,
 				64DFC7641B98A7C50009DB98 /* INSOperationsKit Demo */,
 				64DFC7631B98A7C50009DB98 /* Products */,
+				1F256ACF4C59142FECD21FA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,10 +264,12 @@
 		64DFC7641B98A7C50009DB98 /* INSOperationsKit Demo */ = {
 			isa = PBXGroup;
 			children = (
-				64DFC7691B98A7C50009DB98 /* AppDelegate.h */,
-				64DFC76A1B98A7C50009DB98 /* AppDelegate.m */,
-				64DFC76C1B98A7C50009DB98 /* ViewController.h */,
-				64DFC76D1B98A7C50009DB98 /* ViewController.m */,
+				6418E1291B9E198700ABD1DD /* Operations */,
+				647B822C1B9E163E0051EB46 /* Model */,
+				64DFC7691B98A7C50009DB98 /* INSAppDelegate.h */,
+				64DFC76A1B98A7C50009DB98 /* INSAppDelegate.m */,
+				64DFC76C1B98A7C50009DB98 /* INSMainViewController.h */,
+				64DFC76D1B98A7C50009DB98 /* INSMainViewController.m */,
 				64DFC76F1B98A7C50009DB98 /* Main.storyboard */,
 				64DFC7721B98A7C50009DB98 /* Images.xcassets */,
 				64DFC7741B98A7C50009DB98 /* LaunchScreen.xib */,
@@ -295,6 +354,9 @@
 		64DFC7BB1B98ABC40009DB98 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */,
+				6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */,
+				6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */,
 				64DFC7BC1B98ABD30009DB98 /* INSOperation.h */,
 				64DFC7BD1B98ABD30009DB98 /* INSOperation.m */,
 				64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */,
@@ -361,7 +423,6 @@
 				64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */,
 				64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */,
 				64DFC7951B98A7D00009DB98 /* INSOperationsKit.h in Headers */,
-				64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */,
 				64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */,
 				64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */,
 				64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */,
@@ -372,8 +433,11 @@
 				64DFC7FA1B9C9A8E0009DB98 /* INSSilientCondition.h in Headers */,
 				64DFC7F41B9A0B2D0009DB98 /* INSOperationObserverProtocol.h in Headers */,
 				64DFC8021B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h in Headers */,
-				64DFC7FE1B9CA0E90009DB98 /* INSNegatedCondition.h in Headers */,
+				64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */,
 				64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */,
+				6418E1421B9E413100ABD1DD /* INSChainableOperationProtocol.h in Headers */,
+				6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */,
+				64DFC7FE1B9CA0E90009DB98 /* INSNegatedCondition.h in Headers */,
 				64DFC7D81B99FA150009DB98 /* INSGroupOperation.h in Headers */,
 				64DFC7D01B98F07C0009DB98 /* INSExclusivityController.h in Headers */,
 			);
@@ -509,9 +573,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DFC76E1B98A7C50009DB98 /* ViewController.m in Sources */,
-				64DFC76B1B98A7C50009DB98 /* AppDelegate.m in Sources */,
+				6418E12C1B9E199E00ABD1DD /* INSCoreDataStack.m in Sources */,
+				64DFC76E1B98A7C50009DB98 /* INSMainViewController.m in Sources */,
+				64DFC76B1B98A7C50009DB98 /* INSAppDelegate.m in Sources */,
+				6418E1271B9E18C600ABD1DD /* INSEarthquake.m in Sources */,
+				6418E13C1B9E31D300ABD1DD /* INSParseOperation.m in Sources */,
+				6418E1361B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m in Sources */,
 				64DFC7681B98A7C50009DB98 /* main.m in Sources */,
+				647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +596,7 @@
 				64DFC80B1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m in Sources */,
 				64DFC7BA1B98AA5E0009DB98 /* INSBlockObserver.m in Sources */,
 				64DFC7E91B9A00300009DB98 /* INSMutallyExclusiveCondition.m in Sources */,
+				6418E1401B9E3D3100ABD1DD /* INSChainOperation.m in Sources */,
 				64DFC7C41B98AC0A0009DB98 /* INSOperationConditionResult.m in Sources */,
 				64DFC7D11B98F07C0009DB98 /* INSExclusivityController.m in Sources */,
 				64DFC8031B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m in Sources */,
@@ -800,6 +870,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				647B822E1B9E181E0051EB46 /* Model.xcdatamodel */,
+			);
+			currentVersion = 647B822E1B9E181E0051EB46 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 64DFC75A1B98A7C50009DB98 /* Project object */;
 }

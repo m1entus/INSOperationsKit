@@ -6,16 +6,19 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "INSAppDelegate.h"
+#import "INSCoreDataStack.h"
 
-@interface AppDelegate ()
+@interface INSAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation INSAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [INSCoreDataStack sharedInstance];
     // Override point for customization after application launch.
     return YES;
 }
