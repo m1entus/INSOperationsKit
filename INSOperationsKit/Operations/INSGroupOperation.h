@@ -22,10 +22,10 @@
  be executed before the rest of the operations in the initial chain of operations.
  */
 @interface INSGroupOperation : INSOperation
-+ (instancetype)operationWithOperations:(NSArray *)operations;
-- (instancetype)initWithOperations:(NSArray /*NSOperations*/ *)operations;
++ (instancetype)operationWithOperations:(NSArray <NSOperation *> *)operations;
+- (instancetype)initWithOperations:(NSArray <NSOperation *> *)operations;
 
 - (void)addOperation:(NSOperation *)operation;
 - (void)aggregateError:(NSError *)error;
-- (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors;
+- (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray <NSError *>*)errors;
 @end

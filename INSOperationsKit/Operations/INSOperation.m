@@ -17,9 +17,9 @@
 
 @property (nonatomic, weak) INSOperationQueue *enqueuedOperationQueue;
 
-@property (nonatomic, strong) NSArray *conditions;
-@property (nonatomic, strong) NSArray *observers;
-@property (nonatomic, strong) NSArray *internalErrors;
+@property (nonatomic, strong) NSArray <NSObject <INSOperationConditionProtocol> *> *conditions;
+@property (nonatomic, strong) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
+@property (nonatomic, strong) NSArray <NSError *> *internalErrors;
 @end
 
 @implementation INSOperation
@@ -200,7 +200,7 @@
     }
 }
 
-- (void)cancelWithErrors:(NSArray *)errors {
+- (void)cancelWithErrors:(NSArray <NSError *> *)errors {
     self.internalErrors = [self.internalErrors arrayByAddingObjectsFromArray:errors];
     [self cancel];
 }
@@ -241,7 +241,7 @@
     [self finishWithErrors:nil];
 }
 
-- (void)finishWithErrors:(NSArray *)errors {
+- (void)finishWithErrors:(NSArray <NSError *> *)errors {
     if (!self.hasFinishedAlready) {
         self.hasFinishedAlready = YES;
         self.state = INSOperationStateFinishing;
@@ -270,7 +270,7 @@
  this method to potentially inform the user about an error when trying to
  bring up the Core Data stack.
  */
-- (void)finishedWithErrors:(NSArray *)errors {
+- (void)finishedWithErrors:(NSArray <NSError *> *)errors {
     // No op.
 }
 

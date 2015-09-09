@@ -42,7 +42,7 @@
     return newResult;
 }
 
-+ (void)evaluateConditions:(NSArray *)conditions operation:(INSOperation *)operation completion:(void (^)(NSArray *errors))completion {
++ (void)evaluateConditions:(NSArray *)conditions operation:(INSOperation *)operation completion:(void (^)(NSArray <NSError *> *errors))completion {
     // Check conditions.
     dispatch_group_t conditionGroup = dispatch_group_create();
 

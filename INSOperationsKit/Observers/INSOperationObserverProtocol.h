@@ -24,6 +24,6 @@
  Invoked as an `INSOperation` finishes, along with any errors produced during
  execution (or readiness evaluation).
  */
-- (void)operationDidFinish:(INSOperation *)operation errors:(NSArray *)errors;
+- (void)operationDidFinish:(INSOperation *)operation errors:(NSArray <NSError *> *)errors;
 
 @end

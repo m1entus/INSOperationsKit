@@ -41,7 +41,7 @@
     }
 }
 
--(void)operationDidFinish:(INSOperation *)operation errors:(NSArray *)errors {
+-(void)operationDidFinish:(INSOperation *)operation errors:(NSArray <NSError *> *)errors {
     if (self.finishHandler){
         self.finishHandler(operation, errors);
     }

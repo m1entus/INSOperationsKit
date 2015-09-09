@@ -16,5 +16,5 @@
 + (INSOperationConditionResult *)satisfiedResult;
 + (INSOperationConditionResult *)failedResultWithError:(NSError *)error;
 
-+ (void)evaluateConditions:(NSArray *)conditions operation:(INSOperation *)operation completion:(void (^)(NSArray *errors))completion;
++ (void)evaluateConditions:(NSArray *)conditions operation:(INSOperation *)operation completion:(void (^)(NSArray <NSError *>*errors))completion;
 @end

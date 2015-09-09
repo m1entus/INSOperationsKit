@@ -110,7 +110,7 @@
     [super addOperation:operationToAdd];
 }
 
-- (void)addOperations:(NSArray *)operations waitUntilFinished:(BOOL)wait {
+- (void)addOperations:(NSArray<NSOperation *> *)operations waitUntilFinished:(BOOL)wait {
     /*
      The base implementation of this method does not call `addOperation()`,
      so we'll call it ourselves.

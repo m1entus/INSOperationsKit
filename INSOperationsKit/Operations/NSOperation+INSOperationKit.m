@@ -59,7 +59,7 @@
 }
 
 /// Add multiple depdendencies to the operation.
-- (void)ins_addDependencies:(NSArray /*NSOperation*/ *)dependencies {
+- (void)ins_addDependencies:(NSArray <NSOperation *> *)dependencies {
     for (NSOperation *dependency in dependencies) {
         [self addDependency:dependency];
     }

@@ -11,7 +11,7 @@
 
 @interface INSExclusivityController ()
 @property (nonatomic, strong) dispatch_queue_t serialQueue;
-@property (nonatomic, strong) NSMutableDictionary *operations;
+@property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableArray *> *operations;
 @end
 
 @implementation INSExclusivityController
@@ -33,23 +33,23 @@
     return self;
 }
 /// Registers an operation as being mutually exclusive
-- (void)addOperation:(INSOperation *)operation categories:(NSArray * /*[String]*/)categories {
+- (void)addOperation:(INSOperation *)operation categories:(NSArray <NSString *> *)categories {
     /*
      This needs to be a synchronous operation.
      If this were async, then we might not get around to adding dependencies
      until after the operation had already begun, which would be incorrect.
      */
     dispatch_sync(_serialQueue, ^{
-        for (NSString * category in categories) {
+        for (NSString *category in categories) {
             [self noqueue_addOperation:operation category:category];
         }
     });
 }
 
 /// Unregisters an operation from being mutually exclusive.
-- (void)removeOperation:(INSOperation *)operation categories:(NSArray * /*[String]*/)categories {
+- (void)removeOperation:(INSOperation *)operation categories:(NSArray <NSString *> *)categories {
     dispatch_async(_serialQueue, ^{
-        for (NSString * category in categories) {
+        for (NSString *category in categories) {
             [self noqueue_removeOperation:operation category:category];
         }
     });

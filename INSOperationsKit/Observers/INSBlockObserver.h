@@ -11,7 +11,7 @@
 
 typedef void(^INSBlockObserverStartHandler)(INSOperation *operation);
 typedef void(^INSBlockObserverProduceHandler)(INSOperation *operation, NSOperation *producedOperation);
-typedef void(^INSBlockObserverFinishHandler)(INSOperation *operation, NSArray *errors);
+typedef void(^INSBlockObserverFinishHandler)(INSOperation *operation, NSArray <NSError *>*errors);
 
 /**
  The `BlockObserver` is a way to attach arbitrary blocks to significant events

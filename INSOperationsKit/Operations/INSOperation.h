@@ -49,9 +49,9 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 
 @property (nonatomic, weak, readonly) INSOperationQueue *enqueuedOperationQueue;
 
-@property (nonatomic, strong, readonly) NSArray *conditions;
-@property (nonatomic, strong, readonly) NSArray *observers;
-@property (nonatomic, strong, readonly) NSArray *internalErrors;
+@property (nonatomic, strong, readonly) NSArray <NSObject <INSOperationConditionProtocol> *> *conditions;
+@property (nonatomic, strong, readonly) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
+@property (nonatomic, strong, readonly) NSArray <NSError *> *internalErrors;
 
 - (void)addObserver:(NSObject<INSOperationObserverProtocol> *)observer;
 - (void)addCondition:(NSObject<INSOperationConditionProtocol> *)condition;
@@ -61,13 +61,13 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 - (void)runInGlobalQueue;
 
 - (void)finish;
-- (void)finishWithErrors:(NSArray *)errors;
+- (void)finishWithErrors:(NSArray <NSError *> *)errors;
 - (void)finishWithError:(NSError *)error;
 
-- (void)finishedWithErrors:(NSArray *)errors;
+- (void)finishedWithErrors:(NSArray <NSError *> *)errors;
 
 - (void)cancelWithError:(NSError *)error;
-- (void)cancelWithErrors:(NSArray *)errors;
+- (void)cancelWithErrors:(NSArray <NSError *> *)errors;
 
 - (void)execute;
 - (void)produceOperation:(NSOperation *)operation;

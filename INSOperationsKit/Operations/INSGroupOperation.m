@@ -17,11 +17,11 @@
 
 @implementation INSGroupOperation
 
-+ (instancetype)operationWithOperations:(NSArray *)operations {
++ (instancetype)operationWithOperations:(NSArray <NSOperation *> *)operations {
     return [[[self class] alloc] initWithOperations:operations];
 }
 
-- (instancetype)initWithOperations:(NSArray /*NSOperations*/ *)operations {
+- (instancetype)initWithOperations:(NSArray <NSOperation *> *)operations {
     if (self = [super init]) {
         _finishingOperation = [NSBlockOperation blockOperationWithBlock:^{}];
         _aggregatedErrors = [NSMutableArray array];
@@ -58,7 +58,7 @@
     [self.aggregatedErrors addObject:error];
 }
 
-- (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors {
+- (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray <NSError *> *)errors {
     // For use by subclassers.
 }
 
@@ -75,7 +75,7 @@
         [self.finishingOperation addDependency:operation];
     }
 }
-- (void)operationQueue:(INSOperationQueue *)operationQueue operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors {
+- (void)operationQueue:(INSOperationQueue *)operationQueue operationDidFinish:(NSOperation *)operation withErrors:(NSArray <NSError *> *)errors {
     [self.aggregatedErrors addObjectsFromArray:errors];
 
     if (operation == self.finishingOperation) {

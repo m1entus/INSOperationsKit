@@ -12,6 +12,6 @@
 
 - (void)ins_addCompletionBlockInMainQueue:(void (^)(void))block;
 - (void)ins_addCompletionBlock:(void (^)(void))block;
-- (void)ins_addDependencies:(NSArray /*NSOperation*/ *)dependencies;
+- (void)ins_addDependencies:(NSArray <NSOperation *> *)dependencies;
 
 @end

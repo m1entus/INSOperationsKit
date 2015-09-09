@@ -22,8 +22,8 @@
  */
 @interface INSChainOperation : INSOperation
 @property (nonatomic, assign) BOOL finishIfProducedAnyError;
-+ (instancetype)operationWithOperations:(NSArray <INSOperation <INSChainableOperationProtocol> *>*)operations;
-- (instancetype)initWithOperations:(NSArray <INSOperation <INSChainableOperationProtocol> *>*)operations;
++ (instancetype)operationWithOperations:(NSArray <NSOperation <INSChainableOperationProtocol> *>*)operations;
+- (instancetype)initWithOperations:(NSArray <NSOperation <INSChainableOperationProtocol> *>*)operations;
 - (void)addOperation:(NSOperation *)operation;
 - (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors;
 - (void)aggregateError:(NSError *)error;
