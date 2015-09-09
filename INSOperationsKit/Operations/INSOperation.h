@@ -58,6 +58,8 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 
 - (void)willEnqueueInOperationQueue:(INSOperationQueue *)operationQueue;
 
+- (void)runInGlobalQueue;
+
 - (void)finish;
 - (void)finishWithErrors:(NSArray *)errors;
 - (void)finishWithError:(NSError *)error;

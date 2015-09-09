@@ -36,4 +36,6 @@
  */
 @interface INSOperationQueue : NSOperationQueue
 @property (nonatomic, weak) id <INSOperationQueueDelegate> delegate;
+
++ (INSOperationQueue *)globalQueue;
 @end

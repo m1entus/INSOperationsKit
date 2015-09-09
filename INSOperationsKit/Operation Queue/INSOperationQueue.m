@@ -14,6 +14,15 @@
 
 @implementation INSOperationQueue
 
++ (INSOperationQueue *)globalQueue {
+    static INSOperationQueue *instanceOfGlobalQueue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instanceOfGlobalQueue = [[INSOperationQueue alloc] init];
+    });
+    return instanceOfGlobalQueue;
+}
+
 - (void)addOperation:(NSOperation *)operationToAdd {
     if ([operationToAdd isKindOfClass:[INSOperation class]]) {
         INSOperation *operation = (INSOperation *)operationToAdd;

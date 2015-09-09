@@ -12,6 +12,7 @@
 #import "INSParseOperation.h"
 #import "INSEarthquake.h"
 #import "INSChainOperation.h"
+#import "INSReachabilityCondition.h"
 
 @interface INSDownloadOperation ()
 @property (nonatomic, strong) id responseData;
@@ -24,6 +25,8 @@
     if (self = [super init]) {
         _URL = URL;
         _responseFilteringBlock = responseFiltering;
+        
+        [self addCondition:[INSReachabilityCondition reachabilityCondition]];
     }
     return self;
 }

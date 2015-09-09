@@ -8,6 +8,7 @@
 
 #import "INSOperation.h"
 #import "INSOperationConditionResult.h"
+#import "INSOperationQueue.h"
 
 @interface INSOperation ()
 @property (nonatomic, assign) BOOL hasFinishedAlready;
@@ -117,6 +118,10 @@
 - (void)willEnqueueInOperationQueue:(INSOperationQueue *)operationQueue {
     self.enqueuedOperationQueue = operationQueue;
     self.state = INSOperationStatePending;
+}
+
+- (void)runInGlobalQueue {
+    [[INSOperationQueue globalQueue] addOperation:self];
 }
 
 #pragma mark - Observers
@@ -241,11 +246,11 @@
         self.hasFinishedAlready = YES;
         self.state = INSOperationStateFinishing;
 
-        NSArray *combinedErrors = [_internalErrors arrayByAddingObjectsFromArray:errors];
-        [self finishedWithErrors:combinedErrors];
+        _internalErrors = [self.internalErrors arrayByAddingObjectsFromArray:errors];
+        [self finishedWithErrors:self.internalErrors];
 
         for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
-            [observer operationDidFinish:self errors:combinedErrors];
+            [observer operationDidFinish:self errors:self.internalErrors];
         }
 
         self.state = INSOperationStateFinished;

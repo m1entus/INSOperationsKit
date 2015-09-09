@@ -14,6 +14,9 @@
 		6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6418E1401B9E3D3100ABD1DD /* INSChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */; };
 		6418E1421B9E413100ABD1DD /* INSChainableOperationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		646B458D1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458C1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m */; };
+		646B45901BA0952800C00500 /* INSEarthquakeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */; };
+		646B45931BA09F2F00C00500 /* INSAlertOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B45921BA09F2F00C00500 /* INSAlertOperation.m */; };
 		647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
 		64DFC7681B98A7C50009DB98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7671B98A7C50009DB98 /* main.m */; };
 		64DFC76B1B98A7C50009DB98 /* INSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC76A1B98A7C50009DB98 /* INSAppDelegate.m */; };
@@ -116,6 +119,12 @@
 		6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSChainOperation.h; sourceTree = "<group>"; };
 		6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSChainOperation.m; sourceTree = "<group>"; };
 		6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSChainableOperationProtocol.h; sourceTree = "<group>"; };
+		646B458B1BA091EC00C00500 /* INSEarthquakeOperationsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INSEarthquakeOperationsProvider.h; path = ../Model/INSEarthquakeOperationsProvider.h; sourceTree = "<group>"; };
+		646B458C1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INSEarthquakeOperationsProvider.m; path = ../Model/INSEarthquakeOperationsProvider.m; sourceTree = "<group>"; };
+		646B458E1BA0952800C00500 /* INSEarthquakeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSEarthquakeTableViewCell.h; sourceTree = "<group>"; };
+		646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSEarthquakeTableViewCell.m; sourceTree = "<group>"; };
+		646B45911BA09F2F00C00500 /* INSAlertOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSAlertOperation.h; sourceTree = "<group>"; };
+		646B45921BA09F2F00C00500 /* INSAlertOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSAlertOperation.m; sourceTree = "<group>"; };
 		647B822E1B9E181E0051EB46 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		64DFC7621B98A7C50009DB98 /* INSOperationsKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DFC7661B98A7C50009DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -218,10 +227,14 @@
 		6418E1291B9E198700ABD1DD /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				646B458B1BA091EC00C00500 /* INSEarthquakeOperationsProvider.h */,
+				646B458C1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m */,
 				6418E1341B9E28F300ABD1DD /* INSDownloadOperation.h */,
 				6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */,
 				6418E13A1B9E31D300ABD1DD /* INSParseOperation.h */,
 				6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */,
+				646B45911BA09F2F00C00500 /* INSAlertOperation.h */,
+				646B45921BA09F2F00C00500 /* INSAlertOperation.m */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -270,6 +283,8 @@
 				64DFC76A1B98A7C50009DB98 /* INSAppDelegate.m */,
 				64DFC76C1B98A7C50009DB98 /* INSMainViewController.h */,
 				64DFC76D1B98A7C50009DB98 /* INSMainViewController.m */,
+				646B458E1BA0952800C00500 /* INSEarthquakeTableViewCell.h */,
+				646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */,
 				64DFC76F1B98A7C50009DB98 /* Main.storyboard */,
 				64DFC7721B98A7C50009DB98 /* Images.xcassets */,
 				64DFC7741B98A7C50009DB98 /* LaunchScreen.xib */,
@@ -574,12 +589,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6418E12C1B9E199E00ABD1DD /* INSCoreDataStack.m in Sources */,
+				646B45931BA09F2F00C00500 /* INSAlertOperation.m in Sources */,
 				64DFC76E1B98A7C50009DB98 /* INSMainViewController.m in Sources */,
 				64DFC76B1B98A7C50009DB98 /* INSAppDelegate.m in Sources */,
+				646B45901BA0952800C00500 /* INSEarthquakeTableViewCell.m in Sources */,
 				6418E1271B9E18C600ABD1DD /* INSEarthquake.m in Sources */,
 				6418E13C1B9E31D300ABD1DD /* INSParseOperation.m in Sources */,
 				6418E1361B9E28F300ABD1DD /* INSDownloadOperation.m in Sources */,
 				64DFC7681B98A7C50009DB98 /* main.m in Sources */,
+				646B458D1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m in Sources */,
 				647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

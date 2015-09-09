@@ -7,15 +7,15 @@
 //
 
 #import "INSMainViewController.h"
-#import "INSDownloadOperation.h"
-#import "INSOperationQueue.h"
-#import "INSChainOperation.h"
-#import "INSParseOperation.h"
+#import "INSEarthquakeOperationsProvider.h"
 #import "INSEarthquake.h"
+@import CoreData;
+#import "INSEarthquakeTableViewCell.h"
 #import "INSCoreDataStack.h"
 
-@interface INSMainViewController ()
-@property (nonatomic, strong) INSOperationQueue *operationQueue;
+@interface INSMainViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation INSMainViewController
@@ -23,25 +23,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.operationQueue = [[INSOperationQueue alloc] init];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
-    INSDownloadOperation *downloadOperation = [[INSDownloadOperation alloc] initWithURL:[NSURL URLWithString:@"http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson"] responseFiltering:^id(id responseObject) {
-        return responseObject[@"features"];
-    }];
-    
-    INSParseOperation *parseOperation = [[INSParseOperation alloc] initWithResponseArrayObject:nil parsableClass:[INSEarthquake class] context:[[INSCoreDataStack sharedInstance] createPrivateContextWithMainQueueParent]];
-    
-    INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[downloadOperation,parseOperation]];
-    
-    [self.operationQueue addOperation:chainOperation];
-//    INS
-    
+    [[INSEarthquakeOperationsProvider getAllEarthquakesWithCompletionHandler:^(INSChainOperation *operation, NSError *error){
+        if (!error) {
+            [self configureFetchedResultsController];
+        }
+    }] runInGlobalQueue];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)configureFetchedResultsController {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:[INSEarthquake entityName]];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO]];
+    fetchRequest.fetchLimit = 100;
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[INSCoreDataStack sharedInstance] mainContext] sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
+    if (error) {
+        NSLog(@"FETCHED ERROR %@",error);
+    }
+    [self.tableView reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(nonnull UITableView *)tableView {
+    return self.fetchedResultsController.sections.count;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.fetchedResultsController.sections[section] numberOfObjects];
+}
+
+- (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    INSEarthquakeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+
+    INSEarthquake *earthquake = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [cell configureWithEarthquake:earthquake];
+    
+    return cell;
 }
 
 @end

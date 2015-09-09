@@ -8,10 +8,36 @@
 
 #import "INSEarthquake.h"
 
+NSDateFormatter *INSEarthquakeTimestampFormatter() {
+    static NSDateFormatter *instanceOfFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instanceOfFormatter = [[NSDateFormatter alloc] init];
+        instanceOfFormatter.dateStyle = NSDateFormatterMediumStyle;
+        instanceOfFormatter.timeStyle = NSDateFormatterMediumStyle;
+    });
+    return instanceOfFormatter;
+};
+
+NSNumberFormatter *INSEarthquakeMagnitudeFormatter() {
+    static NSNumberFormatter *instanceOfFormatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instanceOfFormatter = [[NSNumberFormatter alloc] init];
+        instanceOfFormatter.maximumFractionDigits = 1;
+        instanceOfFormatter.minimumFractionDigits = 1;
+    });
+    return instanceOfFormatter;
+};
+
 @implementation INSEarthquake
 
++ (NSString *)entityName {
+    return @"INSEarthquake";
+}
+
 + (instancetype)objectFromDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context {
-    INSEarthquake *earthquake = [NSEntityDescription insertNewObjectForEntityForName:@"INSEarthquake" inManagedObjectContext:context];
+    INSEarthquake *earthquake = [NSEntityDescription insertNewObjectForEntityForName:[self entityName] inManagedObjectContext:context];
     [earthquake importValuesFromDictionary:dictionary];
     return earthquake;
 }

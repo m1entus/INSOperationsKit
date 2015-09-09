@@ -12,5 +12,5 @@
 
 @interface INSParseOperation : INSOperation <INSChainableOperationProtocol>
 
-- (instancetype)initWithResponseArrayObject:(NSArray *)responseArray parsableClass:(Class <INSCoreDataParsable>)objectClass context:(NSManagedObjectContext *)context;
+- (instancetype)initWithParsableClass:(Class <INSCoreDataParsable>)objectClass context:(NSManagedObjectContext *)context;
 @end

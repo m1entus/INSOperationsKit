@@ -12,15 +12,14 @@
 
 @interface INSParseOperation ()
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) NSArray *responseArray;
+@property (nonatomic, strong) id responseToParse;
 @property (nonatomic, strong) Class <INSCoreDataParsable> parsableClass;
 @end
 
 @implementation INSParseOperation
 
-- (instancetype)initWithResponseArrayObject:(NSArray *)responseArray parsableClass:(Class <INSCoreDataParsable>)objectClass context:(NSManagedObjectContext *)context {
+- (instancetype)initWithParsableClass:(Class <INSCoreDataParsable>)objectClass context:(NSManagedObjectContext *)context {
     if (self = [super init]) {
-        self.responseArray = responseArray;
         self.parsableClass = objectClass;
         self.context = context;
     }
@@ -31,9 +30,13 @@
 
     [self.context performBlock:^{
         
-        [self.responseArray enumerateObjectsUsingBlock:^(NSDictionary  __nonnull *obj, NSUInteger idx, BOOL * __nonnull stop) {
-            [self.parsableClass objectFromDictionary:obj inContext:self.context];
-        }];
+        if ([self.responseToParse isKindOfClass:[NSArray class]]) {
+            [self.responseToParse enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL * stop) {
+                [self.parsableClass objectFromDictionary:obj inContext:self.context];
+            }];
+        } else if ([self.responseToParse isKindOfClass:[NSDictionary class]]) {
+            [self.parsableClass objectFromDictionary:self.responseToParse inContext:self.context];
+        }
         
         NSError *error = [INSCoreDataStack saveContext:self.context];
         [self finishWithError:error];
@@ -42,7 +45,7 @@
 
 - (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray *)errors passingAdditionalData:(id)data {
     if ([operation isKindOfClass:[INSDownloadOperation class]] && data) {
-        self.responseArray = data;
+        self.responseToParse = data;
     }
 }
 
