@@ -15,8 +15,8 @@
 
 + (INSCoreDataStack *)sharedInstance;
 
-- (void)saveContext:(NSManagedObjectContext *)context;
-- (void)saveMainQueueContext;
++ (NSError *)saveContext:(NSManagedObjectContext *)context;
+- (NSError *)saveMainQueueContext;
 - (void)saveMainQueueContextToPersistentStore;
 
 - (NSManagedObjectContext *)createPrivateContextWithParentContext:(NSManagedObjectContext *)context;

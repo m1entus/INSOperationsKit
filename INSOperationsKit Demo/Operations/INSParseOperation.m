@@ -7,6 +7,8 @@
 //
 
 #import "INSParseOperation.h"
+#import "INSDownloadOperation.h"
+#import "INSCoreDataStack.h"
 
 @interface INSParseOperation ()
 @property (nonatomic, strong) NSManagedObjectContext *context;
@@ -26,11 +28,20 @@
 }
 
 - (void)execute {
-    NSLog(@"EXECUTED PARSE");
+
+    [self.context performBlock:^{
+        
+        [self.responseArray enumerateObjectsUsingBlock:^(NSDictionary  __nonnull *obj, NSUInteger idx, BOOL * __nonnull stop) {
+            [self.parsableClass objectFromDictionary:obj inContext:self.context];
+        }];
+        
+        NSError *error = [INSCoreDataStack saveContext:self.context];
+        [self finishWithError:error];
+    }];
 }
 
 - (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray *)errors passingAdditionalData:(id)data {
-    if (data) {
+    if ([operation isKindOfClass:[INSDownloadOperation class]] && data) {
         self.responseArray = data;
     }
 }

@@ -12,6 +12,7 @@
 #import "INSChainOperation.h"
 #import "INSParseOperation.h"
 #import "INSEarthquake.h"
+#import "INSCoreDataStack.h"
 
 @interface INSMainViewController ()
 @property (nonatomic, strong) INSOperationQueue *operationQueue;
@@ -29,7 +30,7 @@
         return responseObject[@"features"];
     }];
     
-    INSParseOperation *parseOperation = [[INSParseOperation alloc] initWithResponseArrayObject:nil parsableClass:[INSEarthquake class] context:nil];
+    INSParseOperation *parseOperation = [[INSParseOperation alloc] initWithResponseArrayObject:nil parsableClass:[INSEarthquake class] context:[[INSCoreDataStack sharedInstance] createPrivateContextWithMainQueueParent]];
     
     INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[downloadOperation,parseOperation]];
     

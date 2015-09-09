@@ -120,20 +120,23 @@ static NSString *INSCoreDataStackStoreFilename = @"INSOperationsKit.sqlite";
     }];
 }
 
-- (void)saveContext:(NSManagedObjectContext *)context {
++ (NSError *)saveContext:(NSManagedObjectContext *)context {
+    NSError *error = nil;
+    
     if ([context hasChanges]) {
-        NSError *error = nil;
         if (![context save:&error]) {
-            NSLog(@"Failed to save _mainContext: %@", error);
+            NSLog(@"Failed to save _context: %@ error: %@",context, error);
         }
     } else {
         NSLog(@"SKIPPED %@ save, there are no changes!",context);
     }
+    return error;
 }
 
-- (void)saveMainQueueContext {
+- (NSError *)saveMainQueueContext {
+    NSError *error = nil;
+    
     if ([self.mainContext hasChanges]) {
-        NSError *error = nil;
         if ([self.mainContext save:&error]) {
             NSLog(@"_mainContext SAVED changes");
         } else {
@@ -142,6 +145,7 @@ static NSString *INSCoreDataStackStoreFilename = @"INSOperationsKit.sqlite";
     } else {
         NSLog(@"SKIPPED _mainContext save, there are no changes!");
     }
+    return error;
 }
 - (void)saveMainQueueContextToPersistentStore {
     [self saveMainQueueContext];
