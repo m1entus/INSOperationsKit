@@ -58,7 +58,7 @@
         return;
     }
     
-    [self.operationQueue.operations enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof NSOperation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.internalQueue.operations enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof NSOperation *obj, NSUInteger idx, BOOL *stop) {
         if (obj != self.finishingOperation) {
             [operation addDependency:obj];
             *stop = YES;
@@ -80,10 +80,18 @@
 - (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors {
     
     NSInteger nextOperationIndex = [self.internalQueue.operations indexOfObject:operation] + 1;
-    if (self.operationQueue.operationCount > nextOperationIndex) {
+    if (self.internalQueue.operationCount > nextOperationIndex) {
         NSOperation <INSChainableOperationProtocol> *nextOperation = self.internalQueue.operations[nextOperationIndex];
         if ([nextOperation conformsToProtocol:@protocol(INSChainableOperationProtocol)]) {
-            [nextOperation chainedOperation:operation didFinishWithErrors:errors];
+            
+            id additionalObject = nil;
+            if ([operation conformsToProtocol:@protocol(INSChainableOperationProtocol)] && [operation respondsToSelector:@selector(additionalDataToPassForChainedOperation)]) {
+                additionalObject = [(id <INSChainableOperationProtocol>)operation additionalDataToPassForChainedOperation];
+            }
+            
+            if ([nextOperation respondsToSelector:@selector(chainedOperation:didFinishWithErrors:passingAdditionalData:)]) {
+                [nextOperation chainedOperation:operation didFinishWithErrors:errors passingAdditionalData:additionalObject];
+            }
         }
     };
 }

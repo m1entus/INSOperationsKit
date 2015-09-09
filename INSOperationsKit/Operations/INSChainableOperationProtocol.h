@@ -7,5 +7,7 @@
 //
 
 @protocol INSChainableOperationProtocol
-- (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray *)errors;
+@optional
+- (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray *)errors passingAdditionalData:(id)data;
+- (id)additionalDataToPassForChainedOperation;
 @end

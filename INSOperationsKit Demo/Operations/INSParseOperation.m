@@ -29,8 +29,10 @@
     NSLog(@"EXECUTED PARSE");
 }
 
-- (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray *)errors {
-    NSLog(@"%@",operation);
+- (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray *)errors passingAdditionalData:(id)data {
+    if (data) {
+        self.responseArray = data;
+    }
 }
 
 @end

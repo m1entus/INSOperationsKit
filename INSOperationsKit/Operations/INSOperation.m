@@ -14,7 +14,7 @@
 @property (nonatomic, assign) INSOperationState state;
 @property (getter=isCancelled) BOOL cancelled;
 
-@property (nonatomic, weak) INSOperationQueue *operationQueue;
+@property (nonatomic, weak) INSOperationQueue *enqueuedOperationQueue;
 
 @property (nonatomic, strong) NSArray *conditions;
 @property (nonatomic, strong) NSArray *observers;
@@ -115,7 +115,7 @@
 }
 
 - (void)willEnqueueInOperationQueue:(INSOperationQueue *)operationQueue {
-    self.operationQueue = operationQueue;
+    self.enqueuedOperationQueue = operationQueue;
     self.state = INSOperationStatePending;
 }
 

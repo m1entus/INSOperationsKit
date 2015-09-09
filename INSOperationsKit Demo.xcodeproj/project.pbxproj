@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6418E1271B9E18C600ABD1DD /* INSEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1261B9E18C600ABD1DD /* INSEarthquake.m */; };
 		6418E12C1B9E199E00ABD1DD /* INSCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E12B1B9E199E00ABD1DD /* INSCoreDataStack.m */; };
-		6418E1361B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1351B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m */; };
+		6418E1361B9E28F300ABD1DD /* INSDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */; };
 		6418E13C1B9E31D300ABD1DD /* INSParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */; };
 		6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6418E1401B9E3D3100ABD1DD /* INSChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */; };
@@ -109,8 +109,8 @@
 		6418E1281B9E18FC00ABD1DD /* INSCoreDataParsable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSCoreDataParsable.h; sourceTree = "<group>"; };
 		6418E12A1B9E199E00ABD1DD /* INSCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSCoreDataStack.h; sourceTree = "<group>"; };
 		6418E12B1B9E199E00ABD1DD /* INSCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSCoreDataStack.m; sourceTree = "<group>"; };
-		6418E1341B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDownloadEarthquakesOperation.h; sourceTree = "<group>"; };
-		6418E1351B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDownloadEarthquakesOperation.m; sourceTree = "<group>"; };
+		6418E1341B9E28F300ABD1DD /* INSDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSDownloadOperation.h; sourceTree = "<group>"; };
+		6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSDownloadOperation.m; sourceTree = "<group>"; };
 		6418E13A1B9E31D300ABD1DD /* INSParseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSParseOperation.h; sourceTree = "<group>"; };
 		6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSParseOperation.m; sourceTree = "<group>"; };
 		6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSChainOperation.h; sourceTree = "<group>"; };
@@ -218,8 +218,8 @@
 		6418E1291B9E198700ABD1DD /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				6418E1341B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.h */,
-				6418E1351B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m */,
+				6418E1341B9E28F300ABD1DD /* INSDownloadOperation.h */,
+				6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */,
 				6418E13A1B9E31D300ABD1DD /* INSParseOperation.h */,
 				6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */,
 			);
@@ -578,7 +578,7 @@
 				64DFC76B1B98A7C50009DB98 /* INSAppDelegate.m in Sources */,
 				6418E1271B9E18C600ABD1DD /* INSEarthquake.m in Sources */,
 				6418E13C1B9E31D300ABD1DD /* INSParseOperation.m in Sources */,
-				6418E1361B9E28F300ABD1DD /* INSDownloadEarthquakesOperation.m in Sources */,
+				6418E1361B9E28F300ABD1DD /* INSDownloadOperation.m in Sources */,
 				64DFC7681B98A7C50009DB98 /* main.m in Sources */,
 				647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */,
 			);
