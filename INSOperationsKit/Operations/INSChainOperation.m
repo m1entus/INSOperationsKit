@@ -112,8 +112,14 @@
 - (void)operationQueue:(INSOperationQueue *)operationQueue operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors {
     [self.aggregatedErrors addObjectsFromArray:errors];
 
-    if (operation == self.finishingOperation || (self.finishIfProducedAnyError && self.aggregatedErrors.count)) {
+    if (operation == self.finishingOperation) {
         self.internalQueue.suspended = YES;
+        [self finishWithErrors:[self.aggregatedErrors copy]];
+        
+    } else if (self.finishIfProducedAnyError && self.aggregatedErrors.count) {
+        self.internalQueue.suspended = YES;
+        [self.internalQueue cancelAllOperations];
+        self.internalQueue.suspended = NO;
         [self finishWithErrors:[self.aggregatedErrors copy]];
     } else {
         [self operationDidFinish:operation withErrors:errors];

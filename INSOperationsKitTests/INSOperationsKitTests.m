@@ -534,5 +534,134 @@
     [self waitForExpectationsWithTimeout:0.9 handler:nil];
 }
 
+- (void)testChainOperation {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
+    
+    NSOperation *operation1 = [NSBlockOperation blockOperationWithBlock:^{
+        [expectation fulfill];
+    }];
+    
+    NSOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        [expectation2 fulfill];
+    }];
+    
+    INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[operation1,operation2]];
+    
+    [self keyValueObservingExpectationForObject:chainOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self.operationQueue addOperation:chainOperation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testChainOperationCancelBeforeExecuting {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
+    
+    NSOperation *operation1 = [NSBlockOperation blockOperationWithBlock:^{
+        XCTFail(@"should not execute -- cancelled");
+    }];
+    
+    operation1.completionBlock = ^{
+        [expectation fulfill];
+    };
+    
+    NSOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        XCTFail(@"should not execute -- cancelled");
+    }];
+    
+    operation2.completionBlock = ^{
+        [expectation2 fulfill];
+    };
+    
+    INSChainOperation *groupOperation = [[INSChainOperation alloc] initWithOperations:@[operation1,operation2]];
+    
+    [self keyValueObservingExpectationForObject:groupOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    self.operationQueue.suspended = YES;
+    [self.operationQueue addOperation:groupOperation];
+    [groupOperation cancel];
+    self.operationQueue.suspended = NO;
+    
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testChainOperationShouldCancelWithErrorWhenMiddleOperationFail {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    
+    NSOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        XCTFail(@"should not execute -- cancelled");
+    }];
+    
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        [expectation fulfill];
+        [operation finishWithError:[NSError errorWithDomain:@"error" code:1 userInfo:@{}]];
+        completionBlock();
+    }];
+    
+    INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[operation,operation2]];
+    
+    [self keyValueObservingExpectationForObject:chainOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self keyValueObservingExpectationForObject:operation2 keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self keyValueObservingExpectationForObject:chainOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self.operationQueue addOperation:chainOperation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testChainOperationShouldCancelWithErrorWhenConditionFail {
+    NSOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        XCTFail(@"should not execute -- cancelled");
+    }];
+    
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        XCTFail(@"should not execute -- cancelled");
+    }];
+    
+    [operation addCondition:[[INSOperationTestCondition alloc] initWithConditionBlock:^BOOL{
+        return NO;
+    }]];
+    
+    INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[operation,operation2]];
+    
+    [self keyValueObservingExpectationForObject:chainOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self keyValueObservingExpectationForObject:operation2 keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.cancelled;
+    }];
+    
+    [self keyValueObservingExpectationForObject:chainOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self.operationQueue addOperation:chainOperation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testChainOperationDependencies {
+    
+}
+
+- (void)testChainOperationDataPassing {
+    
+}
 
 @end

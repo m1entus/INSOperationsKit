@@ -22,8 +22,8 @@
  */
 @protocol INSOperationQueueDelegate <NSObject>
 @optional
--(void)operationQueue:(INSOperationQueue *)operationQueue willAddOperation:(NSOperation *)operation;
--(void)operationQueue:(INSOperationQueue *)operationQueue operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors;
+- (void)operationQueue:(INSOperationQueue *)operationQueue willAddOperation:(NSOperation *)operation;
+- (void)operationQueue:(INSOperationQueue *)operationQueue operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors;
 @end
 
 /**
