@@ -45,7 +45,7 @@
 
 - (void)addActionWithTitle:(NSString *)title style:(UIAlertActionStyle)style handler:(void (^)(INSAlertOperation *operation))handler {
     __weak typeof(self) weakSelf = self;
-    [self.alertController addAction:[UIAlertAction actionWithTitle:title style:style handler:^(UIAlertAction * _Nonnull action) {
+    [self.alertController addAction:[UIAlertAction actionWithTitle:title style:style handler:^(UIAlertAction *action) {
         if (handler) {
             handler(weakSelf);
         }

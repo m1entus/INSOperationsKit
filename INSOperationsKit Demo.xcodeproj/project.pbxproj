@@ -72,6 +72,7 @@
 		64DFC8071B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */; };
 		64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC80B1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */; };
+		D25131E21BA1712E00D11398 /* INSTestChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D25131E11BA1712E00D11398 /* INSTestChainOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +188,8 @@
 		64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPhotosLibraryAccessOperation.h; sourceTree = "<group>"; };
 		64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessOperation.m; sourceTree = "<group>"; };
 		757B7F30F0064A2F81F6C8C4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D25131E01BA1712E00D11398 /* INSTestChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSTestChainOperation.h; sourceTree = "<group>"; };
+		D25131E11BA1712E00D11398 /* INSTestChainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSTestChainOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +334,8 @@
 				64DFC7F61B9A0CF50009DB98 /* INSOperationTestCondition.m */,
 				64DFC7A31B98A7D00009DB98 /* INSOperationsKitTests.m */,
 				64DFC7A11B98A7D00009DB98 /* Supporting Files */,
+				D25131E01BA1712E00D11398 /* INSTestChainOperation.h */,
+				D25131E11BA1712E00D11398 /* INSTestChainOperation.m */,
 			);
 			path = INSOperationsKitTests;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64DFC7F71B9A0CF50009DB98 /* INSOperationTestCondition.m in Sources */,
+				D25131E21BA1712E00D11398 /* INSTestChainOperation.m in Sources */,
 				64DFC7A41B98A7D00009DB98 /* INSOperationsKitTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

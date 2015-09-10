@@ -10,6 +10,7 @@
 #import <XCTest/XCTest.h>
 #import <INSOperationsKit/INSOperationsKit.h>
 #import "INSOperationTestCondition.h"
+#import "INSTestChainOperation.h"
 
 @interface INSOperationsKitTests : XCTestCase
 @property (nonatomic, strong) INSOperationQueue *operationQueue;
@@ -647,20 +648,56 @@
         return observedObject.cancelled;
     }];
     
-    [self keyValueObservingExpectationForObject:chainOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
-        return observedObject.finished;
-    }];
-    
     [self.operationQueue addOperation:chainOperation];
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 - (void)testChainOperationDependencies {
     
+    NSOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        
+    }];
+    
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        completionBlock();
+    }];
+    
+    __unused INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[operation,operation2]];
+    
+    XCTAssertTrue([operation2.dependencies containsObject:operation]);
 }
 
 - (void)testChainOperationDataPassing {
+    NSDictionary *dict = @{};
     
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
+    
+    INSTestChainOperation *operation = [INSTestChainOperation operationWithAdditionalDataToPass:^id{
+        return dict;
+    } operationFinishBlock:nil];
+    operation.block = ^(INSBlockOperationCompletionBlock block) {
+        [expectation fulfill];
+        block();
+    };
+    
+    INSTestChainOperation *operation2 = [INSTestChainOperation operationWithAdditionalDataToPass:nil operationFinishBlock:^(NSOperation *finishedOperation, NSArray<NSError *> *errors, id additionalDataReceived) {
+        XCTAssertEqual(finishedOperation, operation);
+        XCTAssertEqual(additionalDataReceived, dict);
+    }];
+    operation2.block = ^(INSBlockOperationCompletionBlock block) {
+        [expectation2 fulfill];
+        block();
+    };
+    
+    INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[operation,operation2]];
+    
+    [self keyValueObservingExpectationForObject:chainOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self.operationQueue addOperation:chainOperation];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 @end
