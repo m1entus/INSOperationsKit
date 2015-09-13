@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import INSOperationsKitiOS;
+@import INSOperationsKit;
 
 @interface INSiOSEarthquakeOperationsProvider : NSObject
 

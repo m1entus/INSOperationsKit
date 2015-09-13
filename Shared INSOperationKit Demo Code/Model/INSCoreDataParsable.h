@@ -6,6 +6,8 @@
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
 //
 
+@import Foundation;
+
 @class NSManagedObjectContext;
 
 @protocol INSCoreDataParsable

@@ -6,7 +6,7 @@
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import <INSOperationsKitiOS/INSOperationsKitiOS.h>
+@import INSOperationsKit;
 
 typedef id(^INSTestChainOperationAdditionalParameterBlock)();
 typedef void(^INSTestChainOperationFinishBlock)(NSOperation *operation, NSArray <NSError *> *errors, id additionalDataReceived);

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <INSOperationsKitiOS/INSOperationsKitiOS.h>
+@import INSOperationsKit;
 
 typedef BOOL(^INSOperationTestConditionBlock)();
 

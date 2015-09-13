@@ -28,3 +28,8 @@
 #import "INSChainOperation.h"
 #import "INSNoCancelledDependenciesCondition.h"
 
+#if TARGET_OS_IPHONE
+#import "INSPhotosLibraryAccessCondition.h"
+#import "INSPhotosLibraryAccessOperation"
+#endif
+

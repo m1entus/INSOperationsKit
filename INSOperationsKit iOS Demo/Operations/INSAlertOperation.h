@@ -6,7 +6,7 @@
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
 //
 
-@import INSOperationsKitiOS;
+@import INSOperationsKit;
 @import UIKit;
 
 @interface INSAlertOperation : INSOperation

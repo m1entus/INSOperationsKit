@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@import INSOperationsKitOSX;
+@import INSOperationsKit;
 
 @interface INSOSXEarthquakeOperationProvider : NSOperation
 + (INSChainOperation *)getAllEarthquakesWithCompletionHandler:(void (^)(INSChainOperation *operation, NSError *error))completionHandler;

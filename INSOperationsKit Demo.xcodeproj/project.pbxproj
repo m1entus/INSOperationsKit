@@ -19,9 +19,8 @@
 		644E02AA1BA5C1C2001FE717 /* INSOSXMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644E02A91BA5C1C2001FE717 /* INSOSXMainViewController.m */; };
 		644E02AC1BA5C1C2001FE717 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 644E02AB1BA5C1C2001FE717 /* Assets.xcassets */; };
 		644E02AF1BA5C1C2001FE717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644E02AD1BA5C1C2001FE717 /* Main.storyboard */; };
-		644E02C41BA5C6B1001FE717 /* INSOperationsKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 644E02C31BA5C6B1001FE717 /* INSOperationsKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		644E02C81BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */; };
-		644E02C91BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		644E02C81BA5C6B1001FE717 /* INSOperationsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 644E02C11BA5C6B1001FE717 /* INSOperationsKit.framework */; };
+		644E02C91BA5C6B1001FE717 /* INSOperationsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 644E02C11BA5C6B1001FE717 /* INSOperationsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		644E02CE1BA5C6D0001FE717 /* NSError+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */; };
 		644E02D01BA5C6D0001FE717 /* INSReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */; };
 		644E02D31BA5C6D0001FE717 /* INSOperationConditionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */; };
@@ -73,11 +72,10 @@
 		64DFC7711B98A7C50009DB98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC76F1B98A7C50009DB98 /* Main.storyboard */; };
 		64DFC7731B98A7C50009DB98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC7721B98A7C50009DB98 /* Images.xcassets */; };
 		64DFC7761B98A7C50009DB98 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC7741B98A7C50009DB98 /* LaunchScreen.xib */; };
-		64DFC7951B98A7D00009DB98 /* INSOperationsKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7941B98A7D00009DB98 /* INSOperationsKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64DFC79B1B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */; };
+		64DFC79B1B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; };
 		64DFC7A41B98A7D00009DB98 /* INSOperationsKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7A31B98A7D00009DB98 /* INSOperationsKitTests.m */; };
-		64DFC7A71B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */; };
-		64DFC7A81B98A7D00009DB98 /* INSOperationsKitiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		64DFC7A71B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; };
+		64DFC7A81B98A7D00009DB98 /* INSOperationsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B11B98A89E0009DB98 /* INSOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7B41B98A89E0009DB98 /* INSOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B21B98A89E0009DB98 /* INSOperationQueue.m */; };
 		64DFC7B91B98AA5E0009DB98 /* INSBlockObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B71B98AA5E0009DB98 /* INSBlockObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -126,6 +124,8 @@
 		64EF351B1BA5C99900AD34E7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
 		64EF351E1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF351D1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m */; settings = {ASSET_TAGS = (); }; };
 		64EF35221BA5F60900AD34E7 /* INSPhotosLibraryAccessOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */; };
+		64EF35271BA602E700AD34E7 /* INSOperationsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EF35261BA6013900AD34E7 /* INSOperationsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64EF352B1BA6048300AD34E7 /* INSOperationsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64EF35281BA6041800AD34E7 /* INSOperationsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D25131E21BA1712E00D11398 /* INSTestChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D25131E11BA1712E00D11398 /* INSTestChainOperation.m */; };
 /* End PBXBuildFile section */
 
@@ -160,7 +160,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				644E02C91BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Embed Frameworks */,
+				644E02C91BA5C6B1001FE717 /* INSOperationsKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,7 +171,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				64DFC7A81B98A7D00009DB98 /* INSOperationsKitiOS.framework in Embed Frameworks */,
+				64DFC7A81B98A7D00009DB98 /* INSOperationsKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,9 +201,8 @@
 		644E02AB1BA5C1C2001FE717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		644E02AE1BA5C1C2001FE717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		644E02B01BA5C1C2001FE717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		644E02C31BA5C6B1001FE717 /* INSOperationsKitOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKitOSX.h; sourceTree = "<group>"; };
-		644E02C51BA5C6B1001FE717 /* INSOperationsKitOSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INSOperationsKitOSX-Info.plist"; sourceTree = "<group>"; };
+		644E02C11BA5C6B1001FE717 /* INSOperationsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		644E02C51BA5C6B1001FE717 /* INSOperationsKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INSOperationsKit-Info.plist"; sourceTree = "<group>"; };
 		646B458B1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSiOSEarthquakeOperationsProvider.h; sourceTree = "<group>"; };
 		646B458C1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSiOSEarthquakeOperationsProvider.m; sourceTree = "<group>"; };
 		646B458E1BA0952800C00500 /* INSEarthquakeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSEarthquakeTableViewCell.h; sourceTree = "<group>"; };
@@ -221,9 +220,7 @@
 		64DFC7701B98A7C50009DB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64DFC7721B98A7C50009DB98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		64DFC7751B98A7C50009DB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64DFC7931B98A7D00009DB98 /* INSOperationsKitiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INSOperationsKitiOS-Info.plist"; sourceTree = "<group>"; };
-		64DFC7941B98A7D00009DB98 /* INSOperationsKitiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKitiOS.h; sourceTree = "<group>"; };
+		64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DFC79A1B98A7D00009DB98 /* INSOperationsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = INSOperationsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DFC7A21B98A7D00009DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64DFC7A31B98A7D00009DB98 /* INSOperationsKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INSOperationsKitTests.m; sourceTree = "<group>"; };
@@ -274,6 +271,9 @@
 		64EF351C1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOSXEarthquakeOperationProvider.h; sourceTree = "<group>"; };
 		64EF351D1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOSXEarthquakeOperationProvider.m; sourceTree = "<group>"; };
 		64EF351F1BA5F55F00AD34E7 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
+		64EF35261BA6013900AD34E7 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
+		64EF35281BA6041800AD34E7 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
+		64EF352A1BA6041800AD34E7 /* INSOperationsKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INSOperationsKit-Info.plist"; sourceTree = "<group>"; };
 		757B7F30F0064A2F81F6C8C4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25131E01BA1712E00D11398 /* INSTestChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSTestChainOperation.h; sourceTree = "<group>"; };
 		D25131E11BA1712E00D11398 /* INSTestChainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSTestChainOperation.m; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				644E02C81BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Frameworks */,
+				644E02C81BA5C6B1001FE717 /* INSOperationsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +299,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DFC7A71B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */,
+				64DFC7A71B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DFC79B1B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */,
+				64DFC79B1B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,13 +371,13 @@
 			path = Operations;
 			sourceTree = "<group>";
 		};
-		644E02B51BA5C208001FE717 /* Shared */ = {
+		644E02B51BA5C208001FE717 /* Shared INSOperationKit Demo Code */ = {
 			isa = PBXGroup;
 			children = (
 				644E02B61BA5C242001FE717 /* Operations */,
 				647B822C1B9E163E0051EB46 /* Model */,
 			);
-			path = Shared;
+			path = "Shared INSOperationKit Demo Code";
 			sourceTree = "<group>";
 		};
 		644E02B61BA5C242001FE717 /* Operations */ = {
@@ -394,6 +394,8 @@
 		644E02C21BA5C6B1001FE717 /* INSOperationsKit OSX */ = {
 			isa = PBXGroup;
 			children = (
+				64EF35261BA6013900AD34E7 /* INSOperationsKit.h */,
+				64EF35251BA600C900AD34E7 /* Supporting Files */,
 			);
 			path = "INSOperationsKit OSX";
 			sourceTree = "<group>";
@@ -416,11 +418,12 @@
 			isa = PBXGroup;
 			children = (
 				64DFC7911B98A7D00009DB98 /* INSOperationsKit */,
-				644E02B51BA5C208001FE717 /* Shared */,
-				64DFC7A01B98A7D00009DB98 /* INSOperationsKitTests */,
+				644E02B51BA5C208001FE717 /* Shared INSOperationKit Demo Code */,
+				64DFC7A01B98A7D00009DB98 /* INSOperationsKit Tests */,
 				64DFC7641B98A7C50009DB98 /* INSOperationsKit iOS Demo */,
 				644E02A11BA5C1C2001FE717 /* INSOperationsKit OSX Demo */,
 				644E02C21BA5C6B1001FE717 /* INSOperationsKit OSX */,
+				64EF35231BA6009900AD34E7 /* INSOperationsKit iOS */,
 				64DFC7631B98A7C50009DB98 /* Products */,
 				1F256ACF4C59142FECD21FA1 /* Frameworks */,
 			);
@@ -430,10 +433,10 @@
 			isa = PBXGroup;
 			children = (
 				64DFC7621B98A7C50009DB98 /* INSOperationsKit iOS Demo.app */,
-				64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */,
+				64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */,
 				64DFC79A1B98A7D00009DB98 /* INSOperationsKitTests.xctest */,
 				644E02A01BA5C1C2001FE717 /* INSOperationsKit OSX Demo.app */,
-				644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */,
+				644E02C11BA5C6B1001FE717 /* INSOperationsKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -476,23 +479,11 @@
 				64DFC7B51B98AA070009DB98 /* Observers */,
 				64DFC7B01B98A82F0009DB98 /* Operation Queue */,
 				64EF351F1BA5F55F00AD34E7 /* INSOperationsKit.h */,
-				64DFC7941B98A7D00009DB98 /* INSOperationsKitiOS.h */,
-				644E02C31BA5C6B1001FE717 /* INSOperationsKitOSX.h */,
-				64DFC7921B98A7D00009DB98 /* Supporting Files */,
 			);
 			path = INSOperationsKit;
 			sourceTree = "<group>";
 		};
-		64DFC7921B98A7D00009DB98 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				644E02C51BA5C6B1001FE717 /* INSOperationsKitOSX-Info.plist */,
-				64DFC7931B98A7D00009DB98 /* INSOperationsKitiOS-Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		64DFC7A01B98A7D00009DB98 /* INSOperationsKitTests */ = {
+		64DFC7A01B98A7D00009DB98 /* INSOperationsKit Tests */ = {
 			isa = PBXGroup;
 			children = (
 				64DFC7F51B9A0CF50009DB98 /* INSOperationTestCondition.h */,
@@ -502,7 +493,7 @@
 				D25131E01BA1712E00D11398 /* INSTestChainOperation.h */,
 				D25131E11BA1712E00D11398 /* INSTestChainOperation.m */,
 			);
-			path = INSOperationsKitTests;
+			path = "INSOperationsKit Tests";
 			sourceTree = "<group>";
 		};
 		64DFC7A11B98A7D00009DB98 /* Supporting Files */ = {
@@ -593,6 +584,31 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
+		64EF35231BA6009900AD34E7 /* INSOperationsKit iOS */ = {
+			isa = PBXGroup;
+			children = (
+				64EF35281BA6041800AD34E7 /* INSOperationsKit.h */,
+				64EF35291BA6041800AD34E7 /* Supporting Files */,
+			);
+			path = "INSOperationsKit iOS";
+			sourceTree = "<group>";
+		};
+		64EF35251BA600C900AD34E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				644E02C51BA5C6B1001FE717 /* INSOperationsKit-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		64EF35291BA6041800AD34E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				64EF352A1BA6041800AD34E7 /* INSOperationsKit-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -600,7 +616,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				644E02C41BA5C6B1001FE717 /* INSOperationsKitOSX.h in Headers */,
+				64EF35271BA602E700AD34E7 /* INSOperationsKit.h in Headers */,
 				644E02FA1BA5C6FF001FE717 /* NSError+INSOperationKit.h in Headers */,
 				644E02FB1BA5C6FF001FE717 /* INSReachabilityManager.h in Headers */,
 				644E02FC1BA5C6FF001FE717 /* INSOperationConditionProtocol.h in Headers */,
@@ -630,6 +646,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EF352B1BA6048300AD34E7 /* INSOperationsKit.h in Headers */,
 				64DFC7ED1B9A02900009DB98 /* INSReachabilityCondition.h in Headers */,
 				64DFC7B91B98AA5E0009DB98 /* INSBlockObserver.h in Headers */,
 				64DFC7C31B98AC0A0009DB98 /* INSOperationConditionResult.h in Headers */,
@@ -637,7 +654,6 @@
 				64DFC7F11B9A04210009DB98 /* INSReachabilityManager.h in Headers */,
 				64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */,
 				64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */,
-				64DFC7951B98A7D00009DB98 /* INSOperationsKitiOS.h in Headers */,
 				64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */,
 				64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */,
 				64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */,
@@ -679,9 +695,9 @@
 			productReference = 644E02A01BA5C1C2001FE717 /* INSOperationsKit OSX Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		644E02C01BA5C6B1001FE717 /* INSOperationsKitOSX */ = {
+		644E02C01BA5C6B1001FE717 /* INSOperationsKit (OSX) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 644E02CA1BA5C6B1001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKitOSX" */;
+			buildConfigurationList = 644E02CA1BA5C6B1001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKit (OSX)" */;
 			buildPhases = (
 				644E02BC1BA5C6B1001FE717 /* Sources */,
 				644E02BD1BA5C6B1001FE717 /* Frameworks */,
@@ -692,9 +708,9 @@
 			);
 			dependencies = (
 			);
-			name = INSOperationsKitOSX;
+			name = "INSOperationsKit (OSX)";
 			productName = INSOperationsKitOSX;
-			productReference = 644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */;
+			productReference = 644E02C11BA5C6B1001FE717 /* INSOperationsKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		64DFC7611B98A7C50009DB98 /* INSOperationsKit iOS Demo */ = {
@@ -716,9 +732,9 @@
 			productReference = 64DFC7621B98A7C50009DB98 /* INSOperationsKit iOS Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */ = {
+		64DFC78F1B98A7D00009DB98 /* INSOperationsKit (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKitiOS" */;
+			buildConfigurationList = 64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit (iOS)" */;
 			buildPhases = (
 				64DFC78B1B98A7D00009DB98 /* Sources */,
 				64DFC78C1B98A7D00009DB98 /* Frameworks */,
@@ -729,9 +745,9 @@
 			);
 			dependencies = (
 			);
-			name = INSOperationsKitiOS;
+			name = "INSOperationsKit (iOS)";
 			productName = INSOperationsKit;
-			productReference = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */;
+			productReference = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		64DFC7991B98A7D00009DB98 /* INSOperationsKitTests */ = {
@@ -792,10 +808,10 @@
 			projectRoot = "";
 			targets = (
 				64DFC7611B98A7C50009DB98 /* INSOperationsKit iOS Demo */,
-				64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */,
+				64DFC78F1B98A7D00009DB98 /* INSOperationsKit (iOS) */,
 				64DFC7991B98A7D00009DB98 /* INSOperationsKitTests */,
 				644E029F1BA5C1C2001FE717 /* INSOperationsKit OSX Demo */,
-				644E02C01BA5C6B1001FE717 /* INSOperationsKitOSX */,
+				644E02C01BA5C6B1001FE717 /* INSOperationsKit (OSX) */,
 			);
 		};
 /* End PBXProject section */
@@ -947,17 +963,17 @@
 /* Begin PBXTargetDependency section */
 		644E02C71BA5C6B1001FE717 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 644E02C01BA5C6B1001FE717 /* INSOperationsKitOSX */;
+			target = 644E02C01BA5C6B1001FE717 /* INSOperationsKit (OSX) */;
 			targetProxy = 644E02C61BA5C6B1001FE717 /* PBXContainerItemProxy */;
 		};
 		64DFC79D1B98A7D00009DB98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */;
+			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKit (iOS) */;
 			targetProxy = 64DFC79C1B98A7D00009DB98 /* PBXContainerItemProxy */;
 		};
 		64DFC7A61B98A7D00009DB98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */;
+			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKit (iOS) */;
 			targetProxy = 64DFC7A51B98A7D00009DB98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1000,7 +1016,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSOperationsKit-OSX";
@@ -1015,7 +1031,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSOperationsKit-OSX";
@@ -1036,12 +1052,13 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitOSX-Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit OSX/Supporting Files/INSOperationsKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKitOSX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKit;
+				PRODUCT_MODULE_NAME = INSOperationsKit;
+				PRODUCT_NAME = INSOperationsKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1060,12 +1077,13 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitOSX-Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit OSX/Supporting Files/INSOperationsKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKitOSX;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKit;
+				PRODUCT_MODULE_NAME = INSOperationsKit;
+				PRODUCT_NAME = INSOperationsKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1160,7 +1178,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit iOS Demo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1171,7 +1189,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit iOS Demo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1181,6 +1199,7 @@
 		64DFC7AA1B98A7D00009DB98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "-";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1191,13 +1210,15 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitiOS-Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit iOS/Supporting Files/INSOperationsKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKit;
+				PRODUCT_MODULE_NAME = INSOperationsKit;
+				PRODUCT_NAME = INSOperationsKit;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1206,19 +1227,22 @@
 		64DFC7AB1B98A7D00009DB98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "-";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitiOS-Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit iOS/Supporting Files/INSOperationsKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKit;
+				PRODUCT_MODULE_NAME = INSOperationsKit;
+				PRODUCT_NAME = INSOperationsKit;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1235,7 +1259,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "INSOperationsKitTests/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit Tests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1249,7 +1273,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "INSOperationsKitTests/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit Tests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1268,7 +1292,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		644E02CA1BA5C6B1001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKitOSX" */ = {
+		644E02CA1BA5C6B1001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKit (OSX)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				644E02CB1BA5C6B1001FE717 /* Debug */,
@@ -1295,7 +1319,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKitiOS" */ = {
+		64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64DFC7AA1B98A7D00009DB98 /* Debug */,
