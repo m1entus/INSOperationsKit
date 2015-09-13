@@ -7,7 +7,7 @@
 //
 
 #import "INSMainViewController.h"
-#import "INSEarthquakeOperationsProvider.h"
+#import "INSiOSEarthquakeOperationsProvider.h"
 #import "INSEarthquake.h"
 @import CoreData;
 #import "INSEarthquakeTableViewCell.h"
@@ -26,7 +26,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [[INSEarthquakeOperationsProvider getAllEarthquakesWithCompletionHandler:^(INSChainOperation *operation, NSError *error){
+    [[INSiOSEarthquakeOperationsProvider getAllEarthquakesWithCompletionHandler:^(INSChainOperation *operation, NSError *error){
         if (!error) {
             [self configureFetchedResultsController];
         }

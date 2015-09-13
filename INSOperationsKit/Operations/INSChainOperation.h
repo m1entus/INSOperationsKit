@@ -6,7 +6,7 @@
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import <INSOperationsKit/INSOperationsKit.h>
+#import "INSOperation.h"
 #import "INSChainableOperationProtocol.h"
 
 /**

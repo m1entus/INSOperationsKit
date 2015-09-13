@@ -14,7 +14,56 @@
 		6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6418E1401B9E3D3100ABD1DD /* INSChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */; };
 		6418E1421B9E413100ABD1DD /* INSChainableOperationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		646B458D1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458C1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m */; };
+		644E02A41BA5C1C2001FE717 /* INSOSXAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 644E02A31BA5C1C2001FE717 /* INSOSXAppDelegate.m */; };
+		644E02A71BA5C1C2001FE717 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 644E02A61BA5C1C2001FE717 /* main.m */; };
+		644E02AA1BA5C1C2001FE717 /* INSOSXMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 644E02A91BA5C1C2001FE717 /* INSOSXMainViewController.m */; };
+		644E02AC1BA5C1C2001FE717 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 644E02AB1BA5C1C2001FE717 /* Assets.xcassets */; };
+		644E02AF1BA5C1C2001FE717 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 644E02AD1BA5C1C2001FE717 /* Main.storyboard */; };
+		644E02C41BA5C6B1001FE717 /* INSOperationsKitOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 644E02C31BA5C6B1001FE717 /* INSOperationsKitOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E02C81BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */; };
+		644E02C91BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		644E02CE1BA5C6D0001FE717 /* NSError+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */; };
+		644E02D01BA5C6D0001FE717 /* INSReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */; };
+		644E02D31BA5C6D0001FE717 /* INSOperationConditionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */; };
+		644E02D51BA5C6D0001FE717 /* INSMutallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */; };
+		644E02D71BA5C6D0001FE717 /* INSReachabilityCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */; };
+		644E02D91BA5C6D0001FE717 /* INSSilientCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F91B9C9A8E0009DB98 /* INSSilientCondition.m */; };
+		644E02DB1BA5C6D0001FE717 /* INSNegatedCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */; };
+		644E02DD1BA5C6D0001FE717 /* INSNoCancelledDependenciesCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */; };
+		644E02E21BA5C6D0001FE717 /* INSChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */; };
+		644E02E41BA5C6D0001FE717 /* INSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7BD1B98ABD30009DB98 /* INSOperation.m */; };
+		644E02E61BA5C6D0001FE717 /* NSOperation+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7CB1B98EB520009DB98 /* NSOperation+INSOperationKit.m */; };
+		644E02E81BA5C6D0001FE717 /* INSBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7D31B99F8C70009DB98 /* INSBlockOperation.m */; };
+		644E02EA1BA5C6D0001FE717 /* INSGroupOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7D71B99FA150009DB98 /* INSGroupOperation.m */; };
+		644E02EC1BA5C6D0001FE717 /* INSDelayOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7DB1B99FB370009DB98 /* INSDelayOperation.m */; };
+		644E02EE1BA5C6D0001FE717 /* INSURLSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */; };
+		644E02F31BA5C6D0001FE717 /* INSBlockObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B81B98AA5E0009DB98 /* INSBlockObserver.m */; };
+		644E02F51BA5C6D0001FE717 /* INSTimeoutObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E31B99FDC70009DB98 /* INSTimeoutObserver.m */; };
+		644E02F71BA5C6D0001FE717 /* INSOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B21B98A89E0009DB98 /* INSOperationQueue.m */; };
+		644E02F91BA5C6D0001FE717 /* INSExclusivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7CF1B98F07C0009DB98 /* INSExclusivityController.m */; };
+		644E02FA1BA5C6FF001FE717 /* NSError+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E02FB1BA5C6FF001FE717 /* INSReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E02FC1BA5C6FF001FE717 /* INSOperationConditionProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E02FD1BA5C6FF001FE717 /* INSOperationConditionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E02FE1BA5C6FF001FE717 /* INSMutallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E02FF1BA5C6FF001FE717 /* INSReachabilityCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03001BA5C6FF001FE717 /* INSSilientCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7F81B9C9A8E0009DB98 /* INSSilientCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03011BA5C700001FE717 /* INSNegatedCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7FC1B9CA0E90009DB98 /* INSNegatedCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03021BA5C700001FE717 /* INSNoCancelledDependenciesCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8001B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03041BA5C700001FE717 /* INSChainableOperationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03051BA5C700001FE717 /* INSChainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03061BA5C700001FE717 /* INSOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7BC1B98ABD30009DB98 /* INSOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03071BA5C700001FE717 /* NSOperation+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03081BA5C700001FE717 /* INSBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7D21B99F8C70009DB98 /* INSBlockOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03091BA5C700001FE717 /* INSGroupOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7D61B99FA150009DB98 /* INSGroupOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E030A1BA5C700001FE717 /* INSDelayOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7DA1B99FB370009DB98 /* INSDelayOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E030B1BA5C700001FE717 /* INSURLSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7DE1B99FC840009DB98 /* INSURLSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E030D1BA5C700001FE717 /* INSOperationObserverProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B61B98AA190009DB98 /* INSOperationObserverProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E030E1BA5C700001FE717 /* INSBlockObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B71B98AA5E0009DB98 /* INSBlockObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E030F1BA5C700001FE717 /* INSTimeoutObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03101BA5C700001FE717 /* INSOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B11B98A89E0009DB98 /* INSOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E03111BA5C700001FE717 /* INSExclusivityController.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CE1B98F07C0009DB98 /* INSExclusivityController.h */; };
+		646B458D1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458C1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m */; };
 		646B45901BA0952800C00500 /* INSEarthquakeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */; };
 		646B45931BA09F2F00C00500 /* INSAlertOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B45921BA09F2F00C00500 /* INSAlertOperation.m */; };
 		647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
@@ -24,11 +73,11 @@
 		64DFC7711B98A7C50009DB98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC76F1B98A7C50009DB98 /* Main.storyboard */; };
 		64DFC7731B98A7C50009DB98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC7721B98A7C50009DB98 /* Images.xcassets */; };
 		64DFC7761B98A7C50009DB98 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64DFC7741B98A7C50009DB98 /* LaunchScreen.xib */; };
-		64DFC7951B98A7D00009DB98 /* INSOperationsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7941B98A7D00009DB98 /* INSOperationsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64DFC79B1B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; };
+		64DFC7951B98A7D00009DB98 /* INSOperationsKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7941B98A7D00009DB98 /* INSOperationsKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC79B1B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */; };
 		64DFC7A41B98A7D00009DB98 /* INSOperationsKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7A31B98A7D00009DB98 /* INSOperationsKitTests.m */; };
-		64DFC7A71B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; };
-		64DFC7A81B98A7D00009DB98 /* INSOperationsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		64DFC7A71B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */; };
+		64DFC7A81B98A7D00009DB98 /* INSOperationsKitiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B11B98A89E0009DB98 /* INSOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7B41B98A89E0009DB98 /* INSOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B21B98A89E0009DB98 /* INSOperationQueue.m */; };
 		64DFC7B91B98AA5E0009DB98 /* INSBlockObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B71B98AA5E0009DB98 /* INSBlockObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,12 +119,24 @@
 		64DFC8031B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */; };
 		64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8041B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC8071B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */; };
-		64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64DFC80B1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */; };
+		64EF35161BA5C99900AD34E7 /* INSParseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */; };
+		64EF35181BA5C99900AD34E7 /* INSDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */; };
+		64EF35191BA5C99900AD34E7 /* INSCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E12B1B9E199E00ABD1DD /* INSCoreDataStack.m */; };
+		64EF351A1BA5C99900AD34E7 /* INSEarthquake.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1261B9E18C600ABD1DD /* INSEarthquake.m */; };
+		64EF351B1BA5C99900AD34E7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
+		64EF351E1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF351D1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m */; settings = {ASSET_TAGS = (); }; };
+		64EF35221BA5F60900AD34E7 /* INSPhotosLibraryAccessOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */; };
 		D25131E21BA1712E00D11398 /* INSTestChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D25131E11BA1712E00D11398 /* INSTestChainOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		644E02C61BA5C6B1001FE717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64DFC75A1B98A7C50009DB98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 644E02C01BA5C6B1001FE717;
+			remoteInfo = INSOperationsKitOSX;
+		};
 		64DFC79C1B98A7D00009DB98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 64DFC75A1B98A7C50009DB98 /* Project object */;
@@ -93,13 +154,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		644E02BB1BA5C2C3001FE717 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				644E02C91BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DFC7AC1B98A7D00009DB98 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				64DFC7A81B98A7D00009DB98 /* INSOperationsKit.framework in Embed Frameworks */,
+				64DFC7A81B98A7D00009DB98 /* INSOperationsKitiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,14 +192,26 @@
 		6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSChainOperation.h; sourceTree = "<group>"; };
 		6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSChainOperation.m; sourceTree = "<group>"; };
 		6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSChainableOperationProtocol.h; sourceTree = "<group>"; };
-		646B458B1BA091EC00C00500 /* INSEarthquakeOperationsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INSEarthquakeOperationsProvider.h; path = ../Model/INSEarthquakeOperationsProvider.h; sourceTree = "<group>"; };
-		646B458C1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INSEarthquakeOperationsProvider.m; path = ../Model/INSEarthquakeOperationsProvider.m; sourceTree = "<group>"; };
+		644E02A01BA5C1C2001FE717 /* INSOperationsKit OSX Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit OSX Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		644E02A21BA5C1C2001FE717 /* INSOSXAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOSXAppDelegate.h; sourceTree = "<group>"; };
+		644E02A31BA5C1C2001FE717 /* INSOSXAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INSOSXAppDelegate.m; sourceTree = "<group>"; };
+		644E02A61BA5C1C2001FE717 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		644E02A81BA5C1C2001FE717 /* INSOSXMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOSXMainViewController.h; sourceTree = "<group>"; };
+		644E02A91BA5C1C2001FE717 /* INSOSXMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INSOSXMainViewController.m; sourceTree = "<group>"; };
+		644E02AB1BA5C1C2001FE717 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		644E02AE1BA5C1C2001FE717 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		644E02B01BA5C1C2001FE717 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKitOSX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		644E02C31BA5C6B1001FE717 /* INSOperationsKitOSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKitOSX.h; sourceTree = "<group>"; };
+		644E02C51BA5C6B1001FE717 /* INSOperationsKitOSX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INSOperationsKitOSX-Info.plist"; sourceTree = "<group>"; };
+		646B458B1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSiOSEarthquakeOperationsProvider.h; sourceTree = "<group>"; };
+		646B458C1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSiOSEarthquakeOperationsProvider.m; sourceTree = "<group>"; };
 		646B458E1BA0952800C00500 /* INSEarthquakeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSEarthquakeTableViewCell.h; sourceTree = "<group>"; };
 		646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSEarthquakeTableViewCell.m; sourceTree = "<group>"; };
 		646B45911BA09F2F00C00500 /* INSAlertOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSAlertOperation.h; sourceTree = "<group>"; };
 		646B45921BA09F2F00C00500 /* INSAlertOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSAlertOperation.m; sourceTree = "<group>"; };
 		647B822E1B9E181E0051EB46 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		64DFC7621B98A7C50009DB98 /* INSOperationsKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64DFC7621B98A7C50009DB98 /* INSOperationsKit iOS Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit iOS Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DFC7661B98A7C50009DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64DFC7671B98A7C50009DB98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		64DFC7691B98A7C50009DB98 /* INSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSAppDelegate.h; sourceTree = "<group>"; };
@@ -137,9 +221,9 @@
 		64DFC7701B98A7C50009DB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		64DFC7721B98A7C50009DB98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		64DFC7751B98A7C50009DB98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64DFC7931B98A7D00009DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		64DFC7941B98A7D00009DB98 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
+		64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKitiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64DFC7931B98A7D00009DB98 /* INSOperationsKitiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INSOperationsKitiOS-Info.plist"; sourceTree = "<group>"; };
+		64DFC7941B98A7D00009DB98 /* INSOperationsKitiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKitiOS.h; sourceTree = "<group>"; };
 		64DFC79A1B98A7D00009DB98 /* INSOperationsKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = INSOperationsKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DFC7A21B98A7D00009DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64DFC7A31B98A7D00009DB98 /* INSOperationsKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = INSOperationsKitTests.m; sourceTree = "<group>"; };
@@ -153,8 +237,8 @@
 		64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOperationConditionResult.h; sourceTree = "<group>"; };
 		64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOperationConditionResult.m; sourceTree = "<group>"; };
 		64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationConditionProtocol.h; sourceTree = "<group>"; };
-		64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSError+INSOperationKit.h"; path = "../Conditions/NSError+INSOperationKit.h"; sourceTree = "<group>"; };
-		64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSError+INSOperationKit.m"; path = "../Conditions/NSError+INSOperationKit.m"; sourceTree = "<group>"; };
+		64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+INSOperationKit.h"; sourceTree = "<group>"; };
+		64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+INSOperationKit.m"; sourceTree = "<group>"; };
 		64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperation+INSOperationKit.h"; sourceTree = "<group>"; };
 		64DFC7CB1B98EB520009DB98 /* NSOperation+INSOperationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperation+INSOperationKit.m"; sourceTree = "<group>"; };
 		64DFC7CE1B98F07C0009DB98 /* INSExclusivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSExclusivityController.h; sourceTree = "<group>"; };
@@ -187,17 +271,35 @@
 		64DFC8051B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessCondition.m; sourceTree = "<group>"; };
 		64DFC8081B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSPhotosLibraryAccessOperation.h; sourceTree = "<group>"; };
 		64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessOperation.m; sourceTree = "<group>"; };
+		64EF351C1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOSXEarthquakeOperationProvider.h; sourceTree = "<group>"; };
+		64EF351D1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOSXEarthquakeOperationProvider.m; sourceTree = "<group>"; };
+		64EF351F1BA5F55F00AD34E7 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
 		757B7F30F0064A2F81F6C8C4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25131E01BA1712E00D11398 /* INSTestChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSTestChainOperation.h; sourceTree = "<group>"; };
 		D25131E11BA1712E00D11398 /* INSTestChainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSTestChainOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		644E029D1BA5C1C2001FE717 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				644E02C81BA5C6B1001FE717 /* INSOperationsKitOSX.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		644E02BD1BA5C6B1001FE717 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DFC75F1B98A7C50009DB98 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DFC7A71B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */,
+				64DFC7A71B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DFC79B1B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */,
+				64DFC79B1B98A7D00009DB98 /* INSOperationsKitiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,16 +332,70 @@
 		6418E1291B9E198700ABD1DD /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				646B458B1BA091EC00C00500 /* INSEarthquakeOperationsProvider.h */,
-				646B458C1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m */,
-				6418E1341B9E28F300ABD1DD /* INSDownloadOperation.h */,
-				6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */,
-				6418E13A1B9E31D300ABD1DD /* INSParseOperation.h */,
-				6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */,
 				646B45911BA09F2F00C00500 /* INSAlertOperation.h */,
 				646B45921BA09F2F00C00500 /* INSAlertOperation.m */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		644E02A11BA5C1C2001FE717 /* INSOperationsKit OSX Demo */ = {
+			isa = PBXGroup;
+			children = (
+				644E02B41BA5C1DA001FE717 /* Operations */,
+				644E02A21BA5C1C2001FE717 /* INSOSXAppDelegate.h */,
+				644E02A31BA5C1C2001FE717 /* INSOSXAppDelegate.m */,
+				644E02A81BA5C1C2001FE717 /* INSOSXMainViewController.h */,
+				644E02A91BA5C1C2001FE717 /* INSOSXMainViewController.m */,
+				644E02AB1BA5C1C2001FE717 /* Assets.xcassets */,
+				644E02AD1BA5C1C2001FE717 /* Main.storyboard */,
+				644E02B01BA5C1C2001FE717 /* Info.plist */,
+				644E02A51BA5C1C2001FE717 /* Supporting Files */,
+			);
+			path = "INSOperationsKit OSX Demo";
+			sourceTree = "<group>";
+		};
+		644E02A51BA5C1C2001FE717 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				644E02A61BA5C1C2001FE717 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		644E02B41BA5C1DA001FE717 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				64EF351C1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.h */,
+				64EF351D1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		644E02B51BA5C208001FE717 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				644E02B61BA5C242001FE717 /* Operations */,
+				647B822C1B9E163E0051EB46 /* Model */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		644E02B61BA5C242001FE717 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				6418E13A1B9E31D300ABD1DD /* INSParseOperation.h */,
+				6418E13B1B9E31D300ABD1DD /* INSParseOperation.m */,
+				6418E1341B9E28F300ABD1DD /* INSDownloadOperation.h */,
+				6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		644E02C21BA5C6B1001FE717 /* INSOperationsKit OSX */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "INSOperationsKit OSX";
 			sourceTree = "<group>";
 		};
 		647B822C1B9E163E0051EB46 /* Model */ = {
@@ -260,8 +416,11 @@
 			isa = PBXGroup;
 			children = (
 				64DFC7911B98A7D00009DB98 /* INSOperationsKit */,
+				644E02B51BA5C208001FE717 /* Shared */,
 				64DFC7A01B98A7D00009DB98 /* INSOperationsKitTests */,
-				64DFC7641B98A7C50009DB98 /* INSOperationsKit Demo */,
+				64DFC7641B98A7C50009DB98 /* INSOperationsKit iOS Demo */,
+				644E02A11BA5C1C2001FE717 /* INSOperationsKit OSX Demo */,
+				644E02C21BA5C6B1001FE717 /* INSOperationsKit OSX */,
 				64DFC7631B98A7C50009DB98 /* Products */,
 				1F256ACF4C59142FECD21FA1 /* Frameworks */,
 			);
@@ -270,18 +429,21 @@
 		64DFC7631B98A7C50009DB98 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				64DFC7621B98A7C50009DB98 /* INSOperationsKit Demo.app */,
-				64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */,
+				64DFC7621B98A7C50009DB98 /* INSOperationsKit iOS Demo.app */,
+				64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */,
 				64DFC79A1B98A7D00009DB98 /* INSOperationsKitTests.xctest */,
+				644E02A01BA5C1C2001FE717 /* INSOperationsKit OSX Demo.app */,
+				644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		64DFC7641B98A7C50009DB98 /* INSOperationsKit Demo */ = {
+		64DFC7641B98A7C50009DB98 /* INSOperationsKit iOS Demo */ = {
 			isa = PBXGroup;
 			children = (
+				646B458B1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.h */,
+				646B458C1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m */,
 				6418E1291B9E198700ABD1DD /* Operations */,
-				647B822C1B9E163E0051EB46 /* Model */,
 				64DFC7691B98A7C50009DB98 /* INSAppDelegate.h */,
 				64DFC76A1B98A7C50009DB98 /* INSAppDelegate.m */,
 				64DFC76C1B98A7C50009DB98 /* INSMainViewController.h */,
@@ -293,7 +455,7 @@
 				64DFC7741B98A7C50009DB98 /* LaunchScreen.xib */,
 				64DFC7651B98A7C50009DB98 /* Supporting Files */,
 			);
-			path = "INSOperationsKit Demo";
+			path = "INSOperationsKit iOS Demo";
 			sourceTree = "<group>";
 		};
 		64DFC7651B98A7C50009DB98 /* Supporting Files */ = {
@@ -313,7 +475,9 @@
 				64DFC7BB1B98ABC40009DB98 /* Operations */,
 				64DFC7B51B98AA070009DB98 /* Observers */,
 				64DFC7B01B98A82F0009DB98 /* Operation Queue */,
-				64DFC7941B98A7D00009DB98 /* INSOperationsKit.h */,
+				64EF351F1BA5F55F00AD34E7 /* INSOperationsKit.h */,
+				64DFC7941B98A7D00009DB98 /* INSOperationsKitiOS.h */,
+				644E02C31BA5C6B1001FE717 /* INSOperationsKitOSX.h */,
 				64DFC7921B98A7D00009DB98 /* Supporting Files */,
 			);
 			path = INSOperationsKit;
@@ -322,7 +486,8 @@
 		64DFC7921B98A7D00009DB98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				64DFC7931B98A7D00009DB98 /* Info.plist */,
+				644E02C51BA5C6B1001FE717 /* INSOperationsKitOSX-Info.plist */,
+				64DFC7931B98A7D00009DB98 /* INSOperationsKitiOS-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -431,6 +596,36 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		644E02BE1BA5C6B1001FE717 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				644E02C41BA5C6B1001FE717 /* INSOperationsKitOSX.h in Headers */,
+				644E02FA1BA5C6FF001FE717 /* NSError+INSOperationKit.h in Headers */,
+				644E02FB1BA5C6FF001FE717 /* INSReachabilityManager.h in Headers */,
+				644E02FC1BA5C6FF001FE717 /* INSOperationConditionProtocol.h in Headers */,
+				644E02FD1BA5C6FF001FE717 /* INSOperationConditionResult.h in Headers */,
+				644E02FE1BA5C6FF001FE717 /* INSMutallyExclusiveCondition.h in Headers */,
+				644E02FF1BA5C6FF001FE717 /* INSReachabilityCondition.h in Headers */,
+				644E03001BA5C6FF001FE717 /* INSSilientCondition.h in Headers */,
+				644E03011BA5C700001FE717 /* INSNegatedCondition.h in Headers */,
+				644E03021BA5C700001FE717 /* INSNoCancelledDependenciesCondition.h in Headers */,
+				644E03041BA5C700001FE717 /* INSChainableOperationProtocol.h in Headers */,
+				644E03051BA5C700001FE717 /* INSChainOperation.h in Headers */,
+				644E03061BA5C700001FE717 /* INSOperation.h in Headers */,
+				644E03071BA5C700001FE717 /* NSOperation+INSOperationKit.h in Headers */,
+				644E03081BA5C700001FE717 /* INSBlockOperation.h in Headers */,
+				644E03091BA5C700001FE717 /* INSGroupOperation.h in Headers */,
+				644E030A1BA5C700001FE717 /* INSDelayOperation.h in Headers */,
+				644E030B1BA5C700001FE717 /* INSURLSessionTaskOperation.h in Headers */,
+				644E030D1BA5C700001FE717 /* INSOperationObserverProtocol.h in Headers */,
+				644E030E1BA5C700001FE717 /* INSBlockObserver.h in Headers */,
+				644E030F1BA5C700001FE717 /* INSTimeoutObserver.h in Headers */,
+				644E03101BA5C700001FE717 /* INSOperationQueue.h in Headers */,
+				644E03111BA5C700001FE717 /* INSExclusivityController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DFC78D1B98A7D00009DB98 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,7 +637,7 @@
 				64DFC7F11B9A04210009DB98 /* INSReachabilityManager.h in Headers */,
 				64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */,
 				64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */,
-				64DFC7951B98A7D00009DB98 /* INSOperationsKit.h in Headers */,
+				64DFC7951B98A7D00009DB98 /* INSOperationsKitiOS.h in Headers */,
 				64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */,
 				64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */,
 				64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */,
@@ -454,7 +649,6 @@
 				64DFC7F41B9A0B2D0009DB98 /* INSOperationObserverProtocol.h in Headers */,
 				64DFC8021B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h in Headers */,
 				64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */,
-				64DFC80A1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.h in Headers */,
 				6418E1421B9E413100ABD1DD /* INSChainableOperationProtocol.h in Headers */,
 				6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */,
 				64DFC7FE1B9CA0E90009DB98 /* INSNegatedCondition.h in Headers */,
@@ -466,9 +660,46 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		64DFC7611B98A7C50009DB98 /* INSOperationsKit Demo */ = {
+		644E029F1BA5C1C2001FE717 /* INSOperationsKit OSX Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64DFC7851B98A7C50009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit Demo" */;
+			buildConfigurationList = 644E02B11BA5C1C2001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKit OSX Demo" */;
+			buildPhases = (
+				644E029C1BA5C1C2001FE717 /* Sources */,
+				644E029D1BA5C1C2001FE717 /* Frameworks */,
+				644E029E1BA5C1C2001FE717 /* Resources */,
+				644E02BB1BA5C2C3001FE717 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				644E02C71BA5C6B1001FE717 /* PBXTargetDependency */,
+			);
+			name = "INSOperationsKit OSX Demo";
+			productName = "INSOperationsKit OSX";
+			productReference = 644E02A01BA5C1C2001FE717 /* INSOperationsKit OSX Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		644E02C01BA5C6B1001FE717 /* INSOperationsKitOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 644E02CA1BA5C6B1001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKitOSX" */;
+			buildPhases = (
+				644E02BC1BA5C6B1001FE717 /* Sources */,
+				644E02BD1BA5C6B1001FE717 /* Frameworks */,
+				644E02BE1BA5C6B1001FE717 /* Headers */,
+				644E02BF1BA5C6B1001FE717 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = INSOperationsKitOSX;
+			productName = INSOperationsKitOSX;
+			productReference = 644E02C11BA5C6B1001FE717 /* INSOperationsKitOSX.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		64DFC7611B98A7C50009DB98 /* INSOperationsKit iOS Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64DFC7851B98A7C50009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit iOS Demo" */;
 			buildPhases = (
 				64DFC75E1B98A7C50009DB98 /* Sources */,
 				64DFC75F1B98A7C50009DB98 /* Frameworks */,
@@ -480,14 +711,14 @@
 			dependencies = (
 				64DFC7A61B98A7D00009DB98 /* PBXTargetDependency */,
 			);
-			name = "INSOperationsKit Demo";
+			name = "INSOperationsKit iOS Demo";
 			productName = "INSOperationsKit Demo";
-			productReference = 64DFC7621B98A7C50009DB98 /* INSOperationsKit Demo.app */;
+			productReference = 64DFC7621B98A7C50009DB98 /* INSOperationsKit iOS Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		64DFC78F1B98A7D00009DB98 /* INSOperationsKit */ = {
+		64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit" */;
+			buildConfigurationList = 64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKitiOS" */;
 			buildPhases = (
 				64DFC78B1B98A7D00009DB98 /* Sources */,
 				64DFC78C1B98A7D00009DB98 /* Frameworks */,
@@ -498,9 +729,9 @@
 			);
 			dependencies = (
 			);
-			name = INSOperationsKit;
+			name = INSOperationsKitiOS;
 			productName = INSOperationsKit;
-			productReference = 64DFC7901B98A7D00009DB98 /* INSOperationsKit.framework */;
+			productReference = 64DFC7901B98A7D00009DB98 /* INSOperationsKitiOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		64DFC7991B98A7D00009DB98 /* INSOperationsKitTests */ = {
@@ -530,6 +761,12 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Michal Zaborowski";
 				TargetAttributes = {
+					644E029F1BA5C1C2001FE717 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					644E02C01BA5C6B1001FE717 = {
+						CreatedOnToolsVersion = 7.0;
+					};
 					64DFC7611B98A7C50009DB98 = {
 						CreatedOnToolsVersion = 6.4;
 					};
@@ -554,14 +791,32 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				64DFC7611B98A7C50009DB98 /* INSOperationsKit Demo */,
-				64DFC78F1B98A7D00009DB98 /* INSOperationsKit */,
+				64DFC7611B98A7C50009DB98 /* INSOperationsKit iOS Demo */,
+				64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */,
 				64DFC7991B98A7D00009DB98 /* INSOperationsKitTests */,
+				644E029F1BA5C1C2001FE717 /* INSOperationsKit OSX Demo */,
+				644E02C01BA5C6B1001FE717 /* INSOperationsKitOSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		644E029E1BA5C1C2001FE717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				644E02AC1BA5C1C2001FE717 /* Assets.xcassets in Resources */,
+				644E02AF1BA5C1C2001FE717 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		644E02BF1BA5C6B1001FE717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DFC7601B98A7C50009DB98 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -589,6 +844,48 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		644E029C1BA5C1C2001FE717 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64EF35161BA5C99900AD34E7 /* INSParseOperation.m in Sources */,
+				64EF35181BA5C99900AD34E7 /* INSDownloadOperation.m in Sources */,
+				64EF35191BA5C99900AD34E7 /* INSCoreDataStack.m in Sources */,
+				64EF351A1BA5C99900AD34E7 /* INSEarthquake.m in Sources */,
+				64EF351B1BA5C99900AD34E7 /* Model.xcdatamodeld in Sources */,
+				644E02AA1BA5C1C2001FE717 /* INSOSXMainViewController.m in Sources */,
+				644E02A71BA5C1C2001FE717 /* main.m in Sources */,
+				644E02A41BA5C1C2001FE717 /* INSOSXAppDelegate.m in Sources */,
+				64EF351E1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		644E02BC1BA5C6B1001FE717 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				644E02CE1BA5C6D0001FE717 /* NSError+INSOperationKit.m in Sources */,
+				644E02D01BA5C6D0001FE717 /* INSReachabilityManager.m in Sources */,
+				644E02D31BA5C6D0001FE717 /* INSOperationConditionResult.m in Sources */,
+				644E02D51BA5C6D0001FE717 /* INSMutallyExclusiveCondition.m in Sources */,
+				644E02D71BA5C6D0001FE717 /* INSReachabilityCondition.m in Sources */,
+				644E02D91BA5C6D0001FE717 /* INSSilientCondition.m in Sources */,
+				644E02DB1BA5C6D0001FE717 /* INSNegatedCondition.m in Sources */,
+				644E02DD1BA5C6D0001FE717 /* INSNoCancelledDependenciesCondition.m in Sources */,
+				644E02E21BA5C6D0001FE717 /* INSChainOperation.m in Sources */,
+				644E02E41BA5C6D0001FE717 /* INSOperation.m in Sources */,
+				644E02E61BA5C6D0001FE717 /* NSOperation+INSOperationKit.m in Sources */,
+				644E02E81BA5C6D0001FE717 /* INSBlockOperation.m in Sources */,
+				644E02EA1BA5C6D0001FE717 /* INSGroupOperation.m in Sources */,
+				644E02EC1BA5C6D0001FE717 /* INSDelayOperation.m in Sources */,
+				644E02EE1BA5C6D0001FE717 /* INSURLSessionTaskOperation.m in Sources */,
+				644E02F31BA5C6D0001FE717 /* INSBlockObserver.m in Sources */,
+				644E02F51BA5C6D0001FE717 /* INSTimeoutObserver.m in Sources */,
+				644E02F71BA5C6D0001FE717 /* INSOperationQueue.m in Sources */,
+				644E02F91BA5C6D0001FE717 /* INSExclusivityController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		64DFC75E1B98A7C50009DB98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -602,7 +899,7 @@
 				6418E13C1B9E31D300ABD1DD /* INSParseOperation.m in Sources */,
 				6418E1361B9E28F300ABD1DD /* INSDownloadOperation.m in Sources */,
 				64DFC7681B98A7C50009DB98 /* main.m in Sources */,
-				646B458D1BA091EC00C00500 /* INSEarthquakeOperationsProvider.m in Sources */,
+				646B458D1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m in Sources */,
 				647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,12 +908,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64EF35221BA5F60900AD34E7 /* INSPhotosLibraryAccessOperation.m in Sources */,
 				64DFC7DD1B99FB370009DB98 /* INSDelayOperation.m in Sources */,
 				64DFC7EE1B9A02900009DB98 /* INSReachabilityCondition.m in Sources */,
 				64DFC8071B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.m in Sources */,
 				64DFC7CD1B98EB520009DB98 /* NSOperation+INSOperationKit.m in Sources */,
 				64DFC7E11B99FC840009DB98 /* INSURLSessionTaskOperation.m in Sources */,
-				64DFC80B1B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m in Sources */,
 				64DFC7BA1B98AA5E0009DB98 /* INSBlockObserver.m in Sources */,
 				64DFC7E91B9A00300009DB98 /* INSMutallyExclusiveCondition.m in Sources */,
 				6418E1401B9E3D3100ABD1DD /* INSChainOperation.m in Sources */,
@@ -648,19 +945,33 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		644E02C71BA5C6B1001FE717 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 644E02C01BA5C6B1001FE717 /* INSOperationsKitOSX */;
+			targetProxy = 644E02C61BA5C6B1001FE717 /* PBXContainerItemProxy */;
+		};
 		64DFC79D1B98A7D00009DB98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKit */;
+			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */;
 			targetProxy = 64DFC79C1B98A7D00009DB98 /* PBXContainerItemProxy */;
 		};
 		64DFC7A61B98A7D00009DB98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKit */;
+			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKitiOS */;
 			targetProxy = 64DFC7A51B98A7D00009DB98 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		644E02AD1BA5C1C2001FE717 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				644E02AE1BA5C1C2001FE717 /* Base */,
+			);
+			name = Main.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
 		64DFC76F1B98A7C50009DB98 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -682,6 +993,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		644E02B21BA5C1C2001FE717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSOperationsKit-OSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		644E02B31BA5C1C2001FE717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSOperationsKit-OSX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		644E02CB1BA5C6B1001FE717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitOSX-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKitOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		644E02CC1BA5C6B1001FE717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitOSX-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKitOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		64DFC7831B98A7C50009DB98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -769,7 +1160,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "INSOperationsKit Demo/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -780,7 +1171,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "INSOperationsKit Demo/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit OSX Demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -790,6 +1181,7 @@
 		64DFC7AA1B98A7D00009DB98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -799,10 +1191,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitiOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -813,15 +1206,17 @@
 		64DFC7AB1B98A7D00009DB98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "INSOperationsKit/Supporting Files/INSOperationsKitiOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -864,6 +1259,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		644E02B11BA5C1C2001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKit OSX Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				644E02B21BA5C1C2001FE717 /* Debug */,
+				644E02B31BA5C1C2001FE717 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		644E02CA1BA5C6B1001FE717 /* Build configuration list for PBXNativeTarget "INSOperationsKitOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				644E02CB1BA5C6B1001FE717 /* Debug */,
+				644E02CC1BA5C6B1001FE717 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		64DFC75D1B98A7C50009DB98 /* Build configuration list for PBXProject "INSOperationsKit Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -873,7 +1286,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64DFC7851B98A7C50009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit Demo" */ = {
+		64DFC7851B98A7C50009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit iOS Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64DFC7861B98A7C50009DB98 /* Debug */,
@@ -882,7 +1295,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKit" */ = {
+		64DFC7A91B98A7D00009DB98 /* Build configuration list for PBXNativeTarget "INSOperationsKitiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				64DFC7AA1B98A7D00009DB98 /* Debug */,

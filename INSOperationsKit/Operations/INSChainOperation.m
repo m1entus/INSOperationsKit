@@ -7,6 +7,7 @@
 //
 
 #import "INSChainOperation.h"
+#import "INSOperationQueue.h"
 
 @interface INSChainOperation () <INSOperationQueueDelegate>
 @property (nonatomic, strong) INSOperationQueue *internalQueue;

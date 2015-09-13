@@ -6,7 +6,12 @@
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import <INSOperationsKit/INSOperationsKit.h>
+#if TARGET_OS_IOS
+@import INSOperationsKitiOS;
+#elif TARGET_OS_MAC
+@import INSOperationsKitOSX;
+#endif
+
 #import <CoreData/CoreData.h>
 
 typedef id(^INSDownloadOperationResponseFilterBlock)(id responseObject);

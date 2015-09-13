@@ -1,21 +1,20 @@
 //
-//  INSEarthquakeOperationsProvider.m
+//  INSOSXEarthquakeOperationProvider.m
 //  INSOperationsKit Demo
 //
-//  Created by Michal Zaborowski on 09.09.2015.
+//  Created by Michal Zaborowski on 13.09.2015.
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import "INSEarthquakeOperationsProvider.h"
+#import "INSOSXEarthquakeOperationProvider.h"
 #import "INSDownloadOperation.h"
 #import "INSOperationQueue.h"
 #import "INSChainOperation.h"
 #import "INSParseOperation.h"
 #import "INSEarthquake.h"
 #import "INSCoreDataStack.h"
-#import "INSAlertOperation.h"
 
-@implementation INSEarthquakeOperationsProvider
+@implementation INSOSXEarthquakeOperationProvider
 
 + (INSChainOperation *)getAllEarthquakesWithCompletionHandler:(void (^)(INSChainOperation *operation, NSError *error))completionHandler {
     INSDownloadOperation *downloadOperation = [[INSDownloadOperation alloc] initWithURL:[NSURL URLWithString:@"http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson"] responseFiltering:^id(id responseObject) {
@@ -31,10 +30,7 @@
             completionHandler(chainOperation, error);
         }
         if (error) {
-            INSAlertOperation *alertOperation = [INSAlertOperation alertOperationWithPresentationContext:nil];
-            alertOperation.title = @"Error";
-            alertOperation.message = error.localizedDescription;
-            [chainOperation produceOperation:alertOperation];
+            // make alert operation for OSX
         }
     }];
     return chainOperation;

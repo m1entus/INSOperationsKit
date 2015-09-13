@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import <INSOperationsKit/INSOperationsKit.h>
+#import <INSOperationsKitiOS/INSOperationsKitiOS.h>
 #import "INSOperationTestCondition.h"
 #import "INSTestChainOperation.h"
 
