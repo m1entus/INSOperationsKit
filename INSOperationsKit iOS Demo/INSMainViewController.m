@@ -66,4 +66,13 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    INSEarthquake *earthquake = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [[INSiOSEarthquakeOperationsProvider moreInformationForEarthquake:earthquake completionHandler:^(INSMoreInformationOperation *operation) {
+        
+    }] runInGlobalQueue];
+}
+
 @end

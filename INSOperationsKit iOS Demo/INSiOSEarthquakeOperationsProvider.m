@@ -40,4 +40,16 @@
     return chainOperation;
 }
 
+
++ (INSMoreInformationOperation *)moreInformationForEarthquake:(INSEarthquake *)earthquake completionHandler:(void (^)(INSMoreInformationOperation *operation))completionHandler {
+    __block INSMoreInformationOperation *operation = [[INSMoreInformationOperation alloc] initWithURL:[NSURL URLWithString:earthquake.webLink] presentationContext:nil];
+    
+    [operation ins_addCompletionBlockInMainQueue:^{
+        if (completionHandler) {
+            completionHandler(operation);
+        }
+    }];
+    return operation;
+}
+
 @end

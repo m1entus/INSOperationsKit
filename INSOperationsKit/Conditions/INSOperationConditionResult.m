@@ -54,8 +54,8 @@
         
         dispatch_group_enter(conditionGroup);
         [condition evaluateForOperation:operation completion:^(INSOperationConditionResult * result) {
-            
-            results[idx] = result;
+            [results addObject:result];
+
             dispatch_group_leave(conditionGroup);
         }];
     }];
