@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.webView = [WKWebView alloc] initWithFrame:self.view.bounds];
+    self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:self.webView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidClose:) name:NSWindowWillCloseNotification object:nil];
