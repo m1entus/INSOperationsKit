@@ -30,6 +30,6 @@
 
 #if TARGET_OS_IPHONE
 #import "INSPhotosLibraryAccessCondition.h"
-#import "INSPhotosLibraryAccessOperation"
+#import "INSPhotosLibraryAccessOperation.h"
 #endif
 
