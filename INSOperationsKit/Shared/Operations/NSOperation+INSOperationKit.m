@@ -10,11 +10,12 @@
 
 @implementation NSOperation (INSOperationKit)
 
-- (void)ins_addCompletionBlockInMainQueue:(void (^)(void))block {
+- (void)ins_addCompletionBlockInMainQueue:(void (^)(__kindof NSOperation *operation))block {
     if (!block) {
         return;
     }
     void (^existing)(void) = self.completionBlock;
+    __weak typeof(self) weakSelf = self;
     if (existing) {
         /*
          If we already have a completion block, we construct a new one by
@@ -22,14 +23,16 @@
          */
         self.completionBlock = ^{
             existing();
+            __strong typeof(weakSelf) strongSelf = weakSelf;
             dispatch_async(dispatch_get_main_queue(), ^{
-                block();
+                block(strongSelf);
             });
         };
     } else {
         self.completionBlock = ^(){
+            __strong typeof(weakSelf) strongSelf = weakSelf;
             dispatch_async(dispatch_get_main_queue(), ^{
-                block();
+                block(strongSelf);
             });
         };
     }
@@ -39,11 +42,12 @@
  Add a completion block to be executed after the `NSOperation` enters the
  "finished" state.
  */
-- (void)ins_addCompletionBlock:(void (^)(void))block {
+- (void)ins_addCompletionBlock:(void (^)(__kindof NSOperation *operation))block {
     if (!block) {
         return;
     }
     void (^existing)(void) = self.completionBlock;
+    __weak typeof(self) weakSelf = self;
     if (existing) {
         /*
          If we already have a completion block, we construct a new one by
@@ -51,10 +55,12 @@
          */
         self.completionBlock = ^{
             existing();
-            block();
+            block(weakSelf);
         };
     } else {
-        self.completionBlock = block;
+        self.completionBlock = ^() {
+            block(weakSelf);
+        };
     }
 }
 

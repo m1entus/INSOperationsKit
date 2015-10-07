@@ -24,7 +24,7 @@
     INSParseOperation *parseOperation = [[INSParseOperation alloc] initWithParsableClass:[INSEarthquake class] context:[[INSCoreDataStack sharedInstance] createPrivateContextWithMainQueueParent]];
     
     __block INSChainOperation *chainOperation = [INSChainOperation operationWithOperations:@[downloadOperation,parseOperation]];
-    [chainOperation ins_addCompletionBlockInMainQueue:^{
+    [chainOperation ins_addCompletionBlockInMainQueue:^(INSOperation *operation){
         NSError *error = [chainOperation.internalErrors firstObject];
         if (completionHandler) {
             completionHandler(chainOperation, error);
