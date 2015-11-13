@@ -130,6 +130,55 @@
 		64EF353B1BA6133C00AD34E7 /* INSMoreInformationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF353A1BA6133C00AD34E7 /* INSMoreInformationOperation.m */; };
 		64EF353E1BA619D300AD34E7 /* INSOSXWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF353D1BA619D300AD34E7 /* INSOSXWebViewController.m */; };
 		D25131E21BA1712E00D11398 /* INSTestChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D25131E11BA1712E00D11398 /* INSTestChainOperation.m */; };
+		D2EB6C571BF5E28200C75027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EB6C561BF5E28200C75027 /* main.m */; };
+		D2EB6C5A1BF5E28200C75027 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EB6C591BF5E28200C75027 /* AppDelegate.m */; };
+		D2EB6C5D1BF5E28200C75027 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EB6C5C1BF5E28200C75027 /* ViewController.m */; };
+		D2EB6C601BF5E28200C75027 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EB6C5E1BF5E28200C75027 /* Main.storyboard */; };
+		D2EB6C621BF5E28200C75027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EB6C611BF5E28200C75027 /* Assets.xcassets */; };
+		D2EB6C671BF5E28A00C75027 /* INSOperationsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2EB6C471BF5E23600C75027 /* INSOperationsKit.framework */; };
+		D2EB6C681BF5E28A00C75027 /* INSOperationsKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2EB6C471BF5E23600C75027 /* INSOperationsKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2EB6C6C1BF5E30C00C75027 /* INSChainableOperationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E1411B9E3D5600ABD1DD /* INSChainableOperationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C6D1BF5E30C00C75027 /* INSChainOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6418E13D1B9E3D3100ABD1DD /* INSChainOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C6E1BF5E30C00C75027 /* INSOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7BC1B98ABD30009DB98 /* INSOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C6F1BF5E30C00C75027 /* NSOperation+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CA1B98EB520009DB98 /* NSOperation+INSOperationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C701BF5E30C00C75027 /* INSBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7D21B99F8C70009DB98 /* INSBlockOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C711BF5E30C00C75027 /* INSGroupOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7D61B99FA150009DB98 /* INSGroupOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C721BF5E30C00C75027 /* INSDelayOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7DA1B99FB370009DB98 /* INSDelayOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C731BF5E30C00C75027 /* INSURLSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7DE1B99FC840009DB98 /* INSURLSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C741BF5E31B00C75027 /* INSOperationConditionProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C751BF5E31B00C75027 /* INSOperationConditionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C761BF5E31B00C75027 /* INSMutallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C771BF5E31B00C75027 /* INSReachabilityCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C781BF5E31B00C75027 /* INSSilientCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7F81B9C9A8E0009DB98 /* INSSilientCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C791BF5E31B00C75027 /* INSNegatedCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7FC1B9CA0E90009DB98 /* INSNegatedCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C7A1BF5E31B00C75027 /* INSNoCancelledDependenciesCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC8001B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C7B1BF5E32900C75027 /* NSError+INSOperationKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C61B98AF210009DB98 /* NSError+INSOperationKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C7C1BF5E32900C75027 /* INSReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C801BF5E35000C75027 /* INSBlockObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B71B98AA5E0009DB98 /* INSBlockObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C811BF5E35000C75027 /* INSTimeoutObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C821BF5E35000C75027 /* INSOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B11B98A89E0009DB98 /* INSOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C831BF5E35000C75027 /* INSExclusivityController.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CE1B98F07C0009DB98 /* INSExclusivityController.h */; };
+		D2EB6C851BF5E3EA00C75027 /* INSDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E1351B9E28F300ABD1DD /* INSDownloadOperation.m */; };
+		D2EB6C861BF5E4DF00C75027 /* INSOperationsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = D2EB6C491BF5E23600C75027 /* INSOperationsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C891BF5E53F00C75027 /* NSError+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */; };
+		D2EB6C8A1BF5E53F00C75027 /* INSReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */; };
+		D2EB6C8B1BF5E53F00C75027 /* INSOperationConditionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */; };
+		D2EB6C8C1BF5E53F00C75027 /* INSMutallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */; };
+		D2EB6C8D1BF5E53F00C75027 /* INSReachabilityCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */; };
+		D2EB6C8E1BF5E53F00C75027 /* INSSilientCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F91B9C9A8E0009DB98 /* INSSilientCondition.m */; };
+		D2EB6C8F1BF5E53F00C75027 /* INSNegatedCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */; };
+		D2EB6C901BF5E53F00C75027 /* INSNoCancelledDependenciesCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */; };
+		D2EB6C911BF5E53F00C75027 /* INSChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6418E13E1B9E3D3100ABD1DD /* INSChainOperation.m */; };
+		D2EB6C921BF5E53F00C75027 /* INSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7BD1B98ABD30009DB98 /* INSOperation.m */; };
+		D2EB6C931BF5E53F00C75027 /* NSOperation+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7CB1B98EB520009DB98 /* NSOperation+INSOperationKit.m */; };
+		D2EB6C941BF5E53F00C75027 /* INSBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7D31B99F8C70009DB98 /* INSBlockOperation.m */; };
+		D2EB6C951BF5E53F00C75027 /* INSGroupOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7D71B99FA150009DB98 /* INSGroupOperation.m */; };
+		D2EB6C961BF5E53F00C75027 /* INSDelayOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7DB1B99FB370009DB98 /* INSDelayOperation.m */; };
+		D2EB6C971BF5E53F00C75027 /* INSURLSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */; };
+		D2EB6C981BF5E53F00C75027 /* INSBlockObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B81B98AA5E0009DB98 /* INSBlockObserver.m */; };
+		D2EB6C991BF5E53F00C75027 /* INSTimeoutObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E31B99FDC70009DB98 /* INSTimeoutObserver.m */; };
+		D2EB6C9A1BF5E53F00C75027 /* INSOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7B21B98A89E0009DB98 /* INSOperationQueue.m */; };
+		D2EB6C9B1BF5E53F00C75027 /* INSExclusivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7CF1B98F07C0009DB98 /* INSExclusivityController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +203,13 @@
 			remoteGlobalIDString = 64DFC78F1B98A7D00009DB98;
 			remoteInfo = INSOperationsKit;
 		};
+		D2EB6C691BF5E28A00C75027 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64DFC75A1B98A7C50009DB98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2EB6C461BF5E23600C75027;
+			remoteInfo = INSOperationsKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -175,6 +231,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				64DFC7A81B98A7D00009DB98 /* INSOperationsKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EB6C6B1BF5E28A00C75027 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2EB6C681BF5E28A00C75027 /* INSOperationsKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +353,18 @@
 		757B7F30F0064A2F81F6C8C4 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25131E01BA1712E00D11398 /* INSTestChainOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSTestChainOperation.h; sourceTree = "<group>"; };
 		D25131E11BA1712E00D11398 /* INSTestChainOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSTestChainOperation.m; sourceTree = "<group>"; };
+		D2EB6C471BF5E23600C75027 /* INSOperationsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = INSOperationsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EB6C491BF5E23600C75027 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
+		D2EB6C4B1BF5E23600C75027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2EB6C531BF5E28200C75027 /* INSOperationsKit tvOS Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit tvOS Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2EB6C561BF5E28200C75027 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D2EB6C581BF5E28200C75027 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D2EB6C591BF5E28200C75027 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D2EB6C5B1BF5E28200C75027 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D2EB6C5C1BF5E28200C75027 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D2EB6C5F1BF5E28200C75027 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2EB6C611BF5E28200C75027 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2EB6C631BF5E28200C75027 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +403,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				64DFC79B1B98A7D00009DB98 /* INSOperationsKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EB6C431BF5E23600C75027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EB6C501BF5E28200C75027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EB6C671BF5E28A00C75027 /* INSOperationsKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +569,8 @@
 				644E02A11BA5C1C2001FE717 /* INSOperationsKit OSX Demo */,
 				644E02C21BA5C6B1001FE717 /* INSOperationsKit OSX */,
 				64EF35231BA6009900AD34E7 /* INSOperationsKit iOS */,
+				D2EB6C481BF5E23600C75027 /* INSOperationsKit */,
+				D2EB6C541BF5E28200C75027 /* INSOperationsKit tvOS Demo */,
 				64DFC7631B98A7C50009DB98 /* Products */,
 				1F256ACF4C59142FECD21FA1 /* Frameworks */,
 			);
@@ -488,6 +584,8 @@
 				64DFC79A1B98A7D00009DB98 /* INSOperationsKitTests.xctest */,
 				644E02A01BA5C1C2001FE717 /* INSOperationsKit OSX Demo.app */,
 				644E02C11BA5C6B1001FE717 /* INSOperationsKit.framework */,
+				D2EB6C471BF5E23600C75027 /* INSOperationsKit.framework */,
+				D2EB6C531BF5E28200C75027 /* INSOperationsKit tvOS Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -680,6 +778,38 @@
 			path = SNRFetchedResultsController;
 			sourceTree = "<group>";
 		};
+		D2EB6C481BF5E23600C75027 /* INSOperationsKit */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB6C491BF5E23600C75027 /* INSOperationsKit.h */,
+				D2EB6C4B1BF5E23600C75027 /* Info.plist */,
+			);
+			path = INSOperationsKit;
+			sourceTree = "<group>";
+		};
+		D2EB6C541BF5E28200C75027 /* INSOperationsKit tvOS Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB6C581BF5E28200C75027 /* AppDelegate.h */,
+				D2EB6C591BF5E28200C75027 /* AppDelegate.m */,
+				D2EB6C5B1BF5E28200C75027 /* ViewController.h */,
+				D2EB6C5C1BF5E28200C75027 /* ViewController.m */,
+				D2EB6C5E1BF5E28200C75027 /* Main.storyboard */,
+				D2EB6C611BF5E28200C75027 /* Assets.xcassets */,
+				D2EB6C631BF5E28200C75027 /* Info.plist */,
+				D2EB6C551BF5E28200C75027 /* Supporting Files */,
+			);
+			path = "INSOperationsKit tvOS Demo";
+			sourceTree = "<group>";
+		};
+		D2EB6C551BF5E28200C75027 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2EB6C561BF5E28200C75027 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -741,6 +871,35 @@
 				64DFC7FE1B9CA0E90009DB98 /* INSNegatedCondition.h in Headers */,
 				64DFC7D81B99FA150009DB98 /* INSGroupOperation.h in Headers */,
 				64DFC7D01B98F07C0009DB98 /* INSExclusivityController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EB6C441BF5E23600C75027 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EB6C6C1BF5E30C00C75027 /* INSChainableOperationProtocol.h in Headers */,
+				D2EB6C6D1BF5E30C00C75027 /* INSChainOperation.h in Headers */,
+				D2EB6C741BF5E31B00C75027 /* INSOperationConditionProtocol.h in Headers */,
+				D2EB6C751BF5E31B00C75027 /* INSOperationConditionResult.h in Headers */,
+				D2EB6C801BF5E35000C75027 /* INSBlockObserver.h in Headers */,
+				D2EB6C811BF5E35000C75027 /* INSTimeoutObserver.h in Headers */,
+				D2EB6C821BF5E35000C75027 /* INSOperationQueue.h in Headers */,
+				D2EB6C7B1BF5E32900C75027 /* NSError+INSOperationKit.h in Headers */,
+				D2EB6C7C1BF5E32900C75027 /* INSReachabilityManager.h in Headers */,
+				D2EB6C761BF5E31B00C75027 /* INSMutallyExclusiveCondition.h in Headers */,
+				D2EB6C771BF5E31B00C75027 /* INSReachabilityCondition.h in Headers */,
+				D2EB6C781BF5E31B00C75027 /* INSSilientCondition.h in Headers */,
+				D2EB6C791BF5E31B00C75027 /* INSNegatedCondition.h in Headers */,
+				D2EB6C7A1BF5E31B00C75027 /* INSNoCancelledDependenciesCondition.h in Headers */,
+				D2EB6C6E1BF5E30C00C75027 /* INSOperation.h in Headers */,
+				D2EB6C861BF5E4DF00C75027 /* INSOperationsKit.h in Headers */,
+				D2EB6C6F1BF5E30C00C75027 /* NSOperation+INSOperationKit.h in Headers */,
+				D2EB6C701BF5E30C00C75027 /* INSBlockOperation.h in Headers */,
+				D2EB6C711BF5E30C00C75027 /* INSGroupOperation.h in Headers */,
+				D2EB6C721BF5E30C00C75027 /* INSDelayOperation.h in Headers */,
+				D2EB6C731BF5E30C00C75027 /* INSURLSessionTaskOperation.h in Headers */,
+				D2EB6C831BF5E35000C75027 /* INSExclusivityController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,6 +998,43 @@
 			productReference = 64DFC79A1B98A7D00009DB98 /* INSOperationsKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D2EB6C461BF5E23600C75027 /* INSOperationsKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2EB6C4E1BF5E23600C75027 /* Build configuration list for PBXNativeTarget "INSOperationsKit" */;
+			buildPhases = (
+				D2EB6C421BF5E23600C75027 /* Sources */,
+				D2EB6C431BF5E23600C75027 /* Frameworks */,
+				D2EB6C441BF5E23600C75027 /* Headers */,
+				D2EB6C451BF5E23600C75027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = INSOperationsKit;
+			productName = INSOperationsKit;
+			productReference = D2EB6C471BF5E23600C75027 /* INSOperationsKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D2EB6C521BF5E28200C75027 /* INSOperationsKit tvOS Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2EB6C641BF5E28200C75027 /* Build configuration list for PBXNativeTarget "INSOperationsKit tvOS Demo" */;
+			buildPhases = (
+				D2EB6C4F1BF5E28200C75027 /* Sources */,
+				D2EB6C501BF5E28200C75027 /* Frameworks */,
+				D2EB6C511BF5E28200C75027 /* Resources */,
+				D2EB6C6B1BF5E28A00C75027 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2EB6C6A1BF5E28A00C75027 /* PBXTargetDependency */,
+			);
+			name = "INSOperationsKit tvOS Demo";
+			productName = "INSOperationsKit tvOS Demo";
+			productReference = D2EB6C531BF5E28200C75027 /* INSOperationsKit tvOS Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -863,6 +1059,12 @@
 					64DFC7991B98A7D00009DB98 = {
 						CreatedOnToolsVersion = 6.4;
 					};
+					D2EB6C461BF5E23600C75027 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					D2EB6C521BF5E28200C75027 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 				};
 			};
 			buildConfigurationList = 64DFC75D1B98A7C50009DB98 /* Build configuration list for PBXProject "INSOperationsKit Demo" */;
@@ -883,6 +1085,8 @@
 				64DFC7991B98A7D00009DB98 /* INSOperationsKitTests */,
 				644E029F1BA5C1C2001FE717 /* INSOperationsKit OSX Demo */,
 				644E02C01BA5C6B1001FE717 /* INSOperationsKit (OSX) */,
+				D2EB6C461BF5E23600C75027 /* INSOperationsKit */,
+				D2EB6C521BF5E28200C75027 /* INSOperationsKit tvOS Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -925,6 +1129,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EB6C451BF5E23600C75027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EB6C511BF5E28200C75027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EB6C621BF5E28200C75027 /* Assets.xcassets in Resources */,
+				D2EB6C601BF5E28200C75027 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1252,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2EB6C421BF5E23600C75027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EB6C891BF5E53F00C75027 /* NSError+INSOperationKit.m in Sources */,
+				D2EB6C8A1BF5E53F00C75027 /* INSReachabilityManager.m in Sources */,
+				D2EB6C8B1BF5E53F00C75027 /* INSOperationConditionResult.m in Sources */,
+				D2EB6C8C1BF5E53F00C75027 /* INSMutallyExclusiveCondition.m in Sources */,
+				D2EB6C8D1BF5E53F00C75027 /* INSReachabilityCondition.m in Sources */,
+				D2EB6C8E1BF5E53F00C75027 /* INSSilientCondition.m in Sources */,
+				D2EB6C8F1BF5E53F00C75027 /* INSNegatedCondition.m in Sources */,
+				D2EB6C901BF5E53F00C75027 /* INSNoCancelledDependenciesCondition.m in Sources */,
+				D2EB6C911BF5E53F00C75027 /* INSChainOperation.m in Sources */,
+				D2EB6C921BF5E53F00C75027 /* INSOperation.m in Sources */,
+				D2EB6C931BF5E53F00C75027 /* NSOperation+INSOperationKit.m in Sources */,
+				D2EB6C941BF5E53F00C75027 /* INSBlockOperation.m in Sources */,
+				D2EB6C951BF5E53F00C75027 /* INSGroupOperation.m in Sources */,
+				D2EB6C961BF5E53F00C75027 /* INSDelayOperation.m in Sources */,
+				D2EB6C971BF5E53F00C75027 /* INSURLSessionTaskOperation.m in Sources */,
+				D2EB6C981BF5E53F00C75027 /* INSBlockObserver.m in Sources */,
+				D2EB6C991BF5E53F00C75027 /* INSTimeoutObserver.m in Sources */,
+				D2EB6C9A1BF5E53F00C75027 /* INSOperationQueue.m in Sources */,
+				D2EB6C9B1BF5E53F00C75027 /* INSExclusivityController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2EB6C4F1BF5E28200C75027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2EB6C851BF5E3EA00C75027 /* INSDownloadOperation.m in Sources */,
+				D2EB6C5D1BF5E28200C75027 /* ViewController.m in Sources */,
+				D2EB6C5A1BF5E28200C75027 /* AppDelegate.m in Sources */,
+				D2EB6C571BF5E28200C75027 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1049,6 +1306,11 @@
 			isa = PBXTargetDependency;
 			target = 64DFC78F1B98A7D00009DB98 /* INSOperationsKit (iOS) */;
 			targetProxy = 64DFC7A51B98A7D00009DB98 /* PBXContainerItemProxy */;
+		};
+		D2EB6C6A1BF5E28A00C75027 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2EB6C461BF5E23600C75027 /* INSOperationsKit */;
+			targetProxy = D2EB6C691BF5E28A00C75027 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1078,6 +1340,14 @@
 			);
 			name = LaunchScreen.xib;
 			path = .;
+			sourceTree = "<group>";
+		};
+		D2EB6C5E1BF5E28200C75027 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2EB6C5F1BF5E28200C75027 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1354,6 +1624,84 @@
 			};
 			name = Release;
 		};
+		D2EB6C4C1BF5E23600C75027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = INSOperationsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D2EB6C4D1BF5E23600C75027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = INSOperationsKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.inspace.INSOperationsKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D2EB6C651BF5E28200C75027 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = "INSOperationsKit tvOS Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSOperationsKit-tvOS-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		D2EB6C661BF5E28200C75027 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEFINES_MODULE = YES;
+				INFOPLIST_FILE = "INSOperationsKit tvOS Demo/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.inspace.INSOperationsKit-tvOS-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1410,6 +1758,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D2EB6C4E1BF5E23600C75027 /* Build configuration list for PBXNativeTarget "INSOperationsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2EB6C4C1BF5E23600C75027 /* Debug */,
+				D2EB6C4D1BF5E23600C75027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D2EB6C641BF5E28200C75027 /* Build configuration list for PBXNativeTarget "INSOperationsKit tvOS Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2EB6C651BF5E28200C75027 /* Debug */,
+				D2EB6C661BF5E28200C75027 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
