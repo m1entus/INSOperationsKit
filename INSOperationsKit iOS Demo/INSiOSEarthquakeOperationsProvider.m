@@ -25,7 +25,7 @@
     INSParseOperation *parseOperation = [[INSParseOperation alloc] initWithParsableClass:[INSEarthquake class] context:[[INSCoreDataStack sharedInstance] createPrivateContextWithMainQueueParent]];
     
     __block INSChainOperation *chainOperation = [INSChainOperation operationWithOperations:@[downloadOperation,parseOperation]];
-    [chainOperation ins_addCompletionBlockInMainQueue:^{
+    [chainOperation ins_addCompletionBlockInMainQueue:^(INSOperation *operation){
         NSError *error = [chainOperation.internalErrors firstObject];
         if (completionHandler) {
             completionHandler(chainOperation, error);
@@ -44,7 +44,7 @@
 + (INSMoreInformationOperation *)moreInformationForEarthquake:(INSEarthquake *)earthquake completionHandler:(void (^)(INSMoreInformationOperation *operation))completionHandler {
     __block INSMoreInformationOperation *operation = [[INSMoreInformationOperation alloc] initWithURL:[NSURL URLWithString:earthquake.webLink] presentationContext:nil];
     
-    [operation ins_addCompletionBlockInMainQueue:^{
+    [operation ins_addCompletionBlockInMainQueue:^(INSOperation *op){
         if (completionHandler) {
             completionHandler(operation);
         }

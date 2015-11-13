@@ -8,6 +8,8 @@
 
 #import "INSOperation.h"
 
+@class INSOperationQueue;
+
 /**
  A subclass of `Operation` that executes zero or more operations as part of its
  own execution. This class of operation is very useful for abstracting several
@@ -22,6 +24,8 @@
  be executed before the rest of the operations in the initial chain of operations.
  */
 @interface INSGroupOperation : INSOperation
+@property (nonatomic, strong, readonly) INSOperationQueue *internalQueue;
+
 + (instancetype)operationWithOperations:(NSArray <NSOperation *> *)operations;
 - (instancetype)initWithOperations:(NSArray <NSOperation *> *)operations;
 
