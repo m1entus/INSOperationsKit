@@ -34,7 +34,10 @@
                                        produceHandler:^(INSOperation *operation, NSOperation *producedOperation) {
                                            [weakSelf addOperation:producedOperation]; }
                                        finishHandler:^(INSOperation *operation, NSArray *errors) {
-                                           [weakSelf.delegate operationQueue:weakSelf operationDidFinish:operation withErrors:errors]; }];
+                                           if ([weakSelf.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]) {
+                                               [weakSelf.delegate operationQueue:weakSelf operationDidFinish:operation withErrors:errors];
+                                           }
+                                       }];
         
         [operation addObserver:delegate];
         
