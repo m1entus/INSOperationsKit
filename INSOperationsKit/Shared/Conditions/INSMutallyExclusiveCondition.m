@@ -14,7 +14,7 @@
 #endif
 
 @interface INSMutallyExclusiveCondition ()
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *conditionName;
 @property (nonatomic, assign) Class klass;
 @end
 
@@ -22,13 +22,13 @@
 
 + (instancetype)mutualExclusiveForClass:(Class)klass {
     INSMutallyExclusiveCondition *mutex = [[INSMutallyExclusiveCondition alloc] init];
-    mutex.name = NSStringFromClass(klass);
+    mutex.conditionName = NSStringFromClass(klass);
     return mutex;
 }
 
 + (instancetype)mutualExclusiveForName:(NSString *)name {
     INSMutallyExclusiveCondition *mutex = [[INSMutallyExclusiveCondition alloc] init];
-    mutex.name = name;
+    mutex.conditionName = name;
     return mutex;
 }
 
@@ -44,7 +44,7 @@
 #pragma mark - Subclass
 
 - (NSString *)name {
-    return [NSString stringWithFormat:@"INSMutallyExclusiveCondition<%@>", self.name];
+    return [NSString stringWithFormat:@"INSMutallyExclusiveCondition<%@>", self.conditionName];
 }
 
 - (BOOL)isMutuallyExclusive {
