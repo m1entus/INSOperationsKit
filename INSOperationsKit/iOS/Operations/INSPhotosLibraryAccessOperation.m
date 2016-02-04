@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 #import "INSPhotosLibraryAccessOperation.h"
 #import "INSMutallyExclusiveCondition.h"
 @import Photos;
@@ -34,3 +36,5 @@
 }
 
 @end
+
+#endif

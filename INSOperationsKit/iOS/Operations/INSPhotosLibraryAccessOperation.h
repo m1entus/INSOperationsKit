@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 #import "INSOperation.h"
 
 @interface INSPhotosLibraryAccessOperation : INSOperation
 
 @end
+
+#endif
