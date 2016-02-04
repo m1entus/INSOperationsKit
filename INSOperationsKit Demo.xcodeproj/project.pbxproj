@@ -1766,6 +1766,7 @@
 				D2EB6C4D1BF5E23600C75027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2EB6C641BF5E28200C75027 /* Build configuration list for PBXNativeTarget "INSOperationsKit tvOS Demo" */ = {
 			isa = XCConfigurationList;
@@ -1774,6 +1775,7 @@
 				D2EB6C661BF5E28200C75027 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

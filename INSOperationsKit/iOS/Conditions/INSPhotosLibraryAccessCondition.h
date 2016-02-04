@@ -8,10 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#if TARGET_OS_IPHONE
-
 /// A condition for verifying access to the user's Photos library.
 @interface INSPhotosLibraryAccessCondition : NSObject
 @end
 
-#endif

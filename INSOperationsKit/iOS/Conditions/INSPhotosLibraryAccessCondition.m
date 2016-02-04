@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
-#if TARGET_OS_IPHONE
-
 #import "INSPhotosLibraryAccessCondition.h"
 #import "INSPhotosLibraryAccessOperation.h"
 #import "NSError+INSOperationKit.h"
@@ -47,5 +45,3 @@
 }
 
 @end
-
-#endif
