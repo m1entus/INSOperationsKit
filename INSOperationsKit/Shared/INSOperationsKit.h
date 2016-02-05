@@ -6,27 +6,28 @@
 //  Copyright © 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import "NSError+INSOperationKit.h"
-#import "INSReachabilityManager.h"
-#import "INSOperation.h"
-#import "INSOperationQueue.h"
-#import "INSOperationObserverProtocol.h"
-#import "INSOperationConditionProtocol.h"
-#import "INSOperationConditionResult.h"
-#import "INSMutallyExclusiveCondition.h"
-#import "INSReachabilityCondition.h"
-#import "NSOperation+INSOperationKit.h"
-#import "INSBlockOperation.h"
-#import "INSGroupOperation.h"
-#import "INSDelayOperation.h"
-#import "INSURLSessionTaskOperation.h"
-#import "INSOperationObserverProtocol.h"
-#import "INSBlockObserver.h"
-#import "INSTimeoutObserver.h"
-#import "INSSilientCondition.h"
-#import "INSNegatedCondition.h"
-#import "INSChainOperation.h"
-#import "INSNoCancelledDependenciesCondition.h"
-#import "INSChainCondition.h"
+#import <INSOperationsKit/NSError+INSOperationKit.h>
+#import <INSOperationsKit/INSChainCondition.h>
+#import <INSOperationsKit/INSReachabilityManager.h>
+#import <INSOperationsKit/INSOperation.h>
+#import <INSOperationsKit/INSOperationQueue.h>
+#import <INSOperationsKit/INSOperationObserverProtocol.h>
+#import <INSOperationsKit/INSOperationConditionProtocol.h>
+#import <INSOperationsKit/INSOperationConditionResult.h>
+#import <INSOperationsKit/INSMutallyExclusiveCondition.h>
+#import <INSOperationsKit/INSReachabilityCondition.h>
+#import <INSOperationsKit/NSOperation+INSOperationKit.h>
+#import <INSOperationsKit/INSBlockOperation.h>
+#import <INSOperationsKit/INSGroupOperation.h>
+#import <INSOperationsKit/INSDelayOperation.h>
+#import <INSOperationsKit/INSURLSessionTaskOperation.h>
+#import <INSOperationsKit/INSOperationObserverProtocol.h>
+#import <INSOperationsKit/INSBlockObserver.h>
+#import <INSOperationsKit/INSTimeoutObserver.h>
+#import <INSOperationsKit/INSSilientCondition.h>
+#import <INSOperationsKit/INSNegatedCondition.h>
+#import <INSOperationsKit/INSChainOperation.h>
+#import <INSOperationsKit/INSNoCancelledDependenciesCondition.h>
+
 
 

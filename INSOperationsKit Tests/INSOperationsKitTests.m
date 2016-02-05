@@ -582,6 +582,60 @@
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testMultipleChainConditionWithOrder {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
+    XCTestExpectation *expectation3 = [self expectationWithDescription:@"block3"];
+    XCTestExpectation *expectation4 = [self expectationWithDescription:@"block4"];
+    
+    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        completionBlock();
+        [expectation fulfill];
+    }];
+    
+    NSDictionary *dataToPass = @{};
+    
+    INSTestChainOperation *operation4 = nil;
+    
+    INSTestChainOperation *operation2 = [INSTestChainOperation operationWithAdditionalDataToPass:^id{
+        return dataToPass;
+    } operationFinishBlock:nil];
+    operation2.block = ^(INSBlockOperationCompletionBlock block) {
+        block();
+        XCTAssertFalse(operation4.isFinished);
+        [expectation2 fulfill];
+    };
+    
+    operation4 = [INSTestChainOperation operationWithAdditionalDataToPass:nil operationFinishBlock:^(NSOperation *finishedOperation, NSArray<NSError *> *errors, id additionalDataReceived) {
+        XCTAssertEqual(finishedOperation, operation2);
+        XCTAssertEqual(additionalDataReceived, dataToPass);
+    }];
+    operation4.block = ^(INSBlockOperationCompletionBlock block) {
+        block();
+        [expectation4 fulfill];
+    };
+    
+    INSTestChainOperation *operation3 = [INSTestChainOperation operationWithAdditionalDataToPass:nil operationFinishBlock:^(NSOperation *finishedOperation, NSArray<NSError *> *errors, id additionalDataReceived) {
+        XCTAssertEqual(finishedOperation, operation2);
+        XCTAssertEqual(additionalDataReceived, dataToPass);
+    }];
+    operation3.block = ^(INSBlockOperationCompletionBlock block) {
+        block();
+        XCTAssertTrue(operation2.isFinished);
+        XCTAssertTrue(operation1.isFinished);
+        
+        [expectation3 fulfill];
+    };
+    
+    [INSOperation chainOperations:@[operation1,operation2]];
+    
+    [operation2 chainWithOperation:operation3];
+    [operation2 chainWithOperation:operation4];
+    
+    [self.operationQueue addOperation:operation1];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testChainOperation {
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];

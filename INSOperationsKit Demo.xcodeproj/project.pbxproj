@@ -68,7 +68,6 @@
 		647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
 		64D65AA31C6409600004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64D65AA41C6409600004D259 /* INSChainCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D65AA21C6409600004D259 /* INSChainCondition.m */; };
-		64D65AA51C640FA80004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64D65AA61C640FB20004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64D65AA71C640FD20004D259 /* INSChainCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D65AA21C6409600004D259 /* INSChainCondition.m */; };
 		64D65AA81C640FD80004D259 /* INSChainCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D65AA21C6409600004D259 /* INSChainCondition.m */; };
@@ -135,6 +134,7 @@
 		64EF35381BA60CBA00AD34E7 /* SNRFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF35361BA60CBA00AD34E7 /* SNRFetchedResultsController.m */; };
 		64EF353B1BA6133C00AD34E7 /* INSMoreInformationOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF353A1BA6133C00AD34E7 /* INSMoreInformationOperation.m */; };
 		64EF353E1BA619D300AD34E7 /* INSOSXWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64EF353D1BA619D300AD34E7 /* INSOSXWebViewController.m */; };
+		D214EFE31C64A83600747804 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D25131E21BA1712E00D11398 /* INSTestChainOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D25131E11BA1712E00D11398 /* INSTestChainOperation.m */; };
 		D2EB6C571BF5E28200C75027 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EB6C561BF5E28200C75027 /* main.m */; };
 		D2EB6C5A1BF5E28200C75027 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EB6C591BF5E28200C75027 /* AppDelegate.m */; };
@@ -874,10 +874,10 @@
 				64DFC7D41B99F8C70009DB98 /* INSBlockOperation.h in Headers */,
 				64DFC7F31B9A0B2D0009DB98 /* INSOperationConditionProtocol.h in Headers */,
 				64DFC7FA1B9C9A8E0009DB98 /* INSSilientCondition.h in Headers */,
+				D214EFE31C64A83600747804 /* INSChainCondition.h in Headers */,
 				64DFC7F41B9A0B2D0009DB98 /* INSOperationObserverProtocol.h in Headers */,
 				64DFC8021B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h in Headers */,
 				64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */,
-				64D65AA51C640FA80004D259 /* INSChainCondition.h in Headers */,
 				6418E1421B9E413100ABD1DD /* INSChainableOperationProtocol.h in Headers */,
 				6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */,
 				64DFC7FE1B9CA0E90009DB98 /* INSNegatedCondition.h in Headers */,

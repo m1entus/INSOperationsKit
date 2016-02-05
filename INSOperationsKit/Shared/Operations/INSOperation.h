@@ -54,7 +54,7 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 @property (nonatomic, strong, readonly) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
 @property (nonatomic, strong, readonly) NSArray <NSError *> *internalErrors;
 
-@property (nonatomic, weak, readonly) INSOperation <INSChainableOperationProtocol> *chainOperation;
+@property (nonatomic, strong, readonly) NSHashTable <INSOperation <INSChainableOperationProtocol> *> *chainedOperations;
 
 - (void)addObserver:(NSObject<INSOperationObserverProtocol> *)observer;
 - (void)addCondition:(NSObject<INSOperationConditionProtocol> *)condition;
@@ -76,4 +76,6 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 - (void)produceOperation:(NSOperation *)operation NS_REQUIRES_SUPER;
 
 - (INSOperation <INSChainableOperationProtocol> *)chainWithOperation:(INSOperation <INSChainableOperationProtocol> *)operation;
++ (void)chainOperations:(NSArray <INSOperation <INSChainableOperationProtocol> *>*)operations;
+
 @end

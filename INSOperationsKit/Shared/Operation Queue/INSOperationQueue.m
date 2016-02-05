@@ -35,14 +35,21 @@
 }
 
 - (void)addOperation:(NSOperation *)operationToAdd {
+    if ([self.operations containsObject:operationToAdd]) {
+        return;
+    }
+    
     if ([operationToAdd isKindOfClass:[INSOperation class]]) {
         INSOperation *operation = (INSOperation *)operationToAdd;
         
         // Chain operation cache is imporatant to be able to add any operation from chain
         // and whole chain will be added to queue
-        if (operation.chainOperation && ![self.chainOperationsCache containsObject:operation] && ![self.operations containsObject:operation]) {
+        if (operation.chainedOperations.count > 0 && ![self.chainOperationsCache containsObject:operation] && ![self.operations containsObject:operation]) {
             [self.chainOperationsCache addObject:operation];
-            [self addOperation:operation.chainOperation];
+            [[operation.chainedOperations allObjects] enumerateObjectsUsingBlock:^(INSOperation<INSChainableOperationProtocol> * _Nonnull chainOperation, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self addOperation:chainOperation];
+            }];
+            
             return;
         }
         
@@ -79,7 +86,7 @@
             // and whole chain will be added to queue
             if ([dependency isKindOfClass:[INSOperation class]]) {
                 INSOperation *dependencyOperation = (INSOperation *)dependency;
-                if (dependencyOperation.chainOperation) {
+                if (dependencyOperation.chainedOperations.count > 0) {
                     [self.chainOperationsCache addObject:dependencyOperation];
                 }
             }

@@ -23,7 +23,7 @@
 @property (nonatomic, strong) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
 @property (nonatomic, strong) NSArray <NSError *> *internalErrors;
 
-@property (nonatomic, weak) INSOperation <INSChainableOperationProtocol> *chainOperation;
+@property (nonatomic, strong) NSHashTable <INSOperation <INSChainableOperationProtocol> *> *chainedOperations;
 @end
 
 @implementation INSOperation
@@ -40,6 +40,13 @@
     }
     
     return [super keyPathsForValuesAffectingValueForKey:key];
+}
+
+- (NSHashTable <INSOperation <INSChainableOperationProtocol> *> *)chainedOperations {
+    if (!_chainedOperations) {
+        _chainedOperations = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
+    }
+    return _chainedOperations;
 }
 
 - (void)setState:(INSOperationState)newState {
@@ -231,7 +238,7 @@
 #pragma mark - Chaining
 
 - (INSOperation <INSChainableOperationProtocol> *)chainWithOperation:(INSOperation <INSChainableOperationProtocol> *)operation {
-    self.chainOperation = operation;
+    [self.chainedOperations addObject:operation];
     [operation addCondition:[INSChainCondition chainConditionForOperation:self]];
     
     __weak typeof(self) weakSelf = self;
@@ -240,6 +247,15 @@
     }]];
     
     return operation;
+}
+
++ (void)chainOperations:(NSArray <INSOperation <INSChainableOperationProtocol> *>*)operations {
+    [operations enumerateObjectsUsingBlock:^(INSOperation<INSChainableOperationProtocol> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSInteger nextIndex = ++idx;
+        if (nextIndex < operations.count) {
+            [obj chainWithOperation:operations[nextIndex]];
+        }
+    }];
 }
 
 - (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray <NSError *>*)errors passingAdditionalData:(id)data {
