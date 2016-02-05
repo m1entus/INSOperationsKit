@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSArray <NSObject <INSOperationConditionProtocol> *> *conditions;
 @property (nonatomic, strong) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
 @property (nonatomic, strong) NSArray <NSError *> *internalErrors;
+
+@property (nonatomic, weak) INSOperation <INSChainableOperationProtocol> *chainOperation;
 @end
 
 @implementation INSOperation
@@ -229,17 +231,13 @@
 #pragma mark - Chaining
 
 - (INSOperation <INSChainableOperationProtocol> *)chainWithOperation:(INSOperation <INSChainableOperationProtocol> *)operation {
+    self.chainOperation = operation;
     [operation addCondition:[INSChainCondition chainConditionForOperation:self]];
     
     __weak typeof(self) weakSelf = self;
     [operation addObserver:[[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:nil produceHandler:nil finishHandler:^(INSOperation *finishedOperation, NSArray<NSError *> *errors) {
         [weakSelf chainedOperation:finishedOperation didFinishWithErrors:errors passingAdditionalData:[finishedOperation additionalDataToPassForChainedOperation]];
     }]];
-    
-    __weak typeof(operation) weakOperation = operation;
-    [self addObserver:[[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:^(INSOperation *operation) {
-        NSAssert([operation.enqueuedOperationQueue.operations containsObject:weakOperation], @"You must first add operation which was chained to the operation queue!");
-    } produceHandler:nil finishHandler:nil]];
     
     return operation;
 }

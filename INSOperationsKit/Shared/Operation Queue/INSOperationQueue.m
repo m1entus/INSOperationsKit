@@ -12,7 +12,18 @@
 #import "INSBlockObserver.h"
 #import "INSExclusivityController.h"
 
+@interface INSOperationQueue ()
+@property (nonatomic, strong) NSMutableSet *chainOperationsCache;
+@end
+
 @implementation INSOperationQueue
+
+- (NSMutableSet *)chainOperationsCache {
+    if (!_chainOperationsCache) {
+        _chainOperationsCache = [NSMutableSet set];
+    }
+    return _chainOperationsCache;
+}
 
 + (INSOperationQueue *)globalQueue {
     static INSOperationQueue *instanceOfGlobalQueue;
@@ -27,6 +38,14 @@
     if ([operationToAdd isKindOfClass:[INSOperation class]]) {
         INSOperation *operation = (INSOperation *)operationToAdd;
         
+        // Chain operation cache is imporatant to be able to add any operation from chain
+        // and whole chain will be added to queue
+        if (operation.chainOperation && ![self.chainOperationsCache containsObject:operation] && ![self.operations containsObject:operation]) {
+            [self.chainOperationsCache addObject:operation];
+            [self addOperation:operation.chainOperation];
+            return;
+        }
+        
         __weak typeof(self) weakSelf = self;
         // Set up a `BlockObserver` to invoke the `OperationQueueDelegate` method.
         INSBlockObserver *delegate = [[INSBlockObserver alloc]
@@ -35,6 +54,8 @@
                                        produceHandler:^(INSOperation *operation, NSOperation *producedOperation) {
                                            [weakSelf addOperation:producedOperation]; }
                                        finishHandler:^(INSOperation *operation, NSArray *errors) {
+                                           [weakSelf.chainOperationsCache removeObject:operation];
+                                           
                                            if ([weakSelf.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]) {
                                                [weakSelf.delegate operationQueue:weakSelf operationDidFinish:operation withErrors:errors];
                                            }
@@ -52,8 +73,18 @@
          }];
         
         [dependencies enumerateObjectsUsingBlock:^(NSOperation *dependency, NSUInteger idx, BOOL *stop) {
-             [operation addDependency:dependency];
-             [self addOperation:dependency];
+            [operation addDependency:dependency];
+            
+            // Chain operation cache is imporatant to be able to add any operation from chain
+            // and whole chain will be added to queue
+            if ([dependency isKindOfClass:[INSOperation class]]) {
+                INSOperation *dependencyOperation = (INSOperation *)dependency;
+                if (dependencyOperation.chainOperation) {
+                    [self.chainOperationsCache addObject:dependencyOperation];
+                }
+            }
+            
+            [self addOperation:dependency];
          }];
         
         /*

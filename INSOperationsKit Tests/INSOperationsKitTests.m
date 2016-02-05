@@ -534,7 +534,7 @@
     [self waitForExpectationsWithTimeout:0.9 handler:nil];
 }
 
-- (void)testChainCondition {
+- (void)testChainConditionWhenAddingFirstDependencyToQueue {
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
 
@@ -548,6 +548,30 @@
         [expectation2 fulfill];
     }];
 
+    [operation1 chainWithOperation:operation2];
+    
+    [self keyValueObservingExpectationForObject:operation1 keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self.operationQueue addOperation:operation1];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testChainConditionWhenAddingLastDependencyToQueue {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
+    
+    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        completionBlock();
+        [expectation fulfill];
+    }];
+    
+    INSBlockOperation *operation2 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        completionBlock();
+        [expectation2 fulfill];
+    }];
+    
     [operation1 chainWithOperation:operation2];
     
     [self keyValueObservingExpectationForObject:operation2 keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
