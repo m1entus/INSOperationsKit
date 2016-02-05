@@ -554,7 +554,7 @@
         return observedObject.finished;
     }];
     
-    [self.operationQueue addOperation:operation1];
+    [self.operationQueue addOperation:operation2];
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
