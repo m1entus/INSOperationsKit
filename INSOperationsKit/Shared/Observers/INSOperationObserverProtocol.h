@@ -7,12 +7,16 @@
 //
 
 @class INSOperation;
+@class INSOperationQueue;
 
 /**
  The protocol that types may implement if they wish to be notified of significant
  operation lifecycle events.
  */
 @protocol INSOperationObserverProtocol <NSObject>
+
+/// Invoked before operation is enqueued in queue
+- (void)operationWillStart:(INSOperation *)operation inOperationQueue:(INSOperationQueue *)operationQueue;
 
 /// Invoked immediately prior to the `INSOperation`'s `execute()` method.
 - (void)operationDidStart:(INSOperation *)operation;

@@ -30,7 +30,8 @@
         __weak typeof(self) weakSelf = self;
         // Set up a `BlockObserver` to invoke the `OperationQueueDelegate` method.
         INSBlockObserver *delegate = [[INSBlockObserver alloc]
-                                       initWithStartHandler:nil
+                                       initWithWillStartHandler:nil
+                                      didStartHandler:nil
                                        produceHandler:^(INSOperation *operation, NSOperation *producedOperation) {
                                            [weakSelf addOperation:producedOperation]; }
                                        finishHandler:^(INSOperation *operation, NSArray *errors) {
@@ -76,7 +77,8 @@
             
             __weak typeof(exclusivityController) weakExclusivityController = exclusivityController;
             INSBlockObserver *observer = [[INSBlockObserver alloc]
-                                      initWithStartHandler:nil
+                                      initWithWillStartHandler:nil
+                                          didStartHandler:nil
                                       produceHandler:nil
                                       finishHandler:^(INSOperation *operation, NSArray *error) {
                                           [weakExclusivityController removeOperation:operation categories:concurrencyCategories];

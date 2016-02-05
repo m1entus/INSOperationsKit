@@ -27,5 +27,6 @@
 #import "INSNegatedCondition.h"
 #import "INSChainOperation.h"
 #import "INSNoCancelledDependenciesCondition.h"
+#import "INSChainCondition.h"
 
 

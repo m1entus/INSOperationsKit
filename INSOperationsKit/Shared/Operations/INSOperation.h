@@ -10,6 +10,7 @@
 
 #import "INSOperationObserverProtocol.h"
 #import "INSOperationConditionProtocol.h"
+#import "INSChainableOperationProtocol.h"
 
 typedef NS_ENUM(NSUInteger, INSOperationState) {
     /// The initial state of an `Operation`.
@@ -42,7 +43,7 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 
 @class INSOperationQueue;
 
-@interface INSOperation : NSOperation
+@interface INSOperation : NSOperation <INSChainableOperationProtocol>
 @property (readonly, getter=isCancelled) BOOL cancelled;
 @property (nonatomic, assign) BOOL userInitiated;
 @property (nonatomic, readonly) INSOperationState state;
@@ -53,15 +54,17 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 @property (nonatomic, strong, readonly) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
 @property (nonatomic, strong, readonly) NSArray <NSError *> *internalErrors;
 
+@property (nonatomic, weak, readonly) INSOperation <INSChainableOperationProtocol> *chainOperation;
+
 - (void)addObserver:(NSObject<INSOperationObserverProtocol> *)observer;
 - (void)addCondition:(NSObject<INSOperationConditionProtocol> *)condition;
 
-- (void)willEnqueueInOperationQueue:(INSOperationQueue *)operationQueue;
+- (void)willEnqueueInOperationQueue:(INSOperationQueue *)operationQueue NS_REQUIRES_SUPER;
 
 - (void)runInGlobalQueue;
 
 - (void)finish;
-- (void)finishWithErrors:(NSArray <NSError *> *)errors;
+- (void)finishWithErrors:(NSArray <NSError *> *)errors NS_REQUIRES_SUPER;
 - (void)finishWithError:(NSError *)error;
 
 - (void)finishedWithErrors:(NSArray <NSError *> *)errors;
@@ -70,5 +73,7 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 - (void)cancelWithErrors:(NSArray <NSError *> *)errors;
 
 - (void)execute;
-- (void)produceOperation:(NSOperation *)operation;
+- (void)produceOperation:(NSOperation *)operation NS_REQUIRES_SUPER;
+
+- (INSOperation <INSChainableOperationProtocol> *)chainWithOperation:(INSOperation <INSChainableOperationProtocol> *)operation;
 @end

@@ -9,6 +9,7 @@
 #import "INSBlockObserver.h"
 
 @interface INSBlockObserver ()
+@property (nonatomic, copy) INSBlockObserverWillStartHandler willStartHandler;
 @property (nonatomic, copy) INSBlockObserverStartHandler startHandler;
 @property (nonatomic, copy) INSBlockObserverProduceHandler produceHandler;
 @property (nonatomic, copy) INSBlockObserverFinishHandler finishHandler;
@@ -16,10 +17,12 @@
 
 @implementation INSBlockObserver
 
-- (instancetype)initWithStartHandler:(INSBlockObserverStartHandler)startHandler
-                      produceHandler:(INSBlockObserverProduceHandler)produceHandler
-                       finishHandler:(INSBlockObserverFinishHandler)finishHandler {
+- (instancetype)initWithWillStartHandler:(INSBlockObserverWillStartHandler)willStartHandler
+                         didStartHandler:(INSBlockObserverStartHandler)startHandler
+                          produceHandler:(INSBlockObserverProduceHandler)produceHandler
+                           finishHandler:(INSBlockObserverFinishHandler)finishHandler {
     if (self = [super init]){
+        self.willStartHandler = willStartHandler;
         self.startHandler = startHandler;
         self.produceHandler = produceHandler;
         self.finishHandler = finishHandler;
@@ -28,6 +31,12 @@
 }
 
 #pragma mark - <INSOperationObserver>
+
+- (void)operationWillStart:(INSOperation *)operation inOperationQueue:(INSOperationQueue *)operationQueue {
+    if (self.willStartHandler) {
+        self.willStartHandler(operation,operationQueue);
+    }
+}
 
 - (void)operationDidStart:(INSOperation *)operation {
     if (self.startHandler) {

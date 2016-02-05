@@ -33,6 +33,10 @@
     });
 }
 
+- (void)operationWillStart:(INSOperation *)operation inOperationQueue:(INSOperationQueue *)operationQueue {
+    
+}
+
 - (void)operation:(INSOperation *)operation didProduceOperation:(NSOperation *)newOperation {
     // No operation.
 }

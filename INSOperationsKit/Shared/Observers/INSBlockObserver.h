@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "INSOperationObserverProtocol.h"
 
+typedef void(^INSBlockObserverWillStartHandler)(INSOperation *operation, INSOperationQueue *operationQueue);
 typedef void(^INSBlockObserverStartHandler)(INSOperation *operation);
 typedef void(^INSBlockObserverProduceHandler)(INSOperation *operation, NSOperation *producedOperation);
 typedef void(^INSBlockObserverFinishHandler)(INSOperation *operation, NSArray <NSError *>*errors);
@@ -19,7 +20,8 @@ typedef void(^INSBlockObserverFinishHandler)(INSOperation *operation, NSArray <N
  */
 @interface INSBlockObserver : NSObject <INSOperationObserverProtocol>
 
-- (instancetype)initWithStartHandler:(INSBlockObserverStartHandler)startHandler
+- (instancetype)initWithWillStartHandler:(INSBlockObserverWillStartHandler)willStartHandler
+                        didStartHandler:(INSBlockObserverStartHandler)startHandler
                      produceHandler:(INSBlockObserverProduceHandler)produceHandler
                       finishHandler:(INSBlockObserverFinishHandler)finishHandler;
 

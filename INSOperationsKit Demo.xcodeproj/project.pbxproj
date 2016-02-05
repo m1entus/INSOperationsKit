@@ -66,6 +66,12 @@
 		646B45901BA0952800C00500 /* INSEarthquakeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */; };
 		646B45931BA09F2F00C00500 /* INSAlertOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B45921BA09F2F00C00500 /* INSAlertOperation.m */; };
 		647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
+		64D65AA31C6409600004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64D65AA41C6409600004D259 /* INSChainCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D65AA21C6409600004D259 /* INSChainCondition.m */; };
+		64D65AA51C640FA80004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64D65AA61C640FB20004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64D65AA71C640FD20004D259 /* INSChainCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D65AA21C6409600004D259 /* INSChainCondition.m */; };
+		64D65AA81C640FD80004D259 /* INSChainCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D65AA21C6409600004D259 /* INSChainCondition.m */; };
 		64DFC7681B98A7C50009DB98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7671B98A7C50009DB98 /* main.m */; };
 		64DFC76B1B98A7C50009DB98 /* INSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC76A1B98A7C50009DB98 /* INSAppDelegate.m */; };
 		64DFC76E1B98A7C50009DB98 /* INSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC76D1B98A7C50009DB98 /* INSMainViewController.m */; };
@@ -280,6 +286,8 @@
 		646B45911BA09F2F00C00500 /* INSAlertOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSAlertOperation.h; sourceTree = "<group>"; };
 		646B45921BA09F2F00C00500 /* INSAlertOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSAlertOperation.m; sourceTree = "<group>"; };
 		647B822E1B9E181E0051EB46 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		64D65AA11C6409600004D259 /* INSChainCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSChainCondition.h; sourceTree = "<group>"; };
+		64D65AA21C6409600004D259 /* INSChainCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSChainCondition.m; sourceTree = "<group>"; };
 		64DFC7621B98A7C50009DB98 /* INSOperationsKit iOS Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit iOS Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		64DFC7661B98A7C50009DB98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64DFC7671B98A7C50009DB98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -710,6 +718,8 @@
 				64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */,
 				64DFC8001B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h */,
 				64DFC8011B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.m */,
+				64D65AA11C6409600004D259 /* INSChainCondition.h */,
+				64D65AA21C6409600004D259 /* INSChainCondition.m */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -837,6 +847,7 @@
 				644E030B1BA5C700001FE717 /* INSURLSessionTaskOperation.h in Headers */,
 				644E030D1BA5C700001FE717 /* INSOperationObserverProtocol.h in Headers */,
 				644E030E1BA5C700001FE717 /* INSBlockObserver.h in Headers */,
+				64D65AA61C640FB20004D259 /* INSChainCondition.h in Headers */,
 				644E030F1BA5C700001FE717 /* INSTimeoutObserver.h in Headers */,
 				644E03101BA5C700001FE717 /* INSOperationQueue.h in Headers */,
 				644E03111BA5C700001FE717 /* INSExclusivityController.h in Headers */,
@@ -866,6 +877,7 @@
 				64DFC7F41B9A0B2D0009DB98 /* INSOperationObserverProtocol.h in Headers */,
 				64DFC8021B9CAB450009DB98 /* INSNoCancelledDependenciesCondition.h in Headers */,
 				64DFC8061B9CBCD10009DB98 /* INSPhotosLibraryAccessCondition.h in Headers */,
+				64D65AA51C640FA80004D259 /* INSChainCondition.h in Headers */,
 				6418E1421B9E413100ABD1DD /* INSChainableOperationProtocol.h in Headers */,
 				6418E13F1B9E3D3100ABD1DD /* INSChainOperation.h in Headers */,
 				64DFC7FE1B9CA0E90009DB98 /* INSNegatedCondition.h in Headers */,
@@ -897,6 +909,7 @@
 				D2EB6C6F1BF5E30C00C75027 /* NSOperation+INSOperationKit.h in Headers */,
 				D2EB6C701BF5E30C00C75027 /* INSBlockOperation.h in Headers */,
 				D2EB6C711BF5E30C00C75027 /* INSGroupOperation.h in Headers */,
+				64D65AA31C6409600004D259 /* INSChainCondition.h in Headers */,
 				D2EB6C721BF5E30C00C75027 /* INSDelayOperation.h in Headers */,
 				D2EB6C731BF5E30C00C75027 /* INSURLSessionTaskOperation.h in Headers */,
 				D2EB6C831BF5E35000C75027 /* INSExclusivityController.h in Headers */,
@@ -1173,6 +1186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D65AA81C640FD80004D259 /* INSChainCondition.m in Sources */,
 				644E02CE1BA5C6D0001FE717 /* NSError+INSOperationKit.m in Sources */,
 				644E02D01BA5C6D0001FE717 /* INSReachabilityManager.m in Sources */,
 				644E02D31BA5C6D0001FE717 /* INSOperationConditionResult.m in Sources */,
@@ -1218,6 +1232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64D65AA71C640FD20004D259 /* INSChainCondition.m in Sources */,
 				64EF35221BA5F60900AD34E7 /* INSPhotosLibraryAccessOperation.m in Sources */,
 				64DFC7DD1B99FB370009DB98 /* INSDelayOperation.m in Sources */,
 				64DFC7EE1B9A02900009DB98 /* INSReachabilityCondition.m in Sources */,
@@ -1274,6 +1289,7 @@
 				D2EB6C981BF5E53F00C75027 /* INSBlockObserver.m in Sources */,
 				D2EB6C991BF5E53F00C75027 /* INSTimeoutObserver.m in Sources */,
 				D2EB6C9A1BF5E53F00C75027 /* INSOperationQueue.m in Sources */,
+				64D65AA41C6409600004D259 /* INSChainCondition.m in Sources */,
 				D2EB6C9B1BF5E53F00C75027 /* INSExclusivityController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

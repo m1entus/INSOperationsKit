@@ -49,7 +49,7 @@
         [executingExpectation fulfill];
     }];
     
-    [operation ins_addCompletionBlock:^{
+    [operation ins_addCompletionBlock:^(NSOperation *operation){
        [completionExpectation fulfill]; 
     }];
     
@@ -506,7 +506,7 @@
     XCTestExpectation *expectation2 = [self expectationWithDescription:@"expectation2"];
     XCTestExpectation *expectation3 = [self expectationWithDescription:@"expectation3"];
     
-    INSBlockObserver *observer = [[INSBlockObserver alloc] initWithStartHandler:^(INSOperation *operation) {
+    INSBlockObserver *observer = [[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:^(INSOperation *operation) {
         [expectation fulfill];
         
     } produceHandler:^(INSOperation *operation, NSOperation *producedOperation) {
@@ -532,6 +532,30 @@
     }];
     [self.operationQueue addOperation:delayOperation];
     [self waitForExpectationsWithTimeout:0.9 handler:nil];
+}
+
+- (void)testChainCondition {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
+
+    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        completionBlock();
+        [expectation fulfill];
+    }];
+    
+    INSBlockOperation *operation2 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+        completionBlock();
+        [expectation2 fulfill];
+    }];
+
+    [operation1 chainWithOperation:operation2];
+    
+    [self keyValueObservingExpectationForObject:operation2 keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
+    
+    [self.operationQueue addOperation:operation1];
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 - (void)testChainOperation {

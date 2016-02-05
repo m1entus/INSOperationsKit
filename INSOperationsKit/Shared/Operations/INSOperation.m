@@ -9,6 +9,8 @@
 #import "INSOperation.h"
 #import "INSOperationConditionResult.h"
 #import "INSOperationQueue.h"
+#import "INSChainCondition.h"
+#import "INSBlockObserver.h"
 
 @interface INSOperation ()
 @property (nonatomic, assign) BOOL hasFinishedAlready;
@@ -117,6 +119,11 @@
 
 - (void)willEnqueueInOperationQueue:(INSOperationQueue *)operationQueue {
     self.enqueuedOperationQueue = operationQueue;
+    
+    for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
+        [observer operationWillStart:self inOperationQueue:operationQueue];
+    }
+    
     self.state = INSOperationStatePending;
 }
 
@@ -217,6 +224,33 @@
     for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
         [observer operation:self didProduceOperation:operation];
     }
+}
+
+#pragma mark - Chaining
+
+- (INSOperation <INSChainableOperationProtocol> *)chainWithOperation:(INSOperation <INSChainableOperationProtocol> *)operation {
+    [operation addCondition:[INSChainCondition chainConditionForOperation:self]];
+    
+    __weak typeof(self) weakSelf = self;
+    [operation addObserver:[[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:nil produceHandler:nil finishHandler:^(INSOperation *finishedOperation, NSArray<NSError *> *errors) {
+        [weakSelf chainedOperation:finishedOperation didFinishWithErrors:errors passingAdditionalData:[finishedOperation additionalDataToPassForChainedOperation]];
+    }]];
+    
+    __weak typeof(operation) weakOperation = operation;
+    [self addObserver:[[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:^(INSOperation *operation) {
+        NSAssert([operation.enqueuedOperationQueue.operations containsObject:weakOperation], @"You must first add operation which was chained to the operation queue!");
+    } produceHandler:nil finishHandler:nil]];
+    
+    return operation;
+}
+
+- (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray <NSError *>*)errors passingAdditionalData:(id)data {
+    // Implement in subclass
+}
+
+- (id)additionalDataToPassForChainedOperation {
+    // Implement in subclass
+    return nil;
 }
 
 #pragma mark - Finishing
