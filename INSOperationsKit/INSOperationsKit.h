@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char INSOperationsKitVersionString[];
 
 #import <INSOperationsKit/NSError+INSOperationKit.h>
 #import <INSOperationsKit/INSReachabilityManager.h>
+#import <INSOperationsKit/INSChainCondition.h>
 #import <INSOperationsKit/INSOperation.h>
 #import <INSOperationsKit/INSOperationQueue.h>
 #import <INSOperationsKit/INSOperationObserverProtocol.h>
