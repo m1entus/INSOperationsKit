@@ -15,6 +15,8 @@
  */
 @protocol INSOperationObserverProtocol <NSObject>
 
+@optional
+
 /// Invoked before operation is enqueued in queue
 - (void)operationWillStart:(INSOperation *)operation inOperationQueue:(INSOperationQueue *)operationQueue;
 
