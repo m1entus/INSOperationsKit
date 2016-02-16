@@ -14,5 +14,5 @@
  cancel after a specified time interval.
  */
 @interface INSTimeoutObserver : NSObject <INSOperationObserverProtocol>
-- (instancetype)initWithTimeout:(NSTimeInterval)interval;
+- (nonnull instancetype)initWithTimeout:(NSTimeInterval)interval;
 @end

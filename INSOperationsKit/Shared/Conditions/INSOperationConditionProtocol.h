@@ -19,7 +19,7 @@
  The name of the condition. This is used in userInfo dictionaries of `.ConditionFailed`
  errors as the value of the `OperationConditionKey` key.
  */
-- (NSString *)name;
+- (nonnull NSString *)name;
 
 /**
  Specifies whether multiple instances of the conditionalized operation may
@@ -39,8 +39,8 @@
  expressing that as multiple conditions. Alternatively, you could return
  a single `GroupOperation` that executes multiple operations internally.
  */
-- (NSOperation *)dependencyForOperation:(INSOperation *)operation;
+- (nullable NSOperation *)dependencyForOperation:(nonnull INSOperation *)operation;
 
 /// Evaluate the condition, to see if it has been satisfied or not.
-- (void)evaluateForOperation:(INSOperation *)operation completion:(void (^)(INSOperationConditionResult *result))completion;
+- (void)evaluateForOperation:(nonnull INSOperation *)operation completion:(nonnull void (^)(INSOperationConditionResult * _Nonnull result))completion;
 @end

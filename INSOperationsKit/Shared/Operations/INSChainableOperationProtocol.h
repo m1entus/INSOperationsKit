@@ -8,6 +8,6 @@
 
 @protocol INSChainableOperationProtocol
 @optional
-- (void)chainedOperation:(NSOperation *)operation didFinishWithErrors:(NSArray <NSError *>*)errors passingAdditionalData:(id)data;
-- (id)additionalDataToPassForChainedOperation;
+- (void)chainedOperation:(nonnull NSOperation *)operation didFinishWithErrors:(nullable NSArray <NSError *>*)errors passingAdditionalData:(nullable id)data;
+- (nullable id)additionalDataToPassForChainedOperation;
 @end

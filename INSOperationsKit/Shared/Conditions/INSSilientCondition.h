@@ -16,8 +16,8 @@
  do not already have it.
  */
 @interface INSSilientCondition : NSObject <INSOperationConditionProtocol>
-@property (nonatomic, strong, readonly) NSObject <INSOperationConditionProtocol> *condition;
+@property (nonatomic, strong, nonnull, readonly) NSObject <INSOperationConditionProtocol> *condition;
 
-+ (instancetype)silientConditionForCondition:(NSObject <INSOperationConditionProtocol> *)condition;
-- (instancetype)initWithCondition:(NSObject <INSOperationConditionProtocol> *)condition;
++ (nonnull instancetype)silientConditionForCondition:(nonnull NSObject <INSOperationConditionProtocol> *)condition;
+- (nonnull instancetype)initWithCondition:(nonnull NSObject <INSOperationConditionProtocol> *)condition;
 @end

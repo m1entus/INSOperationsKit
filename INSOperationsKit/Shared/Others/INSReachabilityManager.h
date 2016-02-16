@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param domain The domain used to evaluate network reachability.
  @return An initialized network reachability manager, actively monitoring the specified domain.
  */
-+ (instancetype)managerForDomain:(NSString *)domain;
++ (instancetype)managerForDomain:(nonnull NSString *)domain;
 
 /**
  Creates and returns a network reachability manager for the socket address.
@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Returns a localized string representation of the current network reachability status.
  */
-- (NSString *)localizedNetworkReachabilityStatusString;
+- (nonnull NSString *)localizedNetworkReachabilityStatusString;
 
 ///---------------------------------------------------
 /// @name Setting Network Reachability Change Callback
@@ -181,8 +181,8 @@ NS_ASSUME_NONNULL_BEGIN
  This notification assigns no notification object. The `userInfo` dictionary contains an `NSNumber` object under the `INSingReachabilityNotificationStatusItem` key, representing the `INSReachabilityStatus` value for the current network reachability.
  @warning In order for network reachability to be monitored, include the `SystemConfiguration` framework in the active target's "Link Binary With Library" build phase, and add `#import <SystemConfiguration/SystemConfiguration.h>` to the header prefix of the project (`Prefix.pch`).
  */
-extern NSString * const INSReachabilityDidChangeNotification;
-extern NSString * const INSReachabilityNotificationStatusItem;
+extern NSString * const _Nonnull INSReachabilityDidChangeNotification;
+extern NSString * const _Nonnull INSReachabilityNotificationStatusItem;
 
 ///--------------------
 /// @name Functions
@@ -191,7 +191,7 @@ extern NSString * const INSReachabilityNotificationStatusItem;
 /**
  Returns a localized string representation of an `INSReachabilityStatus` value.
  */
-extern NSString * INSStringFromNetworkReachabilityStatus(INSReachabilityStatus status);
+extern NSString * _Nonnull INSStringFromNetworkReachabilityStatus(INSReachabilityStatus status);
 
 NS_ASSUME_NONNULL_END
 #endif

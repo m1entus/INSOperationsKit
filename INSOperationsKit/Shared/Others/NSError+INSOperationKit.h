@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const INSOperationErrorDomain;
-extern NSString *const INSOperationErrorConditionKey;
+extern NSString *const _Nonnull INSOperationErrorDomain;
+extern NSString *const _Nonnull INSOperationErrorConditionKey;
 
 typedef NS_ENUM(NSUInteger, INSOperationError) {
     INSOperationErrorConditionFailed = 1,
@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, INSOperationError) {
 
 @interface NSError (INSOperationKit)
 
-+ (instancetype)ins_operationErrorWithCode:(NSUInteger)code;
-+ (instancetype)ins_operationErrorWithCode:(NSUInteger)code userInfo:(NSDictionary *)info;
++ (nonnull instancetype)ins_operationErrorWithCode:(NSUInteger)code;
++ (nonnull instancetype)ins_operationErrorWithCode:(NSUInteger)code userInfo:(nullable NSDictionary *)info;
 
 @end

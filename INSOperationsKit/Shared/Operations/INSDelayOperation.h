@@ -21,9 +21,9 @@
  immediately finishes.
  */
 @interface INSDelayOperation : INSOperation
-- (instancetype)initWithDelay:(NSTimeInterval)delay;
-+ (instancetype)operationWithDelay:(NSTimeInterval)delay;
+- (nonnull instancetype)initWithDelay:(NSTimeInterval)delay;
++ (nonnull instancetype)operationWithDelay:(NSTimeInterval)delay;
 
-- (instancetype)initWithDelayUntilDate:(NSDate *)date;
-+ (instancetype)operationWithDelayUntilDate:(NSDate *)date;
+- (nonnull instancetype)initWithDelayUntilDate:(nonnull NSDate *)date;
++ (nonnull instancetype)operationWithDelayUntilDate:(nonnull NSDate *)date;
 @end

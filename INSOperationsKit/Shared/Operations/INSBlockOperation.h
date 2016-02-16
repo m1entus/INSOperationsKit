@@ -9,11 +9,11 @@
 #import "INSOperation.h"
 
 typedef void (^INSBlockOperationCompletionBlock)();
-typedef void (^INSBlockOperationBlock)(INSBlockOperationCompletionBlock completionBlock);
+typedef void (^INSBlockOperationBlock)(INSBlockOperationCompletionBlock _Nonnull completionBlock);
 
 /// A sublcass of `Operation` to execute a block.
 @interface INSBlockOperation : INSOperation
-@property (nonatomic, copy) INSBlockOperationBlock block;
+@property (nonatomic, copy, nonnull) INSBlockOperationBlock block;
 /**
  The designated initializer.
  
@@ -23,8 +23,8 @@ typedef void (^INSBlockOperationBlock)(INSBlockOperationCompletionBlock completi
  will never finish executing. If this parameter is `nil`, the operation
  will immediately finish.
  */
-- (instancetype)initWithBlock:(INSBlockOperationBlock)block;
-+ (instancetype)operationWithBlock:(INSBlockOperationBlock)block;
+- (nonnull instancetype)initWithBlock:(nonnull INSBlockOperationBlock)block;
++ (nonnull instancetype)operationWithBlock:(nonnull INSBlockOperationBlock)block;
 /**
  A convenience initializer to execute a block on the main queue.
  
@@ -33,7 +33,7 @@ typedef void (^INSBlockOperationBlock)(INSBlockOperationCompletionBlock completi
  the designated initializer). The operation will be automatically ended
  after the `mainQueueBlock` is executed.
  */
-- (instancetype)initWithMainQueueBlock:(dispatch_block_t)block;
-+ (instancetype)operationWithMainQueueBlock:(dispatch_block_t)block;
+- (nonnull instancetype)initWithMainQueueBlock:(nonnull dispatch_block_t)block;
++ (nonnull instancetype)operationWithMainQueueBlock:(nonnull dispatch_block_t)block;
 
 @end

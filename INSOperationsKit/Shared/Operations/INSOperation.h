@@ -50,32 +50,32 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 
 @property (nonatomic, weak, readonly) INSOperationQueue *enqueuedOperationQueue;
 
-@property (nonatomic, strong, readonly) NSArray <NSObject <INSOperationConditionProtocol> *> *conditions;
-@property (nonatomic, strong, readonly) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
-@property (nonatomic, strong, readonly) NSArray <NSError *> *internalErrors;
+@property (nonatomic, strong, nonnull, readonly) NSArray <NSObject <INSOperationConditionProtocol> *> *conditions;
+@property (nonatomic, strong, nonnull, readonly) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
+@property (nonatomic, strong, nonnull, readonly) NSArray <NSError *> *internalErrors;
 
-@property (nonatomic, strong, readonly) NSHashTable <INSOperation <INSChainableOperationProtocol> *> *chainedOperations;
+@property (nonatomic, strong, nonnull, readonly) NSHashTable <INSOperation <INSChainableOperationProtocol> *> *chainedOperations;
 
-- (void)addObserver:(NSObject<INSOperationObserverProtocol> *)observer;
-- (void)addCondition:(NSObject<INSOperationConditionProtocol> *)condition;
+- (void)addObserver:(nonnull NSObject<INSOperationObserverProtocol> *)observer;
+- (void)addCondition:(nonnull NSObject<INSOperationConditionProtocol> *)condition;
 
-- (void)willEnqueueInOperationQueue:(INSOperationQueue *)operationQueue NS_REQUIRES_SUPER;
+- (void)willEnqueueInOperationQueue:(nonnull INSOperationQueue *)operationQueue NS_REQUIRES_SUPER;
 
 - (void)runInGlobalQueue;
 
 - (void)finish;
-- (void)finishWithErrors:(NSArray <NSError *> *)errors NS_REQUIRES_SUPER;
-- (void)finishWithError:(NSError *)error;
+- (void)finishWithErrors:(nullable NSArray <NSError *> *)errors NS_REQUIRES_SUPER;
+- (void)finishWithError:(nullable NSError *)error;
 
-- (void)finishedWithErrors:(NSArray <NSError *> *)errors;
+- (void)finishedWithErrors:(nonnull NSArray <NSError *> *)errors;
 
-- (void)cancelWithError:(NSError *)error;
-- (void)cancelWithErrors:(NSArray <NSError *> *)errors;
+- (void)cancelWithError:(nullable NSError *)error;
+- (void)cancelWithErrors:(nullable NSArray <NSError *> *)errors;
 
 - (void)execute;
-- (void)produceOperation:(NSOperation *)operation NS_REQUIRES_SUPER;
+- (void)produceOperation:(nonnull NSOperation *)operation NS_REQUIRES_SUPER;
 
-- (INSOperation <INSChainableOperationProtocol> *)chainWithOperation:(INSOperation <INSChainableOperationProtocol> *)operation;
-+ (void)chainOperations:(NSArray <INSOperation <INSChainableOperationProtocol> *>*)operations;
+- (nonnull INSOperation <INSChainableOperationProtocol> *)chainWithOperation:(nonnull INSOperation <INSChainableOperationProtocol> *)operation;
++ (void)chainOperations:(nonnull NSArray <INSOperation <INSChainableOperationProtocol> *>*)operations;
 
 @end

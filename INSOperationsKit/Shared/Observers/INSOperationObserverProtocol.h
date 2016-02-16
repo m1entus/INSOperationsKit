@@ -18,18 +18,18 @@
 @optional
 
 /// Invoked before operation is enqueued in queue
-- (void)operationWillStart:(INSOperation *)operation inOperationQueue:(INSOperationQueue *)operationQueue;
+- (void)operationWillStart:(nonnull INSOperation *)operation inOperationQueue:(nonnull INSOperationQueue *)operationQueue;
 
 /// Invoked immediately prior to the `INSOperation`'s `execute()` method.
-- (void)operationDidStart:(INSOperation *)operation;
+- (void)operationDidStart:(nonnull INSOperation *)operation;
 
 /// Invoked when `INSOperation.produceOperation(_:)` is executed.
-- (void)operation:(INSOperation *)operation didProduceOperation:(NSOperation *)newOperation;
+- (void)operation:(nonnull INSOperation *)operation didProduceOperation:(nonnull NSOperation *)newOperation;
 
 /**
  Invoked as an `INSOperation` finishes, along with any errors produced during
  execution (or readiness evaluation).
  */
-- (void)operationDidFinish:(INSOperation *)operation errors:(NSArray <NSError *> *)errors;
+- (void)operationDidFinish:(nonnull INSOperation *)operation errors:(nullable NSArray <NSError *> *)errors;
 
 @end

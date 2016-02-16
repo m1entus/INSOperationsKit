@@ -11,14 +11,14 @@
 
 /// A generic condition for describing kinds of operations that may not execute concurrently.
 @interface INSMutallyExclusiveCondition : NSObject <INSOperationConditionProtocol>
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, assign, readonly) Class klass;
+@property (nonatomic, copy, readonly, nonnull) NSString *name;
+@property (nonatomic, assign, nullable, readonly) Class klass;
 
-+ (instancetype)mutualExclusiveForClass:(Class)klass;
-+ (instancetype)mutualExclusiveForName:(NSString *)name;
++ (nonnull instancetype)mutualExclusiveForClass:(nonnull Class)klass;
++ (nonnull instancetype)mutualExclusiveForName:(nonnull NSString *)name;
 
 #if TARGET_OS_IPHONE
-+ (instancetype)alertMutallyExclusive;
-+ (instancetype)viewControllerMutallyExclusive;
++ (nonnull instancetype)alertMutallyExclusive;
++ (nonnull instancetype)viewControllerMutallyExclusive;
 #endif
 @end

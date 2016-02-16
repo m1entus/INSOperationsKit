@@ -21,7 +21,7 @@
  */
 
 @interface INSURLSessionTaskOperation : INSOperation
-@property (nonatomic, strong, readonly) NSURLSessionTask *task;
-- (instancetype)initWithTask:(NSURLSessionTask *)task;
-+ (instancetype)operationWithTask:(NSURLSessionTask *)task;
+@property (nonatomic, strong, nonnull, readonly) NSURLSessionTask *task;
+- (nonnull instancetype)initWithTask:(nonnull NSURLSessionTask *)task;
++ (nonnull instancetype)operationWithTask:(nonnull NSURLSessionTask *)task;
 @end

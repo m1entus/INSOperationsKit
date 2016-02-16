@@ -18,8 +18,8 @@
  */
 
 @interface INSExclusivityController : NSObject
-+ (instancetype)sharedInstance;
++ (nonnull instancetype)sharedInstance;
 
-- (void)addOperation:(INSOperation *)operation categories:(NSArray <NSString *> *)categories;
-- (void)removeOperation:(INSOperation *)operation categories:(NSArray <NSString *> *)categories;
+- (void)addOperation:(nonnull INSOperation *)operation categories:(nonnull NSArray <NSString *> *)categories;
+- (void)removeOperation:(nonnull INSOperation *)operation categories:(nonnull NSArray <NSString *> *)categories;
 @end

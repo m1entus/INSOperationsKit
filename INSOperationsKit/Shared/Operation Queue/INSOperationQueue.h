@@ -22,8 +22,8 @@
  */
 @protocol INSOperationQueueDelegate <NSObject>
 @optional
-- (void)operationQueue:(INSOperationQueue *)operationQueue willAddOperation:(NSOperation *)operation;
-- (void)operationQueue:(INSOperationQueue *)operationQueue operationDidFinish:(NSOperation *)operation withErrors:(NSArray *)errors;
+- (void)operationQueue:(nonnull INSOperationQueue *)operationQueue willAddOperation:(nonnull NSOperation *)operation;
+- (void)operationQueue:(nonnull INSOperationQueue *)operationQueue operationDidFinish:(nonnull NSOperation *)operation withErrors:(nullable NSArray *)errors;
 @end
 
 /**
@@ -37,5 +37,5 @@
 @interface INSOperationQueue : NSOperationQueue
 @property (nonatomic, weak) id <INSOperationQueueDelegate> delegate;
 
-+ (INSOperationQueue *)globalQueue;
++ (nonnull INSOperationQueue *)globalQueue;
 @end

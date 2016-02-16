@@ -24,12 +24,12 @@
  be executed before the rest of the operations in the initial chain of operations.
  */
 @interface INSGroupOperation : INSOperation
-@property (nonatomic, strong, readonly) INSOperationQueue *internalQueue;
+@property (nonatomic, strong, nonnull, readonly) INSOperationQueue *internalQueue;
 
-+ (instancetype)operationWithOperations:(NSArray <NSOperation *> *)operations;
-- (instancetype)initWithOperations:(NSArray <NSOperation *> *)operations;
++ (nonnull instancetype)operationWithOperations:(nonnull NSArray <NSOperation *> *)operations;
+- (nonnull instancetype)initWithOperations:(nonnull NSArray <NSOperation *> *)operations;
 
-- (void)addOperation:(NSOperation *)operation;
-- (void)aggregateError:(NSError *)error;
-- (void)operationDidFinish:(NSOperation *)operation withErrors:(NSArray <NSError *>*)errors;
+- (void)addOperation:(nonnull NSOperation *)operation;
+- (void)aggregateError:(nonnull NSError *)error;
+- (void)operationDidFinish:(nonnull NSOperation *)operation withErrors:(nullable NSArray <NSError *>*)errors;
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "INSOperationConditionProtocol.h"
 
-extern NSString *const INSNegatedConditionErrorConditionKey;
+extern NSString *const _Nonnull INSNegatedConditionErrorConditionKey;
 
 /**
  A simple condition that negates the evaluation of another condition.
@@ -17,8 +17,8 @@ extern NSString *const INSNegatedConditionErrorConditionKey;
  network is NOT reachable.
  */
 @interface INSNegatedCondition : NSObject <INSOperationConditionProtocol>
-@property (nonatomic, strong, readonly) NSObject <INSOperationConditionProtocol> *condition;
+@property (nonatomic, strong, nonnull, readonly) NSObject <INSOperationConditionProtocol> *condition;
 
-+ (instancetype)negatedConditionForCondition:(NSObject <INSOperationConditionProtocol> *)condition;
-- (instancetype)initWithCondition:(NSObject <INSOperationConditionProtocol> *)condition;
++ (nonnull instancetype)negatedConditionForCondition:(nonnull NSObject <INSOperationConditionProtocol> *)condition;
+- (nonnull instancetype)initWithCondition:(nonnull NSObject <INSOperationConditionProtocol> *)condition;
 @end

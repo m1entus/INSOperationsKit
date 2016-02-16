@@ -11,8 +11,8 @@
 #import "INSChainableOperationProtocol.h"
 
 @interface INSChainCondition : NSObject <INSOperationConditionProtocol>
-@property (nonatomic, strong, readonly) NSOperation <INSChainableOperationProtocol> *chainOperation;
+@property (nonatomic, strong, nonnull, readonly) NSOperation <INSChainableOperationProtocol> *chainOperation;
 
-+ (instancetype)chainConditionForOperation:(NSOperation <INSChainableOperationProtocol> *)operation;
++ (nonnull instancetype)chainConditionForOperation:(nonnull NSOperation <INSChainableOperationProtocol> *)operation;
 
 @end

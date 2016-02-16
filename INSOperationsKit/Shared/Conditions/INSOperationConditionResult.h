@@ -11,10 +11,10 @@
 
 @interface INSOperationConditionResult : NSObject
 @property (nonatomic, readonly, assign, getter=isSuccees) BOOL success;
-@property (nonatomic, readonly) NSError *error;
+@property (nonatomic, readonly, nullable) NSError *error;
 
-+ (INSOperationConditionResult *)satisfiedResult;
-+ (INSOperationConditionResult *)failedResultWithError:(NSError *)error;
++ (nonnull INSOperationConditionResult *)satisfiedResult;
++ (nonnull INSOperationConditionResult *)failedResultWithError:(nonnull NSError *)error;
 
-+ (void)evaluateConditions:(NSArray *)conditions operation:(INSOperation *)operation completion:(void (^)(NSArray <NSError *>*errors))completion;
++ (void)evaluateConditions:(nonnull NSArray *)conditions operation:(nonnull INSOperation *)operation completion:(nullable void (^)(NSArray <NSError *>* _Nullable errors))completion;
 @end

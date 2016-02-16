@@ -10,8 +10,8 @@
 
 @interface NSOperation (INSOperationKit)
 
-- (void)ins_addCompletionBlockInMainQueue:(void (^)(__kindof NSOperation *operation))block;
-- (void)ins_addCompletionBlock:(void (^)(__kindof NSOperation *operation))block;
-- (void)ins_addDependencies:(NSArray <NSOperation *> *)dependencies;
+- (void)ins_addCompletionBlockInMainQueue:(nullable void (^)(__kindof NSOperation * _Nonnull operation))block;
+- (void)ins_addCompletionBlock:(nullable void (^)(__kindof NSOperation * _Nonnull operation))block;
+- (void)ins_addDependencies:(nonnull NSArray <NSOperation *> *)dependencies;
 
 @end

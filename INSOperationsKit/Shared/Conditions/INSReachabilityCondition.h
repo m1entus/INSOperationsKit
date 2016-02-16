@@ -15,5 +15,5 @@
  Reachability is evaluated once when the operation to which this is attached is asked about its readiness.
  */
 @interface INSReachabilityCondition : NSObject <INSOperationConditionProtocol>
-+ (instancetype)reachabilityCondition;
++ (nonnull instancetype)reachabilityCondition;
 @end
