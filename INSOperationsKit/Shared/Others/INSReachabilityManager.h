@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Returns a localized string representation of the current network reachability status.
  */
-- (nonnull NSString *)localizedNetworkReachabilityStatusString;
+- (nonnull  NSString *)localizedNetworkReachabilityStatusString;
 
 ///---------------------------------------------------
 /// @name Setting Network Reachability Change Callback

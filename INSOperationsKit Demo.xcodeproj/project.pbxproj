@@ -66,6 +66,9 @@
 		646B45901BA0952800C00500 /* INSEarthquakeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */; };
 		646B45931BA09F2F00C00500 /* INSAlertOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B45921BA09F2F00C00500 /* INSAlertOperation.m */; };
 		647B822F1B9E181E0051EB46 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 647B822D1B9E181E0051EB46 /* Model.xcdatamodeld */; };
+		64CAACD51C7F827500AA2C03 /* INSOperationsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64CAACD41C7F827500AA2C03 /* INSOperationsKit.h */; };
+		64CAACD61C7F827500AA2C03 /* INSOperationsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64CAACD41C7F827500AA2C03 /* INSOperationsKit.h */; };
+		64CAACD71C7F827500AA2C03 /* INSOperationsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 64CAACD41C7F827500AA2C03 /* INSOperationsKit.h */; };
 		64D65AA31C6409600004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64D65AA41C6409600004D259 /* INSChainCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D65AA21C6409600004D259 /* INSChainCondition.m */; };
 		64D65AA61C640FB20004D259 /* INSChainCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64D65AA11C6409600004D259 /* INSChainCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -286,6 +289,7 @@
 		646B45911BA09F2F00C00500 /* INSAlertOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSAlertOperation.h; sourceTree = "<group>"; };
 		646B45921BA09F2F00C00500 /* INSAlertOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSAlertOperation.m; sourceTree = "<group>"; };
 		647B822E1B9E181E0051EB46 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		64CAACD41C7F827500AA2C03 /* INSOperationsKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INSOperationsKit.h; path = INSOperationsKit/INSOperationsKit.h; sourceTree = SOURCE_ROOT; };
 		64D65AA11C6409600004D259 /* INSChainCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSChainCondition.h; sourceTree = "<group>"; };
 		64D65AA21C6409600004D259 /* INSChainCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSChainCondition.m; sourceTree = "<group>"; };
 		64DFC7621B98A7C50009DB98 /* INSOperationsKit iOS Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "INSOperationsKit iOS Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -348,7 +352,6 @@
 		64DFC8091B9CBCEC0009DB98 /* INSPhotosLibraryAccessOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSPhotosLibraryAccessOperation.m; sourceTree = "<group>"; };
 		64EF351C1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSOSXEarthquakeOperationProvider.h; sourceTree = "<group>"; };
 		64EF351D1BA5CB7200AD34E7 /* INSOSXEarthquakeOperationProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSOSXEarthquakeOperationProvider.m; sourceTree = "<group>"; };
-		64EF351F1BA5F55F00AD34E7 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
 		64EF35261BA6013900AD34E7 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
 		64EF35281BA6041800AD34E7 /* INSOperationsKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INSOperationsKit.h; sourceTree = "<group>"; };
 		64EF352A1BA6041800AD34E7 /* INSOperationsKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "INSOperationsKit-Info.plist"; sourceTree = "<group>"; };
@@ -530,12 +533,12 @@
 		64DF7DAE1BA7532500DF24FC /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				64CAACD41C7F827500AA2C03 /* INSOperationsKit.h */,
 				64DFC7EA1B9A003A0009DB98 /* Others */,
 				64DFC7C01B98ABF30009DB98 /* Conditions */,
 				64DFC7BB1B98ABC40009DB98 /* Operations */,
 				64DFC7B51B98AA070009DB98 /* Observers */,
 				64DFC7B01B98A82F0009DB98 /* Operation Queue */,
-				64EF351F1BA5F55F00AD34E7 /* INSOperationsKit.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				644E030E1BA5C700001FE717 /* INSBlockObserver.h in Headers */,
 				64D65AA61C640FB20004D259 /* INSChainCondition.h in Headers */,
 				644E030F1BA5C700001FE717 /* INSTimeoutObserver.h in Headers */,
+				64CAACD61C7F827500AA2C03 /* INSOperationsKit.h in Headers */,
 				644E03101BA5C700001FE717 /* INSOperationQueue.h in Headers */,
 				644E03111BA5C700001FE717 /* INSExclusivityController.h in Headers */,
 			);
@@ -870,6 +874,7 @@
 				64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */,
 				64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */,
 				64DFC7E01B99FC840009DB98 /* INSURLSessionTaskOperation.h in Headers */,
+				64CAACD51C7F827500AA2C03 /* INSOperationsKit.h in Headers */,
 				64DFC7BE1B98ABD30009DB98 /* INSOperation.h in Headers */,
 				64DFC7D41B99F8C70009DB98 /* INSBlockOperation.h in Headers */,
 				64DFC7F31B9A0B2D0009DB98 /* INSOperationConditionProtocol.h in Headers */,
@@ -904,6 +909,7 @@
 				D2EB6C781BF5E31B00C75027 /* INSSilientCondition.h in Headers */,
 				D2EB6C791BF5E31B00C75027 /* INSNegatedCondition.h in Headers */,
 				D2EB6C7A1BF5E31B00C75027 /* INSNoCancelledDependenciesCondition.h in Headers */,
+				64CAACD71C7F827500AA2C03 /* INSOperationsKit.h in Headers */,
 				D2EB6C6E1BF5E30C00C75027 /* INSOperation.h in Headers */,
 				D2EB6C861BF5E4DF00C75027 /* INSOperationsKit.h in Headers */,
 				D2EB6C6F1BF5E30C00C75027 /* NSOperation+INSOperationKit.h in Headers */,
