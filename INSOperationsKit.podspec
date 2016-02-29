@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
   s.tvos.deployment_target = '9.0'
 
-  s.ios.source_files = 'INSOperationsKit/Shared/**/*.{h,m}', 'INSOperationsKit/iOS/**/*.{h,m}'
+  s.ios.source_files = 'INSOperationsKit/Shared/**/*.{h,m}', 'INSOperationsKit/iOS/**/*.{h,m}', 'INSOperationsKit/INSOperationsKit.h'
   s.osx.source_files = 'INSOperationsKit/Shared/**/*.{h,m}'
   s.tvos.source_files = 'INSOperationsKit/Shared/**/*.{h,m}'
 end
