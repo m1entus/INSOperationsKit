@@ -130,7 +130,9 @@
     self.enqueuedOperationQueue = operationQueue;
     
     for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
-        [observer operationWillStart:self inOperationQueue:operationQueue];
+        if ([observer respondsToSelector:@selector(operationWillStart:inOperationQueue:)]) {
+            [observer operationWillStart:self inOperationQueue:operationQueue];
+        }
     }
     
     self.state = INSOperationStatePending;
@@ -184,7 +186,9 @@
     self.state = INSOperationStateExecuting;
 
     for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
-        [observer operationDidStart:self];
+        if ([observer respondsToSelector:@selector(operationDidStart:)]) {
+            [observer operationDidStart:self];
+        }
     }
 
     [self execute];
@@ -231,7 +235,9 @@
 
 - (void)produceOperation:(NSOperation *)operation {
     for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
-        [observer operation:self didProduceOperation:operation];
+        if ([observer respondsToSelector:@selector(operation:didProduceOperation:)]) {
+            [observer operation:self didProduceOperation:operation];
+        }
     }
 }
 
@@ -298,7 +304,9 @@
         [self finishedWithErrors:self.internalErrors];
 
         for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
-            [observer operationDidFinish:self errors:self.internalErrors];
+            if ([observer respondsToSelector:@selector(operationDidFinish:errors:)]) {
+                [observer operationDidFinish:self errors:self.internalErrors];
+            }
         }
 
         self.state = INSOperationStateFinished;
