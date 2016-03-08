@@ -33,13 +33,13 @@
 // use the KVO mechanism to indicate that changes to "state" affect other properties as well
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
     if ([@[ @"isReady" ] containsObject:key]) {
-        return [NSSet setWithArray:@[ @"state", @"canceledState" ]];
+        return [NSSet setWithArray:@[ @"state", @"cancelledState" ]];
     }
     if ([@[ @"isExecuting", @"isFinished" ] containsObject:key]) {
         return [NSSet setWithArray:@[ @"state" ]];
     }
     if ([@[@"isCancelled"] containsObject:key]) {
-        return [NSSet setWithArray:@[ @"canceledState" ]];
+        return [NSSet setWithArray:@[ @"cancelledState" ]];
     }
     
     return [super keyPathsForValuesAffectingValueForKey:key];
@@ -71,9 +71,9 @@
 }
 
 - (void)setCancelled:(BOOL)cancelled {
-    [self willChangeValueForKey:@"canceledState"];
+    [self willChangeValueForKey:@"cancelledState"];
     _cancelled = cancelled;
-    [self didChangeValueForKey:@"canceledState"];
+    [self didChangeValueForKey:@"cancelledState"];
 }
 
 - (BOOL)isReady {
