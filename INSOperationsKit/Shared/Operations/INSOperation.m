@@ -32,7 +32,10 @@
 
 // use the KVO mechanism to indicate that changes to "state" affect other properties as well
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
-    if ([@[ @"isReady", @"isExecuting", @"isFinished" ] containsObject:key]) {
+    if ([@[ @"isReady" ] containsObject:key]) {
+        return [NSSet setWithArray:@[ @"state", @"canceledState" ]];
+    }
+    if ([@[ @"isExecuting", @"isFinished" ] containsObject:key]) {
         return [NSSet setWithArray:@[ @"state" ]];
     }
     if ([@[@"isCancelled"] containsObject:key]) {
