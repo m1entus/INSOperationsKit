@@ -77,20 +77,33 @@
 }
 
 - (BOOL)isReady {
+    BOOL ready = NO;
+    
     switch (self.state) {
-    case INSOperationStatePending:
-        if ([super isReady]) {
-            [self evaluateConditions];
-        }
-        return false;
-        break;
-    case INSOperationStateReady:
-        return [super isReady];
-        break;
-    default:
-        return NO;
-        break;
+        case INSOperationStateInitialized:
+            ready = [self isCancelled];
+            break;
+
+        case INSOperationStatePending:
+            if ([self isCancelled]) {
+                [self setState:INSOperationStateReady];
+                ready = YES;
+                break;
+            }
+            if ([super isReady]) {
+                [self evaluateConditions];
+            }
+            ready = (self.state == INSOperationStateReady && ([super isReady] || self.isCancelled));
+            break;
+        case INSOperationStateReady:
+            ready = [super isReady] || [self isCancelled];
+            break;
+        default:
+            ready = NO;
+            break;
     }
+    
+    return ready;
 }
 
 - (BOOL)userInitiated {
