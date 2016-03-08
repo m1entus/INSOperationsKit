@@ -118,6 +118,11 @@
     NSAssert(self.state == INSOperationStatePending, @"evaluateConditions() was called out-of-order");
 
     self.state = INSOperationStateEvaluatingConditions;
+    
+    if (!self.conditions.count) {
+        self.state = INSOperationStateReady;
+        return;
+    }
 
     [INSOperationConditionResult evaluateConditions:self.conditions operation:self completion:^(NSArray *failures) {
         
