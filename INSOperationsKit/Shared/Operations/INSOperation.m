@@ -29,6 +29,7 @@
 @implementation INSOperation
 @synthesize cancelled = _cancelled;
 @synthesize userInitiated = _userInitiated;
+@synthesize state = _state;
 
 // use the KVO mechanism to indicate that changes to "state" affect other properties as well
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
@@ -52,15 +53,25 @@
     return _chainedOperations;
 }
 
+- (INSOperationState)state {
+    
+    @synchronized(self) {
+        return _state;
+    }
+    
+}
+
 - (void)setState:(INSOperationState)newState {
     // Manually fire the KVO notifications for state change, since this is "private".
     [self willChangeValueForKey:@"state"];
 
     // cannot leave the cancelled state
     // cannot leave the finished state
-    if ( _state != INSOperationStateFinished) {
-        NSAssert(_state != newState, @"Performing invalid cyclic state transition.");
-        _state = newState;
+    @synchronized(self) {
+        if ( _state != INSOperationStateFinished) {
+            NSAssert(_state != newState, @"Performing invalid cyclic state transition.");
+            _state = newState;
+        }
     }
 
     [self didChangeValueForKey:@"state"];
@@ -79,28 +90,30 @@
 - (BOOL)isReady {
     BOOL ready = NO;
     
-    switch (self.state) {
-        case INSOperationStateInitialized:
-            ready = [self isCancelled];
-            break;
-
-        case INSOperationStatePending:
-            if ([self isCancelled]) {
-                [self setState:INSOperationStateReady];
-                ready = YES;
+    @synchronized(self) {
+        switch (self.state) {
+            case INSOperationStateInitialized:
+                ready = [self isCancelled];
                 break;
-            }
-            if ([super isReady]) {
-                [self evaluateConditions];
-            }
-            ready = (self.state == INSOperationStateReady && ([super isReady] || self.isCancelled));
-            break;
-        case INSOperationStateReady:
-            ready = [super isReady] || [self isCancelled];
-            break;
-        default:
-            ready = NO;
-            break;
+                
+            case INSOperationStatePending:
+                if ([self isCancelled]) {
+                    [self setState:INSOperationStateReady];
+                    ready = YES;
+                    break;
+                }
+                if ([super isReady]) {
+                    [self evaluateConditions];
+                }
+                ready = (self.state == INSOperationStateReady && ([super isReady] || self.isCancelled));
+                break;
+            case INSOperationStateReady:
+                ready = [super isReady] || [self isCancelled];
+                break;
+            default:
+                ready = NO;
+                break;
+        }
     }
     
     return ready;
