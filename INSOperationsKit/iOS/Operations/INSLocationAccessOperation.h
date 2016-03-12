@@ -6,15 +6,20 @@
 //  Copyright © 2016 Michal Zaborowski. All rights reserved.
 //
 
-#import <INSOperationsKit/INSOperationsKit.h>
 #import "INSLocationAccessCondition.h"
+#import <INSOperationsKit/INSOperationsKit.h>
 
 @import CoreLocation;
 
-typedef void(^INSLocationOperationLocationHandler)(CLLocation *location);
+NS_ASSUME_NONNULL_BEGIN
+
+typedef void (^INSLocationOperationLocationHandler)(CLLocation *location);
+
 @interface INSLocationAccessOperation : INSOperation
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithUsage:(INSLocationAccessUsage)usage accuracy:(CLLocationAccuracy)accuracy locationHandler:(INSLocationOperationLocationHandler)handler;
+- (instancetype)initWithUsage:(INSLocationAccessUsage)usage accuracy:(CLLocationAccuracy)accuracy locationHandler:(INSLocationOperationLocationHandler _Nullable)handler;
 
 @end
+
+NS_ASSUME_NONNULL_END

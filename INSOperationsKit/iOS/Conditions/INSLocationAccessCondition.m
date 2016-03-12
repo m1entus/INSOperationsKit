@@ -8,9 +8,9 @@
 
 #import "INSLocationAccessCondition.h"
 #import "INSLocationAccessOperation.h"
-#import "NSError+INSOperationKit.h"
-#import "INSOperationConditionResult.h"
 #import "INSMutallyExclusiveCondition.h"
+#import "INSOperationConditionResult.h"
+#import "NSError+INSOperationKit.h"
 
 @import CoreLocation;
 
@@ -29,7 +29,7 @@ NSString *const _Nonnull INSOperationErrorAuthorizationStatusKey = @"CLAuthoriza
 - (instancetype)init NS_UNAVAILABLE;
 @end
 
-@interface INSLocationPermissionOperation ()<CLLocationManagerDelegate>
+@interface INSLocationPermissionOperation () <CLLocationManagerDelegate>
 @property (nonatomic, assign) INSLocationAccessUsage usage;
 @property (nonatomic, strong, nullable) CLLocationManager *locationManager;
 @end
@@ -37,53 +37,53 @@ NSString *const _Nonnull INSOperationErrorAuthorizationStatusKey = @"CLAuthoriza
 @implementation INSLocationPermissionOperation
 
 - (instancetype)initWithUsage:(INSLocationAccessUsage)usage {
-	self = [super init];
-	if (self) {
-		_usage = usage;
-		[self addCondition:[INSMutallyExclusiveCondition alertMutallyExclusive]];
-	}
-	return self;
+    self = [super init];
+    if (self) {
+        _usage = usage;
+        [self addCondition:[INSMutallyExclusiveCondition alertMutallyExclusive]];
+    }
+    return self;
 }
 
 - (void)execute {
-	CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
 
-	if ((status == kCLAuthorizationStatusNotDetermined) || (status == kCLAuthorizationStatusAuthorizedWhenInUse && self.usage == INSLocationAccessUsageAlways)) {
-		dispatch_async(dispatch_get_main_queue(), ^{
-			[self requestPermission];
-		});
-	} else {
-		[self finish];
-	}
+    if ((status == kCLAuthorizationStatusNotDetermined) || (status == kCLAuthorizationStatusAuthorizedWhenInUse && self.usage == INSLocationAccessUsageAlways)) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+          [self requestPermission];
+        });
+    } else {
+        [self finish];
+    }
 }
 
 - (void)requestPermission {
-	self.locationManager = [[CLLocationManager alloc] init];
-	self.locationManager.delegate = self;
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
 
-	NSString *key = @"";
-	switch (self.usage) {
-		case INSLocationAccessUsageWhenInUse: {
-			key = @"NSLocationWhenInUseUsageDescription";
-			[self.locationManager requestWhenInUseAuthorization];
-			break;
-		}
-		case INSLocationAccessUsageAlways: {
-			key = @"NSLocationAlwaysUsageDescription";
-			[self.locationManager requestAlwaysAuthorization];
-			break;
-		}
-	}
+    NSString *key = @"";
+    switch (self.usage) {
+    case INSLocationAccessUsageWhenInUse: {
+        key = @"NSLocationWhenInUseUsageDescription";
+        [self.locationManager requestWhenInUseAuthorization];
+        break;
+    }
+    case INSLocationAccessUsageAlways: {
+        key = @"NSLocationAlwaysUsageDescription";
+        [self.locationManager requestAlwaysAuthorization];
+        break;
+    }
+    }
 
-	NSAssert([[NSBundle mainBundle] objectForInfoDictionaryKey:key] != nil, @"Requesting location permission requires the %@ key in your Info.plist", key);
+    NSAssert([[NSBundle mainBundle] objectForInfoDictionaryKey:key] != nil, @"Requesting location permission requires the %@ key in your Info.plist", key);
 }
 
 #pragma mark - CLLOcationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-	if (manager == self.locationManager && self.executing && status != kCLAuthorizationStatusNotDetermined) {
-		[self finish];
-	}
+    if (manager == self.locationManager && self.executing && status != kCLAuthorizationStatusNotDetermined) {
+        [self finish];
+    }
 }
 
 @end
@@ -98,49 +98,44 @@ NSString *const _Nonnull INSOperationErrorAuthorizationStatusKey = @"CLAuthoriza
 
 @implementation INSLocationAccessCondition
 
-- (instancetype)initWithUsage:(INSLocationAccessUsage)usage
-{
-	self = [super init];
-	if (self) {
-		_usage = usage;
-	}
-	return self;
+- (instancetype)initWithUsage:(INSLocationAccessUsage)usage {
+    self = [super init];
+    if (self) {
+        _usage = usage;
+    }
+    return self;
 }
 
 #pragma mark - INSOperationConditionProtocol
-- (nonnull NSString *)name
-{
-	return NSStringFromClass([self class]);
+- (nonnull NSString *)name {
+    return NSStringFromClass([self class]);
 }
 
-- (BOOL)isMutuallyExclusive
-{
-	return NO;
+- (BOOL)isMutuallyExclusive {
+    return NO;
 }
 
-- (nullable NSOperation *)dependencyForOperation:(nonnull INSOperation *)operation
-{
-	return [[INSLocationPermissionOperation alloc] initWithUsage:self.usage];
+- (nullable NSOperation *)dependencyForOperation:(nonnull INSOperation *)operation {
+    return [[INSLocationPermissionOperation alloc] initWithUsage:self.usage];
 }
 
-- (void)evaluateForOperation:(nonnull INSOperation *)operation completion:(nonnull void (^)(INSOperationConditionResult * _Nonnull result))completion
-{
-	BOOL enabled = [CLLocationManager locationServicesEnabled];
-	CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+- (void)evaluateForOperation:(nonnull INSOperation *)operation completion:(nonnull void (^)(INSOperationConditionResult *_Nonnull result))completion {
+    BOOL enabled = [CLLocationManager locationServicesEnabled];
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
 
-	if (enabled && ((status == kCLAuthorizationStatusAuthorizedAlways) || (self.usage == INSLocationAccessUsageWhenInUse && status == kCLAuthorizationStatusAuthorizedWhenInUse)) ) {
-		completion([INSOperationConditionResult satisfiedResult]);
-		return;
-	}
+    if (enabled && ((status == kCLAuthorizationStatusAuthorizedAlways) || (self.usage == INSLocationAccessUsageWhenInUse && status == kCLAuthorizationStatusAuthorizedWhenInUse))) {
+        completion([INSOperationConditionResult satisfiedResult]);
+        return;
+    }
 
-	NSDictionary *userInfo = @{
-							   INSOperationErrorConditionKey : NSStringFromClass([self class]),
-							   INSOperationErrorLocationServicesEnabledKey : @(enabled),
-							   INSOperationErrorAuthorizationStatusKey : @(status)
-							   };
-	NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
-												userInfo:userInfo];
-	completion([INSOperationConditionResult failedResultWithError:error]);
+    NSDictionary *userInfo = @{
+        INSOperationErrorConditionKey : NSStringFromClass([self class]),
+        INSOperationErrorLocationServicesEnabledKey : @(enabled),
+        INSOperationErrorAuthorizationStatusKey : @(status)
+    };
+    NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
+                                                userInfo:userInfo];
+    completion([INSOperationConditionResult failedResultWithError:error]);
 }
 
 @end
