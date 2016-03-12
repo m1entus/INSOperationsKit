@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "INSEarthquake.h"
 
+@class CLLocation;
 @interface INSEarthquakeTableViewCell : UITableViewCell
-- (void)configureWithEarthquake:(INSEarthquake *)earthquake;
+- (void)configureWithEarthquake:(INSEarthquake *)earthquake currentLocation:(CLLocation *)location;
 @end

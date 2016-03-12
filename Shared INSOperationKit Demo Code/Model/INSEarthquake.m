@@ -30,6 +30,15 @@ NSNumberFormatter *INSEarthquakeMagnitudeFormatter() {
     return instanceOfFormatter;
 };
 
+MKDistanceFormatter *INSEarthquakeDistanceFormatter() {
+	static MKDistanceFormatter *instanceOfFormatter;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		instanceOfFormatter = [[MKDistanceFormatter alloc] init];
+	});
+	return instanceOfFormatter;
+}
+
 @implementation INSEarthquake
 
 + (NSString *)entityName {
