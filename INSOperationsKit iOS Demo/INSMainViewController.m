@@ -12,10 +12,13 @@
 @import CoreData;
 #import "INSEarthquakeTableViewCell.h"
 #import "INSCoreDataStack.h"
+@import CoreLocation;
+#import "INSLocationAccessOperation.h"
 
 @interface INSMainViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) CLLocation *currentLocation;
 @end
 
 @implementation INSMainViewController
@@ -31,7 +34,11 @@
             [self configureFetchedResultsController];
         }
     }] runInGlobalQueue];
-
+	INSLocationAccessOperation *operation = [[INSLocationAccessOperation alloc] initWithUsage:INSLocationAccessUsageWhenInUse accuracy:kCLLocationAccuracyNearestTenMeters locationHandler:^(CLLocation *location) {
+		self.currentLocation = location;
+		[self.tableView reloadData];
+	}];
+	[operation runInGlobalQueue];
 }
 
 - (void)configureFetchedResultsController {
@@ -61,7 +68,7 @@
     INSEarthquakeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
     INSEarthquake *earthquake = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [cell configureWithEarthquake:earthquake];
+    [cell configureWithEarthquake:earthquake currentLocation:self.currentLocation];
     
     return cell;
 }

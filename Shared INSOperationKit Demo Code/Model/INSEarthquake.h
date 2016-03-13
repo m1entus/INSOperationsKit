@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@import MapKit;
 #import "INSCoreDataParsable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSDateFormatter *INSEarthquakeTimestampFormatter();
 extern NSNumberFormatter *INSEarthquakeMagnitudeFormatter();
+extern MKDistanceFormatter *INSEarthquakeDistanceFormatter();
 
 @interface INSEarthquake : NSManagedObject <INSCoreDataParsable>
 + (NSString *)entityName;

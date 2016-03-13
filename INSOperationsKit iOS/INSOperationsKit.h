@@ -26,6 +26,7 @@ FOUNDATION_EXPORT const unsigned char INSOperationsKitVersionString[];
 #import <INSOperationsKit/INSOperationConditionResult.h>
 #import <INSOperationsKit/INSMutallyExclusiveCondition.h>
 #import <INSOperationsKit/INSReachabilityCondition.h>
+#import <INSOperationsKit/INSLocationAccessCondition.h>
 #import <INSOperationsKit/NSOperation+INSOperationKit.h>
 #import <INSOperationsKit/INSBlockOperation.h>
 #import <INSOperationsKit/INSGroupOperation.h>
