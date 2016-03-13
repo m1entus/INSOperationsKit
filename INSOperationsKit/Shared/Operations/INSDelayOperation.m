@@ -43,7 +43,7 @@
         interval = [self.delayDate timeIntervalSinceNow];
     }
     
-    if (self.delay <= 0) {
+    if (interval <= 0) {
         [self finish];
         return;
     }
