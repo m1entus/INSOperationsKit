@@ -6,9 +6,10 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
+#import "INSOperationConditionProtocol.h"
 #import <Foundation/Foundation.h>
 
 /// A condition for verifying access to the user's Photos library.
-@interface INSPhotosLibraryAccessCondition : NSObject
+@interface INSPhotosLibraryAccessCondition : NSObject <INSOperationConditionProtocol>
 @end
 
