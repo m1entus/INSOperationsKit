@@ -62,20 +62,21 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
     self.completionBlock = completion;
     __weak typeof(self) weakSelf = self;
     [self.reachabilityManager setReachabilityStatusChangeBlock:^void(INSReachabilityStatus status) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         if (status <= INSReachabilityStatusNotReachable) {
             NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
                                                         userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([weakSelf class]) }];
-            if (weakSelf.completionBlock) {
-                weakSelf.completionBlock([INSOperationConditionResult failedResultWithError:error]);
+            if (strongSelf.completionBlock) {
+                strongSelf.completionBlock([INSOperationConditionResult failedResultWithError:error]);
             }
             
-            weakSelf.completionBlock = nil;
+            strongSelf.completionBlock = nil;
         } else {
-            if (weakSelf.completionBlock) {
-                weakSelf.completionBlock([INSOperationConditionResult satisfiedResult]);
+            if (strongSelf.completionBlock) {
+                strongSelf.completionBlock([INSOperationConditionResult satisfiedResult]);
             }
             
-            weakSelf.completionBlock = nil;
+            strongSelf.completionBlock = nil;
         }
     }];
     [self.reachabilityManager startMonitoring];
