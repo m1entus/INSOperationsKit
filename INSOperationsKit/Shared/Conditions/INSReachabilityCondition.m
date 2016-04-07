@@ -65,7 +65,7 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (status <= INSReachabilityStatusNotReachable) {
             NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
-                                                        userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([weakSelf class]) }];
+                                                        userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([strongSelf class]) }];
             if (strongSelf.completionBlock) {
                 strongSelf.completionBlock([INSOperationConditionResult failedResultWithError:error]);
             }
