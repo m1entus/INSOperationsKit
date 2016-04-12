@@ -30,6 +30,10 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
 }
 
 - (void)execute {
+    if (self.isCancelled) {
+        return;
+    }
+    
     NSAssert(self.task.state == NSURLSessionTaskStateSuspended, @"Task was resumed by sometion othen than %@.",NSStringFromClass([self class]));
     
     [self.task addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:INSDownloadOperationContext];
