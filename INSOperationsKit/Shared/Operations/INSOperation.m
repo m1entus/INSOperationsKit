@@ -54,27 +54,21 @@
 }
 
 - (INSOperationState)state {
-    
     @synchronized(self) {
         return _state;
     }
-    
 }
 
 - (void)setState:(INSOperationState)newState {
     // Manually fire the KVO notifications for state change, since this is "private".
-    [self willChangeValueForKey:@"state"];
-
-    // cannot leave the cancelled state
-    // cannot leave the finished state
     @synchronized(self) {
-        if ( _state != INSOperationStateFinished) {
+        if (_state != INSOperationStateFinished) {
+            [self willChangeValueForKey:@"state"];
             NSAssert(_state != newState, @"Performing invalid cyclic state transition.");
             _state = newState;
+            [self didChangeValueForKey:@"state"];
         }
     }
-
-    [self didChangeValueForKey:@"state"];
 }
 
 - (BOOL)isCancelled {
