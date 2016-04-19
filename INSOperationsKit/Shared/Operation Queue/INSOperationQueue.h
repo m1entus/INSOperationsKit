@@ -35,7 +35,7 @@
  - Setting up dependencies to enforce mutual exclusivity
  */
 @interface INSOperationQueue : NSOperationQueue
-@property (nonatomic, weak) id <INSOperationQueueDelegate> delegate;
+@property (nonatomic, weak, nullable) id <INSOperationQueueDelegate> delegate;
 
 + (nonnull INSOperationQueue *)globalQueue;
 @end

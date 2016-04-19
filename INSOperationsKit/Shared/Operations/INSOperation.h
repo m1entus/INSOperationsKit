@@ -48,7 +48,7 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 @property (nonatomic, assign) BOOL userInitiated;
 @property (nonatomic, readonly) INSOperationState state;
 
-@property (nonatomic, weak, readonly) INSOperationQueue *enqueuedOperationQueue;
+@property (nonatomic, weak, readonly, nullable) INSOperationQueue *enqueuedOperationQueue;
 
 @property (nonatomic, strong, nonnull, readonly) NSArray <NSObject <INSOperationConditionProtocol> *> *conditions;
 @property (nonatomic, strong, nonnull, readonly) NSArray <NSObject <INSOperationObserverProtocol> *> *observers;
