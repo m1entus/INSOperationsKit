@@ -275,9 +275,9 @@
     [self.chainedOperations addObject:operation];
     [operation addCondition:[INSChainCondition chainConditionForOperation:self]];
     
-    __weak typeof(self) weakSelf = self;
-    [operation addObserver:[[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:nil produceHandler:nil finishHandler:^(INSOperation *finishedOperation, NSArray<NSError *> *errors) {
-        [weakSelf chainedOperation:finishedOperation didFinishWithErrors:errors passingAdditionalData:[finishedOperation additionalDataToPassForChainedOperation]];
+    __weak typeof(operation) weakOperation = operation;
+    [self addObserver:[[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:nil produceHandler:nil finishHandler:^(INSOperation *finishedOperation, NSArray<NSError *> *errors) {
+        [weakOperation chainedOperation:finishedOperation didFinishWithErrors:errors passingAdditionalData:[finishedOperation additionalDataToPassForChainedOperation]];
     }]];
     
     return operation;
