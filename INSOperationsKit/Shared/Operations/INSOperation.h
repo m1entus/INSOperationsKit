@@ -46,7 +46,7 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 @interface INSOperation : NSOperation <INSChainableOperationProtocol>
 @property (readonly, getter=isCancelled) BOOL cancelled;
 @property (nonatomic, assign) BOOL userInitiated;
-@property (nonatomic, readonly) INSOperationState state;
+@property (atomic, readonly) INSOperationState state;
 
 @property (nonatomic, weak, readonly, nullable) INSOperationQueue *enqueuedOperationQueue;
 

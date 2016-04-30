@@ -13,8 +13,8 @@
 #import "INSBlockObserver.h"
 
 @interface INSOperation ()
-@property (nonatomic, assign) BOOL hasFinishedAlready;
-@property (nonatomic, assign) INSOperationState state;
+@property (atomic, assign) BOOL hasFinishedAlready;
+@property (atomic, assign) INSOperationState state;
 @property (getter=isCancelled) BOOL cancelled;
 
 @property (nonatomic, weak) INSOperationQueue *enqueuedOperationQueue;
@@ -72,13 +72,17 @@
 }
 
 - (BOOL)isCancelled {
-    return _cancelled;
+    @synchronized(self) {
+        return _cancelled;
+    }
 }
 
 - (void)setCancelled:(BOOL)cancelled {
-    [self willChangeValueForKey:@"cancelledState"];
-    _cancelled = cancelled;
-    [self didChangeValueForKey:@"cancelledState"];
+    @synchronized(self) {
+        [self willChangeValueForKey:@"cancelledState"];
+        _cancelled = cancelled;
+        [self didChangeValueForKey:@"cancelledState"];
+    }
 }
 
 - (BOOL)isReady {
