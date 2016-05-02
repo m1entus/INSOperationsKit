@@ -65,6 +65,7 @@
 		644E030F1BA5C700001FE717 /* INSTimeoutObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644E03101BA5C700001FE717 /* INSOperationQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B11B98A89E0009DB98 /* INSOperationQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644E03111BA5C700001FE717 /* INSExclusivityController.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7CE1B98F07C0009DB98 /* INSExclusivityController.h */; };
+		64552CCA1CD799790075666E /* INSOperationObserverProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7B61B98AA190009DB98 /* INSOperationObserverProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		646B458D1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458C1BA091EC00C00500 /* INSiOSEarthquakeOperationsProvider.m */; };
 		646B45901BA0952800C00500 /* INSEarthquakeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B458F1BA0952800C00500 /* INSEarthquakeTableViewCell.m */; };
 		646B45931BA09F2F00C00500 /* INSAlertOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 646B45921BA09F2F00C00500 /* INSAlertOperation.m */; };
@@ -915,6 +916,7 @@
 				D2EB6C821BF5E35000C75027 /* INSOperationQueue.h in Headers */,
 				D2EB6C7B1BF5E32900C75027 /* NSError+INSOperationKit.h in Headers */,
 				D2EB6C7C1BF5E32900C75027 /* INSReachabilityManager.h in Headers */,
+				64552CCA1CD799790075666E /* INSOperationObserverProtocol.h in Headers */,
 				D2EB6C761BF5E31B00C75027 /* INSMutallyExclusiveCondition.h in Headers */,
 				D2EB6C771BF5E31B00C75027 /* INSReachabilityCondition.h in Headers */,
 				D2EB6C781BF5E31B00C75027 /* INSSilientCondition.h in Headers */,
