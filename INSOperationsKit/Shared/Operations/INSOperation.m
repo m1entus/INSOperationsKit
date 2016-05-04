@@ -249,6 +249,12 @@
     self.cancelled = YES;
     if (self.state > INSOperationStateReady) {
         [self finish];
+    } else {
+        for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
+            if ([observer respondsToSelector:@selector(operationDidCancelBeforeStart:errors:)]) {
+                [observer operationDidCancelBeforeStart:self errors:self.internalErrors];
+            }
+        }
     }
 }
 

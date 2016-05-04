@@ -26,6 +26,8 @@
 /// Invoked when `INSOperation.produceOperation(_:)` is executed.
 - (void)operation:(nonnull INSOperation *)operation didProduceOperation:(nonnull NSOperation *)newOperation;
 
+/// Invoked only when operation was cancelled before start!
+- (void)operationDidCancelBeforeStart:(nonnull INSOperation *)operation errors:(nullable NSArray <NSError *> *)errors;
 /**
  Invoked as an `INSOperation` finishes, along with any errors produced during
  execution (or readiness evaluation).
