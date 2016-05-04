@@ -61,7 +61,7 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 
 - (void)willEnqueueInOperationQueue:(nonnull INSOperationQueue *)operationQueue NS_REQUIRES_SUPER;
 
-- (void)runInGlobalQueue;
+- (nonnull instancetype)runInGlobalQueue;
 
 - (void)finish;
 - (void)finishWithErrors:(nullable NSArray <NSError *> *)errors NS_REQUIRES_SUPER;
@@ -69,6 +69,7 @@ typedef NS_ENUM(NSUInteger, INSOperationState) {
 
 - (void)finishedWithErrors:(nonnull NSArray <NSError *> *)errors;
 
+- (void)cancel NS_REQUIRES_SUPER;
 - (void)cancelWithError:(nullable NSError *)error;
 - (void)cancelWithErrors:(nullable NSArray <NSError *> *)errors;
 

@@ -21,13 +21,7 @@ typedef void(^INSBlockObserverFinishHandler)(INSOperation * _Nonnull operation, 
 @interface INSBlockObserver : NSObject <INSOperationObserverProtocol>
 
 - (nonnull instancetype)initWithWillStartHandler:(nullable INSBlockObserverWillStartHandler)willStartHandler
-                        didStartHandler:(nullable INSBlockObserverStartHandler)startHandler
-                     produceHandler:(nullable INSBlockObserverProduceHandler)produceHandler
-                      finishHandler:(nullable INSBlockObserverFinishHandler)finishHandler;
-
-- (nonnull instancetype)initWithWillStartHandler:(nullable INSBlockObserverWillStartHandler)willStartHandler
                                  didStartHandler:(nullable INSBlockObserverStartHandler)startHandler
-                                   cancelBeforeStartHandler:(nullable INSBlockObserverFinishHandler)cancelBeforeStartHandler
                                   produceHandler:(nullable INSBlockObserverProduceHandler)produceHandler
                                    finishHandler:(nullable INSBlockObserverFinishHandler)finishHandler;
 

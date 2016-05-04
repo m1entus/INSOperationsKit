@@ -117,9 +117,6 @@
             INSBlockObserver *observer = [[INSBlockObserver alloc]
                                       initWithWillStartHandler:nil
                                           didStartHandler:nil
-                                          cancelBeforeStartHandler:^(INSOperation *operation, NSArray *error) {
-                                              [weakExclusivityController removeOperation:operation categories:concurrencyCategories];
-                                          }
                                           produceHandler:nil
                                           finishHandler:^(INSOperation *operation, NSArray *error) {
                                               [weakExclusivityController removeOperation:operation categories:concurrencyCategories];

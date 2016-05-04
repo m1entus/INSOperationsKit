@@ -29,9 +29,6 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
     }
     
     self.completionBlock = nil;
-    
-    [self.reachabilityManager setReachabilityStatusChangeBlock:nil];
-    [self.reachabilityManager stopMonitoring];
     self.reachabilityManager = nil;
 }
 
@@ -41,7 +38,7 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.reachabilityManager = [INSReachabilityManager managerForLocalAddress];
+        self.reachabilityManager = [INSReachabilityManager sharedManager];
     }
     return self;
 }
@@ -59,9 +56,12 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
 }
 
 - (void)evaluateForOperation:(INSOperation *)operation completion:(void (^)(INSOperationConditionResult *))completion {
-    self.completionBlock = completion;
+    if (!self.reachabilityManager.isMonitoring) {
+        [self.reachabilityManager startMonitoring];
+    }
     __weak typeof(self) weakSelf = self;
-    [self.reachabilityManager setReachabilityStatusChangeBlock:^void(INSReachabilityStatus status) {
+    
+    void(^reachabilityBlock)(INSReachabilityStatus status) = ^(INSReachabilityStatus status) {
         if (status <= INSReachabilityStatusNotReachable) {
             NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
                                                         userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([weakSelf class]) }];
@@ -77,8 +77,16 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
             
             weakSelf.completionBlock = nil;
         }
-    }];
-    [self.reachabilityManager startMonitoring];
+    };
+    self.completionBlock = completion;
+    
+    if (self.reachabilityManager.networkReachabilityStatus == INSReachabilityStatusUnknown) {
+        [self.reachabilityManager setReachabilityStatusChangeBlock:^void(INSReachabilityStatus status) {
+            reachabilityBlock(status);
+        }];
+    } else {
+        reachabilityBlock(self.reachabilityManager.networkReachabilityStatus);
+    }
 }
 
 @end

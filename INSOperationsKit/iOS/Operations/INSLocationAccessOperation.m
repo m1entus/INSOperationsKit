@@ -43,9 +43,10 @@
 }
 
 - (void)cancel {
+    [super cancel];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
       [self stopLocationUpdates];
-      [super cancel];
     });
 }
 

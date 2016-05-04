@@ -39,3 +39,4 @@ FOUNDATION_EXPORT const unsigned char INSOperationsKitVersionString[];
 #import <INSOperationsKit/INSNegatedCondition.h>
 #import <INSOperationsKit/INSChainOperation.h>
 #import <INSOperationsKit/INSNoCancelledDependenciesCondition.h>
+#import <INSOperationsKit/INSExclusivityController.h>

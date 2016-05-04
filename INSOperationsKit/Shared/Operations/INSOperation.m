@@ -148,13 +148,20 @@
         return;
     }
 
+    // If evaluating will take too long and opearation was cancelled and deleted from queue
+    // make sure that INSOperationConditionResult will not retain and call on self
+    __weak typeof(self) weakSelf = self;
     [INSOperationConditionResult evaluateConditions:self.conditions operation:self completion:^(NSArray *failures) {
+        if (weakSelf.isCancelled) {
+            return;
+        }
         
         if (failures.count != 0) {
-            [self cancelWithErrors:failures];
+            [weakSelf cancelWithErrors:failures];
+        } else if (weakSelf.state < INSOperationStateReady) {
+            //We must preceed to have the operation exit the queue
+            weakSelf.state = INSOperationStateReady;
         }
-        //We must preceed to have the operation exit the queue
-        self.state = INSOperationStateReady;
     }];
 }
 
@@ -170,8 +177,9 @@
     self.state = INSOperationStatePending;
 }
 
-- (void)runInGlobalQueue {
+- (instancetype)runInGlobalQueue {
     [[INSOperationQueue globalQueue] addOperation:self];
+    return self;
 }
 
 #pragma mark - Observers
@@ -249,12 +257,8 @@
     self.cancelled = YES;
     if (self.state > INSOperationStateReady) {
         [self finish];
-    } else {
-        for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
-            if ([observer respondsToSelector:@selector(operationDidCancelBeforeStart:errors:)]) {
-                [observer operationDidCancelBeforeStart:self errors:self.internalErrors];
-            }
-        }
+    } else if (self.state < INSOperationStateReady) {
+        self.state = INSOperationStateReady;
     }
 }
 

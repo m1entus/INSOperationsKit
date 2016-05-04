@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-@import INSOperationsKit;
+#import <INSOperationsKit/INSOperationsKit.h>
 #import "INSOperationTestCondition.h"
 #import "INSTestChainOperation.h"
+
+@interface INSExclusivityController ()
+@property (nonatomic, strong) NSMutableDictionary <NSString *, NSMutableArray *> *operations;
+@end
 
 @interface INSOperationsKitTests : XCTestCase
 @property (nonatomic, strong) INSOperationQueue *operationQueue;
@@ -692,6 +696,30 @@
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testCancelledOperationLeavesQueue {
+    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+        
+    }];
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+    
+    NSOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+        [expectation fulfill];
+    }];
+    
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(NSOperation *observedObject, NSDictionary *change) {
+        return observedObject.isCancelled;
+    }];
+    
+    INSOperationQueue *operationQueue = [[INSOperationQueue alloc] init];
+    operationQueue.maxConcurrentOperationCount = 1;
+    [operationQueue addOperation:operation];
+    [operationQueue addOperation:operation2];
+    [operation cancel];
+    
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testChainOperationShouldCancelWithErrorWhenMiddleOperationFail {
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     
@@ -743,11 +771,11 @@
     }];
     
     [self keyValueObservingExpectationForObject:operation keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
-        return observedObject.cancelled;
+        return observedObject.isCancelled;
     }];
     
     [self keyValueObservingExpectationForObject:operation2 keyPath:@"isCancelled" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
-        return observedObject.cancelled;
+        return observedObject.isCancelled;
     }];
     
     [self.operationQueue addOperation:chainOperation];
