@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name         = "INSOperationsKit"
-  s.version      = "1.2.3"
+  s.version      = "1.3.1"
   s.summary      = "INSOperationsKit"
   s.license      = 'MIT'
   s.homepage     = "http://inspace.io"
   s.author       = { "Michał Zaborowski" => "m1entus@gmail.com" }
-  s.source       = { :git => "https://github.com/inspace-io/INSOperationsKit.git", :tag => "1.2.3" }
+  s.source       = { :git => "https://github.com/inspace-io/INSOperationsKit.git", :tag => "1.3.1" }
   s.requires_arc = true
 
   s.ios.deployment_target = '7.0'
