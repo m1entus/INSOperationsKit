@@ -711,10 +711,9 @@
         return observedObject.isCancelled;
     }];
     
-    INSOperationQueue *operationQueue = [[INSOperationQueue alloc] init];
-    operationQueue.maxConcurrentOperationCount = 1;
-    [operationQueue addOperation:operation];
-    [operationQueue addOperation:operation2];
+    self.operationQueue.maxConcurrentOperationCount = 1;
+    [self.operationQueue addOperation:operation];
+    [self.operationQueue addOperation:operation2];
     [operation cancel];
     
     [self waitForExpectationsWithTimeout:1.0 handler:nil];

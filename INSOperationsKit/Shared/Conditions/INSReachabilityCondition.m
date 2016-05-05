@@ -11,26 +11,11 @@
 #import "INSOperationConditionResult.h"
 #import "NSError+INSOperationKit.h"
 
-typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *result);
-
 @interface INSReachabilityCondition ()
 @property (nonatomic, strong) NSURL *host;
-@property (nonatomic, strong) INSReachabilityManager *reachabilityManager;
-@property (nonatomic, copy) INSReachabilityConditionCompletion completionBlock;
 @end
 
 @implementation INSReachabilityCondition
-
-- (void)dealloc {
-    NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
-                                                userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([self class]) }];
-    if (self.completionBlock) {
-        self.completionBlock([INSOperationConditionResult failedResultWithError:error]);
-    }
-    
-    self.completionBlock = nil;
-    self.reachabilityManager = nil;
-}
 
 + (instancetype)reachabilityCondition {
     return [[[self class ]alloc] init];
@@ -38,7 +23,10 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.reachabilityManager = [INSReachabilityManager sharedManager];
+        if (![INSReachabilityManager sharedManager].isMonitoring) {
+            [[INSReachabilityManager sharedManager] startMonitoring];
+        }
+
     }
     return self;
 }
@@ -56,37 +44,39 @@ typedef void(^INSReachabilityConditionCompletion)(INSOperationConditionResult *r
 }
 
 - (void)evaluateForOperation:(INSOperation *)operation completion:(void (^)(INSOperationConditionResult *))completion {
-    if (!self.reachabilityManager.isMonitoring) {
-        [self.reachabilityManager startMonitoring];
+    if (![INSReachabilityManager sharedManager].isMonitoring) {
+        [[INSReachabilityManager sharedManager] startMonitoring];
     }
-    __weak typeof(self) weakSelf = self;
     
-    void(^reachabilityBlock)(INSReachabilityStatus status) = ^(INSReachabilityStatus status) {
-        if (status <= INSReachabilityStatusNotReachable) {
-            NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
-                                                        userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([weakSelf class]) }];
-            if (weakSelf.completionBlock) {
-                weakSelf.completionBlock([INSOperationConditionResult failedResultWithError:error]);
-            }
-            
-            weakSelf.completionBlock = nil;
-        } else {
-            if (weakSelf.completionBlock) {
-                weakSelf.completionBlock([INSOperationConditionResult satisfiedResult]);
-            }
-            
-            weakSelf.completionBlock = nil;
-        }
-    };
-    self.completionBlock = completion;
+    INSReachabilityStatus status = [INSReachabilityManager sharedManager].networkReachabilityStatus;
     
-    if (self.reachabilityManager.networkReachabilityStatus == INSReachabilityStatusUnknown) {
-        [self.reachabilityManager setReachabilityStatusChangeBlock:^void(INSReachabilityStatus status) {
-            reachabilityBlock(status);
+    if (status == INSReachabilityStatusUnknown) {
+        [[INSReachabilityManager sharedManager] addSingleCallReachabilityStatusChangeBlock:^(INSReachabilityStatus status) {
+            if (status <= INSReachabilityStatusNotReachable) {
+                NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
+                                                            userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([self class]) }];
+                if (completion) {
+                    completion([INSOperationConditionResult failedResultWithError:error]);
+                }
+            } else {
+                if (completion) {
+                    completion([INSOperationConditionResult satisfiedResult]);
+                }
+            }
         }];
+        
+    } else if (status <= INSReachabilityStatusNotReachable) {
+        NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
+                                                    userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([self class]) }];
+        if (completion) {
+            completion([INSOperationConditionResult failedResultWithError:error]);
+        }
     } else {
-        reachabilityBlock(self.reachabilityManager.networkReachabilityStatus);
+        if (completion) {
+            completion([INSOperationConditionResult satisfiedResult]);
+        }
     }
+
 }
 
 @end

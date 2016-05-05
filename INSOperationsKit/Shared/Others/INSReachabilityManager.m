@@ -115,6 +115,7 @@ static void INSReachabilityReleaseCallback(const void *info) {
 @property (readwrite, nonatomic, assign) INSReachabilityStatus networkReachabilityStatus;
 @property (readwrite, nonatomic, copy) INSReachabilityStatusBlock networkReachabilityStatusBlock;
 @property (readwrite, nonatomic, assign, getter=isMonitoring) BOOL monitoring;
+@property (nonatomic, strong) NSHashTable *blockTable;
 @end
 
 @implementation INSReachabilityManager
@@ -160,7 +161,7 @@ static void INSReachabilityReleaseCallback(const void *info) {
     if (!self) {
         return nil;
     }
-    
+    self.blockTable = [NSHashTable hashTableWithOptions:NSPointerFunctionsCopyIn];
     self.networkReachability = CFBridgingRelease(reachability);
     self.networkReachabilityStatus = INSReachabilityStatusUnknown;
     
@@ -174,6 +175,7 @@ static void INSReachabilityReleaseCallback(const void *info) {
 
 - (void)dealloc {
     [self stopMonitoring];
+    [self.blockTable removeAllObjects];
 }
 
 #pragma mark -
@@ -209,6 +211,11 @@ static void INSReachabilityReleaseCallback(const void *info) {
         if (strongSelf.networkReachabilityStatusBlock) {
             strongSelf.networkReachabilityStatusBlock(status);
         }
+        NSArray *blockObjects = [strongSelf.blockTable allObjects];
+        [blockObjects enumerateObjectsUsingBlock:^(INSReachabilityStatusBlock obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj(status);
+            [strongSelf.blockTable removeObject:obj];
+        }];
         
     };
     
@@ -260,6 +267,10 @@ static void INSReachabilityReleaseCallback(const void *info) {
 
 - (void)setReachabilityStatusChangeBlock:(void (^)(INSReachabilityStatus status))block {
     self.networkReachabilityStatusBlock = block;
+}
+
+- (void)addSingleCallReachabilityStatusChangeBlock:(nonnull void (^)(INSReachabilityStatus status))block {
+    [self.blockTable addObject:block];
 }
 
 #pragma mark - NSKeyValueObserving
