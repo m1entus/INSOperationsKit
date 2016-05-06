@@ -34,7 +34,7 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
         return;
     }
     
-    NSAssert(self.task.state == NSURLSessionTaskStateSuspended, @"Task was resumed by sometion othen than %@.",NSStringFromClass([self class]));
+    NSAssert(self.task.state == NSURLSessionTaskStateSuspended, @"Task was resumed by something other than %@.",NSStringFromClass([self class]));
     
     [self.task addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:INSDownloadOperationContext];
     [self.task resume];
@@ -54,8 +54,7 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
 }
 
 - (void)cancel {
-    if (self.task.state != NSURLSessionTaskStateCompleted
-        && self.task.state != NSURLSessionTaskStateSuspended) {
+    if (self.task.state == NSURLSessionTaskStateRunning) {
         [self.task removeObserver:self forKeyPath:@"state" context:INSDownloadOperationContext];
     }
     
