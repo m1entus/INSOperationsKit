@@ -48,12 +48,17 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
     }
     
     if (object == self.task && [keyPath isEqualToString:@"state"] && self.task.state == NSURLSessionTaskStateCompleted) {
-        [self.task removeObserver:self forKeyPath:@"state"];
+        [self.task removeObserver:self forKeyPath:@"state" context:context];
         [self finish];
     }
 }
 
 - (void)cancel {
+    if (self.task.state != NSURLSessionTaskStateCompleted
+        && self.task.state != NSURLSessionTaskStateSuspended) {
+        [self.task removeObserver:self forKeyPath:@"state" context:INSDownloadOperationContext];
+    }
+    
     [self.task cancel];
     [super cancel];
 }
