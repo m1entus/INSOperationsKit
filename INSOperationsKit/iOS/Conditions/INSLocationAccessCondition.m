@@ -8,7 +8,7 @@
 
 #import "INSLocationAccessCondition.h"
 #import "INSLocationAccessOperation.h"
-#import "INSMutallyExclusiveCondition.h"
+#import "INSMutuallyExclusiveCondition.h"
 #import "INSOperationConditionResult.h"
 #import "NSError+INSOperationKit.h"
 
@@ -40,7 +40,7 @@ NSString *const _Nonnull INSOperationErrorAuthorizationStatusKey = @"CLAuthoriza
     self = [super init];
     if (self) {
         _usage = usage;
-        [self addCondition:[INSMutallyExclusiveCondition alertMutallyExclusive]];
+        [self addCondition:[INSMutuallyExclusiveCondition alertMutallyExclusive]];
     }
     return self;
 }

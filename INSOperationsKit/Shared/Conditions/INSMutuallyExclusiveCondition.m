@@ -6,28 +6,28 @@
 //  Copyright (c) 2015 Michal Zaborowski. All rights reserved.
 //
 
-#import "INSMutallyExclusiveCondition.h"
+#import "INSMutuallyExclusiveCondition.h"
 #import "INSOperationConditionResult.h"
 
 #if TARGET_OS_IPHONE
 @import UIKit;
 #endif
 
-@interface INSMutallyExclusiveCondition ()
+@interface INSMutuallyExclusiveCondition ()
 @property (nonatomic, copy) NSString *conditionName;
 @property (nonatomic, assign) Class klass;
 @end
 
-@implementation INSMutallyExclusiveCondition
+@implementation INSMutuallyExclusiveCondition
 
 + (instancetype)mutualExclusiveForClass:(Class)klass {
-    INSMutallyExclusiveCondition *mutex = [[INSMutallyExclusiveCondition alloc] init];
+    INSMutuallyExclusiveCondition *mutex = [[INSMutuallyExclusiveCondition alloc] init];
     mutex.conditionName = NSStringFromClass(klass);
     return mutex;
 }
 
 + (instancetype)mutualExclusiveForName:(NSString *)name {
-    INSMutallyExclusiveCondition *mutex = [[INSMutallyExclusiveCondition alloc] init];
+    INSMutuallyExclusiveCondition *mutex = [[INSMutuallyExclusiveCondition alloc] init];
     mutex.conditionName = name;
     return mutex;
 }
@@ -44,7 +44,7 @@
 #pragma mark - Subclass
 
 - (NSString *)name {
-    return [NSString stringWithFormat:@"INSMutallyExclusiveCondition<%@>", self.conditionName];
+    return [NSString stringWithFormat:@"INSMutuallyExclusiveCondition<%@>", self.conditionName];
 }
 
 - (BOOL)isMutuallyExclusive {
@@ -59,4 +59,7 @@
     completion([INSOperationConditionResult satisfiedResult]);
 }
 
+@end
+
+@implementation INSMutallyExclusiveCondition
 @end

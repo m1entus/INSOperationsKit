@@ -24,7 +24,7 @@
         _desiredAccuracy = accuracy;
         _locationHandler = handler;
         [self addCondition:[[INSLocationAccessCondition alloc] initWithUsage:usage]];
-        [self addCondition:[INSMutallyExclusiveCondition mutualExclusiveForClass:[CLLocationManager class]]];
+        [self addCondition:[INSMutuallyExclusiveCondition mutualExclusiveForClass:[CLLocationManager class]]];
     }
     return self;
 }

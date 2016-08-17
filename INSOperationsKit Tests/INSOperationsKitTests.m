@@ -274,7 +274,7 @@
         completionBlock();
     }];
     
-    INSMutallyExclusiveCondition *mutallyExclusiveCondition = [INSMutallyExclusiveCondition mutualExclusiveForClass:[INSBlockOperation class]];
+    INSMutuallyExclusiveCondition *mutallyExclusiveCondition = [INSMutuallyExclusiveCondition mutualExclusiveForClass:[INSBlockOperation class]];
     [operation addCondition:mutallyExclusiveCondition];
     
     self.operationQueue.maxConcurrentOperationCount = NSOperationQueueDefaultMaxConcurrentOperationCount;

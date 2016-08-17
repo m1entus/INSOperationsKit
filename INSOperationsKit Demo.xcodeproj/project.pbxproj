@@ -27,7 +27,7 @@
 		644E02CE1BA5C6D0001FE717 /* NSError+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */; };
 		644E02D01BA5C6D0001FE717 /* INSReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */; };
 		644E02D31BA5C6D0001FE717 /* INSOperationConditionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */; };
-		644E02D51BA5C6D0001FE717 /* INSMutallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */; };
+		644E02D51BA5C6D0001FE717 /* INSMutuallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutuallyExclusiveCondition.m */; };
 		644E02D71BA5C6D0001FE717 /* INSReachabilityCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */; };
 		644E02D91BA5C6D0001FE717 /* INSSilientCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F91B9C9A8E0009DB98 /* INSSilientCondition.m */; };
 		644E02DB1BA5C6D0001FE717 /* INSNegatedCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */; };
@@ -47,7 +47,7 @@
 		644E02FB1BA5C6FF001FE717 /* INSReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644E02FC1BA5C6FF001FE717 /* INSOperationConditionProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644E02FD1BA5C6FF001FE717 /* INSOperationConditionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		644E02FE1BA5C6FF001FE717 /* INSMutallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		644E02FE1BA5C6FF001FE717 /* INSMutuallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutuallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644E02FF1BA5C6FF001FE717 /* INSReachabilityCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644E03001BA5C6FF001FE717 /* INSSilientCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7F81B9C9A8E0009DB98 /* INSSilientCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		644E03011BA5C700001FE717 /* INSNegatedCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7FC1B9CA0E90009DB98 /* INSNegatedCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -112,8 +112,8 @@
 		64DFC7E11B99FC840009DB98 /* INSURLSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */; };
 		64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7E51B99FDC70009DB98 /* INSTimeoutObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E31B99FDC70009DB98 /* INSTimeoutObserver.m */; };
-		64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64DFC7E91B9A00300009DB98 /* INSMutallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */; };
+		64DFC7E81B9A00300009DB98 /* INSMutuallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutuallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64DFC7E91B9A00300009DB98 /* INSMutuallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutuallyExclusiveCondition.m */; };
 		64DFC7ED1B9A02900009DB98 /* INSReachabilityCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		64DFC7EE1B9A02900009DB98 /* INSReachabilityCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */; };
 		64DFC7F11B9A04210009DB98 /* INSReachabilityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -160,7 +160,7 @@
 		D2EB6C731BF5E30C00C75027 /* INSURLSessionTaskOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7DE1B99FC840009DB98 /* INSURLSessionTaskOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EB6C741BF5E31B00C75027 /* INSOperationConditionProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EB6C751BF5E31B00C75027 /* INSOperationConditionResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2EB6C761BF5E31B00C75027 /* INSMutallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2EB6C761BF5E31B00C75027 /* INSMutuallyExclusiveCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7E61B9A00300009DB98 /* INSMutuallyExclusiveCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EB6C771BF5E31B00C75027 /* INSReachabilityCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EB6C781BF5E31B00C75027 /* INSSilientCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7F81B9C9A8E0009DB98 /* INSSilientCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2EB6C791BF5E31B00C75027 /* INSNegatedCondition.h in Headers */ = {isa = PBXBuildFile; fileRef = 64DFC7FC1B9CA0E90009DB98 /* INSNegatedCondition.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -175,7 +175,7 @@
 		D2EB6C891BF5E53F00C75027 /* NSError+INSOperationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C71B98AF210009DB98 /* NSError+INSOperationKit.m */; };
 		D2EB6C8A1BF5E53F00C75027 /* INSReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F01B9A04210009DB98 /* INSReachabilityManager.m */; };
 		D2EB6C8B1BF5E53F00C75027 /* INSOperationConditionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */; };
-		D2EB6C8C1BF5E53F00C75027 /* INSMutallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */; };
+		D2EB6C8C1BF5E53F00C75027 /* INSMutuallyExclusiveCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7E71B9A00300009DB98 /* INSMutuallyExclusiveCondition.m */; };
 		D2EB6C8D1BF5E53F00C75027 /* INSReachabilityCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */; };
 		D2EB6C8E1BF5E53F00C75027 /* INSSilientCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7F91B9C9A8E0009DB98 /* INSSilientCondition.m */; };
 		D2EB6C8F1BF5E53F00C75027 /* INSNegatedCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 64DFC7FD1B9CA0E90009DB98 /* INSNegatedCondition.m */; };
@@ -346,8 +346,8 @@
 		64DFC7DF1B99FC840009DB98 /* INSURLSessionTaskOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSURLSessionTaskOperation.m; sourceTree = "<group>"; };
 		64DFC7E21B99FDC70009DB98 /* INSTimeoutObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSTimeoutObserver.h; sourceTree = "<group>"; };
 		64DFC7E31B99FDC70009DB98 /* INSTimeoutObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSTimeoutObserver.m; sourceTree = "<group>"; };
-		64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSMutallyExclusiveCondition.h; sourceTree = "<group>"; };
-		64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSMutallyExclusiveCondition.m; sourceTree = "<group>"; };
+		64DFC7E61B9A00300009DB98 /* INSMutuallyExclusiveCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSMutuallyExclusiveCondition.h; sourceTree = "<group>"; };
+		64DFC7E71B9A00300009DB98 /* INSMutuallyExclusiveCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSMutuallyExclusiveCondition.m; sourceTree = "<group>"; };
 		64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSReachabilityCondition.h; sourceTree = "<group>"; };
 		64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INSReachabilityCondition.m; sourceTree = "<group>"; };
 		64DFC7EF1B9A04210009DB98 /* INSReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INSReachabilityManager.h; sourceTree = "<group>"; };
@@ -729,8 +729,8 @@
 				64DFC7C51B98AE590009DB98 /* INSOperationConditionProtocol.h */,
 				64DFC7C11B98AC0A0009DB98 /* INSOperationConditionResult.h */,
 				64DFC7C21B98AC0A0009DB98 /* INSOperationConditionResult.m */,
-				64DFC7E61B9A00300009DB98 /* INSMutallyExclusiveCondition.h */,
-				64DFC7E71B9A00300009DB98 /* INSMutallyExclusiveCondition.m */,
+				64DFC7E61B9A00300009DB98 /* INSMutuallyExclusiveCondition.h */,
+				64DFC7E71B9A00300009DB98 /* INSMutuallyExclusiveCondition.m */,
 				64DFC7EB1B9A02900009DB98 /* INSReachabilityCondition.h */,
 				64DFC7EC1B9A02900009DB98 /* INSReachabilityCondition.m */,
 				64DFC7F81B9C9A8E0009DB98 /* INSSilientCondition.h */,
@@ -853,7 +853,7 @@
 				644E02FB1BA5C6FF001FE717 /* INSReachabilityManager.h in Headers */,
 				644E02FC1BA5C6FF001FE717 /* INSOperationConditionProtocol.h in Headers */,
 				644E02FD1BA5C6FF001FE717 /* INSOperationConditionResult.h in Headers */,
-				644E02FE1BA5C6FF001FE717 /* INSMutallyExclusiveCondition.h in Headers */,
+				644E02FE1BA5C6FF001FE717 /* INSMutuallyExclusiveCondition.h in Headers */,
 				644E02FF1BA5C6FF001FE717 /* INSReachabilityCondition.h in Headers */,
 				644E03001BA5C6FF001FE717 /* INSSilientCondition.h in Headers */,
 				644E03011BA5C700001FE717 /* INSNegatedCondition.h in Headers */,
@@ -890,7 +890,7 @@
 				64DFC7C81B98AF210009DB98 /* NSError+INSOperationKit.h in Headers */,
 				64DFC7E41B99FDC70009DB98 /* INSTimeoutObserver.h in Headers */,
 				64DFC7CC1B98EB520009DB98 /* NSOperation+INSOperationKit.h in Headers */,
-				64DFC7E81B9A00300009DB98 /* INSMutallyExclusiveCondition.h in Headers */,
+				64DFC7E81B9A00300009DB98 /* INSMutuallyExclusiveCondition.h in Headers */,
 				64DFC7B31B98A89E0009DB98 /* INSOperationQueue.h in Headers */,
 				64DFC7E01B99FC840009DB98 /* INSURLSessionTaskOperation.h in Headers */,
 				64CAACD51C7F827500AA2C03 /* INSOperationsKit.h in Headers */,
@@ -924,7 +924,7 @@
 				D2EB6C7B1BF5E32900C75027 /* NSError+INSOperationKit.h in Headers */,
 				D2EB6C7C1BF5E32900C75027 /* INSReachabilityManager.h in Headers */,
 				64552CCA1CD799790075666E /* INSOperationObserverProtocol.h in Headers */,
-				D2EB6C761BF5E31B00C75027 /* INSMutallyExclusiveCondition.h in Headers */,
+				D2EB6C761BF5E31B00C75027 /* INSMutuallyExclusiveCondition.h in Headers */,
 				D2EB6C771BF5E31B00C75027 /* INSReachabilityCondition.h in Headers */,
 				D2EB6C781BF5E31B00C75027 /* INSSilientCondition.h in Headers */,
 				D2EB6C791BF5E31B00C75027 /* INSNegatedCondition.h in Headers */,
@@ -1217,7 +1217,7 @@
 				644E02CE1BA5C6D0001FE717 /* NSError+INSOperationKit.m in Sources */,
 				644E02D01BA5C6D0001FE717 /* INSReachabilityManager.m in Sources */,
 				644E02D31BA5C6D0001FE717 /* INSOperationConditionResult.m in Sources */,
-				644E02D51BA5C6D0001FE717 /* INSMutallyExclusiveCondition.m in Sources */,
+				644E02D51BA5C6D0001FE717 /* INSMutuallyExclusiveCondition.m in Sources */,
 				644E02D71BA5C6D0001FE717 /* INSReachabilityCondition.m in Sources */,
 				644E02D91BA5C6D0001FE717 /* INSSilientCondition.m in Sources */,
 				644E02DB1BA5C6D0001FE717 /* INSNegatedCondition.m in Sources */,
@@ -1268,7 +1268,7 @@
 				64DFC7E11B99FC840009DB98 /* INSURLSessionTaskOperation.m in Sources */,
 				3CB04D721C942351002EFA15 /* INSLocationAccessOperation.m in Sources */,
 				64DFC7BA1B98AA5E0009DB98 /* INSBlockObserver.m in Sources */,
-				64DFC7E91B9A00300009DB98 /* INSMutallyExclusiveCondition.m in Sources */,
+				64DFC7E91B9A00300009DB98 /* INSMutuallyExclusiveCondition.m in Sources */,
 				6418E1401B9E3D3100ABD1DD /* INSChainOperation.m in Sources */,
 				3CB04D741C942370002EFA15 /* INSLocationAccessCondition.m in Sources */,
 				64DFC7C41B98AC0A0009DB98 /* INSOperationConditionResult.m in Sources */,
@@ -1303,7 +1303,7 @@
 				D2EB6C891BF5E53F00C75027 /* NSError+INSOperationKit.m in Sources */,
 				D2EB6C8A1BF5E53F00C75027 /* INSReachabilityManager.m in Sources */,
 				D2EB6C8B1BF5E53F00C75027 /* INSOperationConditionResult.m in Sources */,
-				D2EB6C8C1BF5E53F00C75027 /* INSMutallyExclusiveCondition.m in Sources */,
+				D2EB6C8C1BF5E53F00C75027 /* INSMutuallyExclusiveCondition.m in Sources */,
 				D2EB6C8D1BF5E53F00C75027 /* INSReachabilityCondition.m in Sources */,
 				D2EB6C8E1BF5E53F00C75027 /* INSSilientCondition.m in Sources */,
 				D2EB6C8F1BF5E53F00C75027 /* INSNegatedCondition.m in Sources */,

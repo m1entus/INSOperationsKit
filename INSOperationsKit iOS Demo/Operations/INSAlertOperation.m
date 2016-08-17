@@ -7,7 +7,7 @@
 //
 
 #import "INSAlertOperation.h"
-#import "INSMutallyExclusiveCondition.h"
+#import "INSMutuallyExclusiveCondition.h"
 
 @interface INSAlertOperation ()
 @property (nonatomic, strong) UIViewController *presentationContext;
@@ -31,14 +31,14 @@
     alertOperation.presentationContext = presentationContext ?: [UIApplication sharedApplication].keyWindow.rootViewController;
     alertOperation.alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
     
-    [alertOperation addCondition:[INSMutallyExclusiveCondition alertMutallyExclusive]];
+    [alertOperation addCondition:[INSMutuallyExclusiveCondition alertMutallyExclusive]];
     
     /*
      This operation modifies the view controller hierarchy.
      Doing this while other such operations are executing can lead to
      inconsistencies in UIKit. So, let's make them mutally exclusive.
      */
-    [alertOperation addCondition:[INSMutallyExclusiveCondition viewControllerMutallyExclusive]];
+    [alertOperation addCondition:[INSMutuallyExclusiveCondition viewControllerMutallyExclusive]];
     
     return alertOperation;
 }

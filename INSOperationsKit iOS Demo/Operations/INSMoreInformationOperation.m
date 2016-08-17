@@ -7,7 +7,7 @@
 //
 
 #import "INSMoreInformationOperation.h"
-#import "INSMutallyExclusiveCondition.h"
+#import "INSMutuallyExclusiveCondition.h"
 @import SafariServices;
 
 @interface INSMoreInformationOperation () <SFSafariViewControllerDelegate>
@@ -22,7 +22,7 @@
         _presentationContext = presentationContext ?: [UIApplication sharedApplication].keyWindow.rootViewController;
         
         [self addCondition:[INSReachabilityCondition reachabilityCondition]];
-        [self addCondition:[INSMutallyExclusiveCondition viewControllerMutallyExclusive]];
+        [self addCondition:[INSMutuallyExclusiveCondition viewControllerMutallyExclusive]];
         
         
     }

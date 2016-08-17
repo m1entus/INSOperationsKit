@@ -10,7 +10,7 @@
 #import "INSOperationConditionProtocol.h"
 
 /// A generic condition for describing kinds of operations that may not execute concurrently.
-@interface INSMutallyExclusiveCondition : NSObject <INSOperationConditionProtocol>
+@interface INSMutuallyExclusiveCondition: NSObject <INSOperationConditionProtocol>
 @property (nonatomic, copy, readonly, nonnull) NSString *name;
 @property (nonatomic, assign, nullable, readonly) Class klass;
 
@@ -21,4 +21,8 @@
 + (nonnull instancetype)alertMutallyExclusive;
 + (nonnull instancetype)viewControllerMutallyExclusive;
 #endif
+@end
+
+__deprecated_msg("INSMutallyExclusiveCondition had a type, use INSMutuallyExclusiveCondition insted of...")
+@interface INSMutallyExclusiveCondition: INSMutuallyExclusiveCondition
 @end

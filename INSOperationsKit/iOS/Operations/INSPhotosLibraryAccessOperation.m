@@ -7,14 +7,14 @@
 //
 
 #import "INSPhotosLibraryAccessOperation.h"
-#import "INSMutallyExclusiveCondition.h"
+#import "INSMutuallyExclusiveCondition.h"
 @import Photos;
 
 @implementation INSPhotosLibraryAccessOperation
 
 - (instancetype)init {
     if (self = [super init]) {
-        [self addCondition:[INSMutallyExclusiveCondition alertMutallyExclusive]];
+        [self addCondition:[INSMutuallyExclusiveCondition alertMutallyExclusive]];
     }
     return self;
 }
