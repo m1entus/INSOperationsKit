@@ -32,6 +32,11 @@
     }
     return self;
 }
+
+- (nonnull NSArray <INSOperation *>*)operationsForCategory:(NSString *)category {
+    return [self.operations[category] copy];
+}
+
 /// Registers an operation as being mutually exclusive
 - (void)addOperation:(INSOperation *)operation categories:(NSArray <NSString *> *)categories {
     /*
