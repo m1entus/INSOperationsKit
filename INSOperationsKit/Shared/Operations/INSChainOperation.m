@@ -13,6 +13,7 @@
 @property (nonatomic, strong) INSOperationQueue *internalQueue;
 @property (nonatomic, copy) NSBlockOperation *finishingOperation;
 @property (nonatomic, strong) NSMutableArray /*NSError*/ *aggregatedErrors;
+@property (nonatomic, strong) NSArray <NSOperation *> *operations;
 @end
 
 @implementation INSChainOperation
@@ -30,15 +31,7 @@
         _internalQueue.maxConcurrentOperationCount = 1;
         _internalQueue.suspended = YES;
         _internalQueue.delegate = self;
-        
-        NSOperation *dependencyOperation = nil;
-        for (NSOperation *op in operations) {
-            if (dependencyOperation) {
-                [op addDependency:dependencyOperation];
-            }
-            [_internalQueue addOperation:op];
-            dependencyOperation = op;
-        }
+        _operations = operations ?: @[];
     }
     return self;
 }
@@ -50,6 +43,20 @@
 }
 
 - (void)execute {
+    if (self.operations.count <= 0) {
+        [self finish];
+        return;
+    }
+    
+    NSOperation *dependencyOperation = nil;
+    for (NSOperation *op in self.operations) {
+        if (dependencyOperation) {
+            [op addDependency:dependencyOperation];
+        }
+        [_internalQueue addOperation:op];
+        dependencyOperation = op;
+    }
+    
     self.internalQueue.suspended = NO;
     [self.internalQueue addOperation:self.finishingOperation];
 }
@@ -58,15 +65,9 @@
     if ([self isCancelled] || [self isFinished]) {
         return;
     }
+    NSParameterAssert(self.state < INSOperationStateExecuting);
     
-    [self.internalQueue.operations enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(__kindof NSOperation *obj, NSUInteger idx, BOOL *stop) {
-        if (obj != self.finishingOperation) {
-            [operation addDependency:obj];
-            *stop = YES;
-        }
-    }];
-    
-    [self.internalQueue addOperation:operation];
+    self.operations = [self.operations arrayByAddingObject:operation];
 }
 
 /**
