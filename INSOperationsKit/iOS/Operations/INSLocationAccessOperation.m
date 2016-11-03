@@ -44,15 +44,14 @@
 
 - (void)cancel {
     [super cancel];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-      [self stopLocationUpdates];
-    });
+    [self stopLocationUpdates];
 }
 
 - (void)stopLocationUpdates {
-    [self.locationManager stopUpdatingLocation];
-    self.locationManager = nil;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.locationManager stopUpdatingLocation];
+        self.locationManager = nil;
+    });
 }
 
 #pragma mark - CLLocationManagerDelegate
