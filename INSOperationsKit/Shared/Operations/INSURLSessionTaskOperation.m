@@ -13,6 +13,7 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
 
 @interface INSURLSessionTaskOperation ()
 @property (nonatomic, strong) NSURLSessionTask *task;
+@property (nonatomic) BOOL observerRemoved;
 @end
 
 @implementation INSURLSessionTaskOperation
@@ -21,6 +22,7 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
     if (self = [super init]) {
         NSAssert(task.state == NSURLSessionTaskStateSuspended, @"Tasks must be suspended.");
         self.task = task;
+        self.observerRemoved = NO;
     }
     return self;
 }
@@ -30,12 +32,13 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
 }
 
 - (void)execute {
-    if (self.isCancelled) {
+    if (self.isCancelled || self.task.state == NSURLSessionTaskStateCanceling) {
+        [self finish];
         return;
     }
-    
+
     NSAssert(self.task.state == NSURLSessionTaskStateSuspended, @"Task was resumed by something other than %@.",NSStringFromClass([self class]));
-    
+
     [self.task addObserver:self forKeyPath:@"state" options:NSKeyValueObservingOptionNew context:INSDownloadOperationContext];
     [self.task resume];
 }
@@ -46,18 +49,30 @@ static void *INSDownloadOperationContext = &INSDownloadOperationContext;
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         return;
     }
-    
-    if (object == self.task && [keyPath isEqualToString:@"state"] && self.task.state == NSURLSessionTaskStateCompleted) {
-        [self.task removeObserver:self forKeyPath:@"state" context:context];
-        [self finish];
+
+    if (!object) {
+        return;
+    }
+
+    @synchronized (self) {
+        if (object == self.task && [keyPath isEqualToString:@"state"] && !self.observerRemoved) {
+            switch (self.task.state) {
+                case NSURLSessionTaskStateCompleted:
+                    [self finish];
+                    // fallthrough
+
+                case NSURLSessionTaskStateCanceling:
+                    self.observerRemoved = YES;
+                    [self.task removeObserver:self forKeyPath:@"state" context:context];
+
+                default:
+                    break;
+            }
+        }
     }
 }
 
 - (void)cancel {
-    if (self.task.state == NSURLSessionTaskStateRunning) {
-        [self.task removeObserver:self forKeyPath:@"state" context:INSDownloadOperationContext];
-    }
-    
     [self.task cancel];
     [super cancel];
 }
