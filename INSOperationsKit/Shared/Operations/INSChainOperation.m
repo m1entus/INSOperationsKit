@@ -57,8 +57,8 @@
         dependencyOperation = op;
     }
     
-    self.internalQueue.suspended = NO;
     [self.internalQueue addOperation:self.finishingOperation];
+    self.internalQueue.suspended = NO;
 }
 
 - (void)addOperation:(NSOperation *)operation {
@@ -115,8 +115,10 @@
     [self.aggregatedErrors addObjectsFromArray:errors];
 
     if (operation == self.finishingOperation) {
-        self.internalQueue.suspended = YES;
         [self finishWithErrors:[self.aggregatedErrors copy]];
+        if (self.internalQueue.operations.count > 0) {
+            [self.internalQueue cancelAllOperations];
+        }
         
     } else if (self.finishIfProducedAnyError && self.aggregatedErrors.count) {
         self.internalQueue.suspended = YES;
