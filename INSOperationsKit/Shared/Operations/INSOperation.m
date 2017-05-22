@@ -46,6 +46,15 @@
     return [super keyPathsForValuesAffectingValueForKey:key];
 }
 
++ (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key
+{
+    if ([@[ @"state", @"cancelledState" ] containsObject:key]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (NSHashTable <INSOperation <INSChainableOperationProtocol> *> *)chainedOperations {
     if (!_chainedOperations) {
         _chainedOperations = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
