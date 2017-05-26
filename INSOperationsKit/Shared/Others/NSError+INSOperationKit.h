@@ -21,4 +21,6 @@ typedef NS_ENUM(NSUInteger, INSOperationError) {
 + (nonnull instancetype)ins_operationErrorWithCode:(NSUInteger)code;
 + (nonnull instancetype)ins_operationErrorWithCode:(NSUInteger)code userInfo:(nullable NSDictionary *)info;
 
+- (BOOL)ins_isReachabilityConditionError;
+
 @end

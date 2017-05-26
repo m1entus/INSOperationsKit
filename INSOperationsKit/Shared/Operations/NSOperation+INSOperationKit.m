@@ -64,6 +64,28 @@
     }
 }
 
+- (void)ins_addCancelBlockInMainQueue:(nullable void(^)(__kindof NSOperation * _Nonnull operation))cancelBlock {
+    if (!cancelBlock) {
+        return;
+    }
+    [self ins_addCompletionBlockInMainQueue:^(__kindof NSOperation * _Nonnull operation) {
+        if (cancelBlock && operation.isCancelled) {
+            cancelBlock(operation);
+        }
+    }];
+}
+
+- (void)ins_addCancelBlock:(nullable void(^)(__kindof NSOperation * _Nonnull operation))cancelBlock {
+    if (!cancelBlock) {
+        return;
+    }
+    [self ins_addCompletionBlock:^(__kindof NSOperation * _Nonnull operation) {
+        if (cancelBlock && operation.isCancelled) {
+            cancelBlock(operation);
+        }
+    }];
+}
+
 /// Add multiple depdendencies to the operation.
 - (void)ins_addDependencies:(NSArray <NSOperation *> *)dependencies {
     for (NSOperation *dependency in dependencies) {
