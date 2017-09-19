@@ -8,8 +8,10 @@
 
 #import "INSOperation.h"
 
-typedef void (^INSBlockOperationCompletionBlock)();
-typedef void (^INSBlockOperationBlock)(INSBlockOperationCompletionBlock _Nonnull completionBlock);
+@class INSBlockOperation;
+
+typedef void (^INSBlockOperationCompletionBlock)(void);
+typedef void (^INSBlockOperationBlock)(INSBlockOperation * _Nonnull operation, INSBlockOperationCompletionBlock _Nonnull completionBlock);
 
 /// A sublcass of `Operation` to execute a block.
 @interface INSBlockOperation : INSOperation

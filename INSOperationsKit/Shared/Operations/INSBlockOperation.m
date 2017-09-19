@@ -42,13 +42,13 @@
  after the `mainQueueBlock` is executed.
  */
 - (instancetype)initWithMainQueueBlock:(dispatch_block_t)block {
-    self = [self initWithBlock:^(void (^operationCompletionBlock)(void)) {
+    self = [self initWithBlock:^(INSBlockOperation * _Nonnull operation, INSBlockOperationCompletionBlock  _Nonnull completionBlock) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
                 block();
             }
-            if (operationCompletionBlock){
-                operationCompletionBlock();
+            if (completionBlock){
+                completionBlock();
             }
         });
     }];
@@ -65,7 +65,7 @@
     };
 
     if (self.block) {
-        self.block(completion);
+        self.block(self, completion);
     } else {
         completion();
     }

@@ -13,9 +13,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSDateFormatter *INSEarthquakeTimestampFormatter();
-extern NSNumberFormatter *INSEarthquakeMagnitudeFormatter();
-extern MKDistanceFormatter *INSEarthquakeDistanceFormatter();
+extern NSDateFormatter *INSEarthquakeTimestampFormatter(void);
+extern NSNumberFormatter *INSEarthquakeMagnitudeFormatter(void);
+extern MKDistanceFormatter *INSEarthquakeDistanceFormatter(void);
 
 @interface INSEarthquake : NSManagedObject <INSCoreDataParsable>
 + (NSString *)entityName;
