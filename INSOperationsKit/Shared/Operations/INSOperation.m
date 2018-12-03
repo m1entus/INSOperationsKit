@@ -161,15 +161,17 @@
     // make sure that INSOperationConditionResult will not retain and call on self
     __weak typeof(self) weakSelf = self;
     [INSOperationConditionResult evaluateConditions:self.conditions operation:self completion:^(NSArray *failures) {
-        if (weakSelf.isCancelled) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
+        if (strongSelf.isCancelled) {
             return;
         }
         
         if (failures.count != 0) {
-            [weakSelf cancelWithErrors:failures];
-        } else if (weakSelf.state < INSOperationStateReady) {
+            [strongSelf cancelWithErrors:failures];
+        } else if (strongSelf.state < INSOperationStateReady) {
             //We must preceed to have the operation exit the queue
-            weakSelf.state = INSOperationStateReady;
+            strongSelf.state = INSOperationStateReady;
         }
     }];
 }

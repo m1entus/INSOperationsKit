@@ -62,6 +62,7 @@
                                            [weakSelf addOperation:producedOperation]; }
                                        finishHandler:^(INSOperation *operation, NSArray *errors) {
                                            __strong typeof(weakSelf) strongSelf = weakSelf;
+                                           
                                            [strongSelf.chainOperationsCache removeObject:operation];
                                            
                                            if ([strongSelf.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]) {

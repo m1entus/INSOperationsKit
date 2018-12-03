@@ -46,11 +46,13 @@ NSString *const INSNegatedConditionErrorConditionKey = @"INSNegatedConditionErro
 - (void)evaluateForOperation:(INSOperation *)operation completion:(void (^)(INSOperationConditionResult *))completion {
     __weak typeof(self) weakSelf = self;
     [self.condition evaluateForOperation:operation completion:^(INSOperationConditionResult *result) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+
         if (result.success) {
             // If the composed condition succeeded, then this one failed.
             NSError *error = [NSError ins_operationErrorWithCode:INSOperationErrorConditionFailed
-                                                        userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([weakSelf class]),
-                                                                    INSNegatedConditionErrorConditionKey : NSStringFromClass([weakSelf.condition class])
+                                                        userInfo:@{ INSOperationErrorConditionKey : NSStringFromClass([strongSelf class]),
+                                                                    INSNegatedConditionErrorConditionKey : NSStringFromClass([strongSelf.condition class])
                                                                     }];
             completion([INSOperationConditionResult failedResultWithError:error]);
         } else {
