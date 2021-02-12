@@ -241,6 +241,12 @@
     }
 
     [self execute];
+    
+    for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
+        if ([observer respondsToSelector:@selector(operationDidStartExecuting:)]) {
+            [observer operationDidStartExecuting:self];
+        }
+    }
 }
 
 /**

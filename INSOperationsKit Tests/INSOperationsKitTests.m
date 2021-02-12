@@ -28,9 +28,10 @@
 }
 
 - (void)tearDown {
-    [super tearDown];
+
     [self.operationQueue cancelAllOperations];
     self.operationQueue = nil;
+    [super tearDown];
 }
 
 - (void)testStandardOperation {
@@ -64,7 +65,7 @@
 - (void)testBlockOperationWithNoConditionsAndNoDependencies {
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         completionBlock();
     }];
@@ -77,7 +78,7 @@
 - (void)testBlockOperationWithPassingConditionsAndNoDependencies {
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         completionBlock();
     }];
@@ -92,7 +93,7 @@
 
 - (void)testBlockOperationWithFailingConditionsAndNoDependencies {
 
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"Should not have run the block operation");
     }];
     
@@ -116,7 +117,7 @@
     
     NSMutableArray *fulfilledExpectations = [NSMutableArray array];
     
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         [fulfilledExpectations addObject:expectation];
         completionBlock();
@@ -125,7 +126,7 @@
     INSOperationTestCondition *condition = [[INSOperationTestCondition alloc] initWithConditionBlock:^BOOL{
         return YES;
     }];
-    condition.dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    condition.dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation2 fulfill];
         [fulfilledExpectations addObject:expectation2];
         completionBlock();
@@ -147,13 +148,13 @@
     
     NSMutableArray *fulfilledExpectations = [NSMutableArray array];
     
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         [fulfilledExpectations addObject:expectation];
         completionBlock();
     }];
     
-    INSBlockOperation *operationDependency = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operationDependency = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectationDependency fulfill];
         [fulfilledExpectations addObject:expectationDependency];
         completionBlock();
@@ -174,11 +175,11 @@
 - (void)testBlockOperationMissingCompletionBlockWithNoConditionsAndHasDependency {
     XCTestExpectation *expectationDependency = [self expectationWithDescription:@"block"];
 
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"Should not have run the block operation,");
     }];
     
-    INSBlockOperation *operationDependency = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operationDependency = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectationDependency fulfill];
     }];
     
@@ -268,7 +269,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
     __block BOOL running = NO;
     
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         running = YES;
         [expectation fulfill];
         completionBlock();
@@ -296,7 +297,7 @@
 - (void)testSilientConditionFailure {
     INSOperationTestCondition *testCondition = [[INSOperationTestCondition alloc] initWithConditionBlock:nil];
     
-    testCondition.dependencyOperation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    testCondition.dependencyOperation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"should not run");
         completionBlock();
     }];
@@ -310,7 +311,7 @@
     
     INSSilientCondition *silientCondition = [INSSilientCondition silientConditionForCondition:testCondition];
     
-    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"should not run");
         completionBlock();
     }];
@@ -327,7 +328,7 @@
 
 - (void)testNegateConditionFailure {
     
-    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"should not run");
         completionBlock();
     }];
@@ -351,7 +352,7 @@
 - (void)testNegateConditionSuccess {
     XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
     
-    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         completionBlock();
     }];
@@ -368,12 +369,12 @@
 }
 
 - (void)testNoCancelledDependenciesCondition {
-    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [dependencyOperation cancel];
         completionBlock();
     }];
     
-    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"shouldn't run");
         completionBlock();
     }];
@@ -402,14 +403,14 @@
 }
 
 - (void)testOperationsRunsEvenWhenDependencyCancelled {
-    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [dependencyOperation cancel];
         completionBlock();
     }];
     
     XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
     
-    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         completionBlock();
     }];
@@ -427,12 +428,12 @@
 }
 
 - (void)testNoCancelledDependenciesConditionAndDependenciesCancelsInGroupOperation {
-    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *dependencyOperation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [dependencyOperation cancel];
         completionBlock();
     }];
     
-    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"shouldn't run");
         completionBlock();
     }];
@@ -463,7 +464,7 @@
 }
 
 - (void)testCancelOperationAndCancelBeforeStart {
-    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"This should not run");
         completionBlock();
     }];
@@ -486,7 +487,7 @@
 - (void)testCancelOperationAndCancelAfterStart {
     XCTestExpectation *expectation = [self expectationWithDescription:@"operation"];
     
-    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [operation cancel];
         [expectation fulfill];
         completionBlock();
@@ -499,8 +500,8 @@
 }
 
 - (void)testBlockObserver {
-    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
-        [operation produceOperation:[INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
+        [operation produceOperation:[INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
             completionBlock();
         }]];
         completionBlock();
@@ -542,12 +543,12 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
 
-    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         completionBlock();
         [expectation fulfill];
     }];
     
-    INSBlockOperation *operation2 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation2 = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         completionBlock();
         [expectation2 fulfill];
     }];
@@ -566,12 +567,12 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
     
-    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         completionBlock();
         [expectation fulfill];
     }];
     
-    INSBlockOperation *operation2 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation2 = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         completionBlock();
         [expectation2 fulfill];
     }];
@@ -592,7 +593,7 @@
     XCTestExpectation *expectation3 = [self expectationWithDescription:@"block3"];
     XCTestExpectation *expectation4 = [self expectationWithDescription:@"block4"];
     
-    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    INSBlockOperation *operation1 = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         completionBlock();
         [expectation fulfill];
     }];
@@ -604,7 +605,7 @@
     INSTestChainOperation *operation2 = [INSTestChainOperation operationWithAdditionalDataToPass:^id{
         return dataToPass;
     } operationFinishBlock:nil];
-    operation2.block = ^(INSBlockOperationCompletionBlock block) {
+    operation2.block = ^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock block) {
         block();
         XCTAssertFalse(operation4.isFinished);
         [expectation2 fulfill];
@@ -614,7 +615,7 @@
         XCTAssertEqual(finishedOperation, operation2);
         XCTAssertEqual(additionalDataReceived, dataToPass);
     }];
-    operation4.block = ^(INSBlockOperationCompletionBlock block) {
+    operation4.block = ^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock block) {
         block();
         [expectation4 fulfill];
     };
@@ -623,7 +624,7 @@
         XCTAssertEqual(finishedOperation, operation2);
         XCTAssertEqual(additionalDataReceived, dataToPass);
     }];
-    operation3.block = ^(INSBlockOperationCompletionBlock block) {
+    operation3.block = ^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock block) {
         block();
         XCTAssertTrue(operation2.isFinished);
         XCTAssertTrue(operation1.isFinished);
@@ -666,7 +667,7 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
     XCTestExpectation *expectation2 = [self expectationWithDescription:@"block2"];
     
-    NSOperation *operation1 = [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *operation1 = [INSBlockOperation operationWithMainQueueBlock:^{
         XCTFail(@"should not execute -- cancelled");
     }];
     
@@ -674,7 +675,7 @@
         [expectation fulfill];
     };
     
-    NSOperation *operation2 = [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *operation2 = [INSBlockOperation operationWithMainQueueBlock:^{
         XCTFail(@"should not execute -- cancelled");
     }];
     
@@ -682,10 +683,10 @@
         [expectation2 fulfill];
     };
     
-    INSChainOperation *groupOperation = [[INSChainOperation alloc] initWithOperations:@[operation1,operation2]];
+    INSGroupOperation *groupOperation = [[INSGroupOperation alloc] initWithOperations:@[operation1, operation2]];
     
     [self keyValueObservingExpectationForObject:groupOperation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
-        return observedObject.finished;
+        return observedObject.isFinished;
     }];
     
     self.operationQueue.suspended = YES;
@@ -697,7 +698,7 @@
 }
 
 - (void)testCancelledOperationLeavesQueue {
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * _Nonnull operation, INSBlockOperationCompletionBlock  _Nonnull completionBlock) {
         
     }];
     
@@ -716,7 +717,7 @@
     [self.operationQueue addOperation:operation2];
     [operation cancel];
     
-    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+    [self waitForExpectationsWithTimeout:3.0 handler:nil];
 }
 
 - (void)testChainOperationShouldCancelWithErrorWhenMiddleOperationFail {
@@ -726,7 +727,7 @@
         XCTFail(@"should not execute -- cancelled");
     }];
     
-    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         [expectation fulfill];
         [operation finishWithError:[NSError errorWithDomain:@"error" code:1 userInfo:@{}]];
         completionBlock();
@@ -755,7 +756,7 @@
         XCTFail(@"should not execute -- cancelled");
     }];
     
-    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         XCTFail(@"should not execute -- cancelled");
     }];
     
@@ -787,13 +788,25 @@
         
     }];
     
-    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperationCompletionBlock completionBlock) {
+    __block INSBlockOperation *operation = [INSBlockOperation operationWithBlock:^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock completionBlock) {
         completionBlock();
     }];
     
-    __unused INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[operation,operation2]];
+    [self keyValueObservingExpectationForObject:operation keyPath:@"isFinished" handler:^BOOL(INSBlockOperation *observedObject, NSDictionary *change) {
+        return observedObject.finished;
+    }];
     
-    XCTAssertTrue([operation2.dependencies containsObject:operation]);
+    INSChainOperation *chainOperation = [[INSChainOperation alloc] initWithOperations:@[operation, operation2]];
+    
+    INSBlockObserver *chainOperationObserver = [[INSBlockObserver alloc] initWithWillStartHandler:nil didStartHandler:nil didStartExecutingHandler:^(INSOperation * _Nonnull chainOp) {
+        XCTAssertTrue([operation2.dependencies containsObject:operation]);
+    } produceHandler:nil finishHandler:nil];
+    
+    [chainOperation addObserver:chainOperationObserver];
+    
+    [self.operationQueue addOperation:chainOperation];
+    
+    [self waitForExpectationsWithTimeout:2.0 handler:nil];
 }
 
 - (void)testChainOperationDataPassing {
@@ -805,7 +818,7 @@
     INSTestChainOperation *operation = [INSTestChainOperation operationWithAdditionalDataToPass:^id{
         return dict;
     } operationFinishBlock:nil];
-    operation.block = ^(INSBlockOperationCompletionBlock block) {
+    operation.block = ^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock block) {
         [expectation fulfill];
         block();
     };
@@ -814,7 +827,7 @@
         XCTAssertEqual(finishedOperation, operation);
         XCTAssertEqual(additionalDataReceived, dict);
     }];
-    operation2.block = ^(INSBlockOperationCompletionBlock block) {
+    operation2.block = ^(INSBlockOperation * blockOperation, INSBlockOperationCompletionBlock block) {
         [expectation2 fulfill];
         block();
     };

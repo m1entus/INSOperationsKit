@@ -26,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    return;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     

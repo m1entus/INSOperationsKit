@@ -53,7 +53,7 @@
 
 /// Unregisters an operation from being mutually exclusive.
 - (void)removeOperation:(INSOperation *)operation categories:(NSArray <NSString *> *)categories {
-    dispatch_async(_serialQueue, ^{
+    dispatch_sync(_serialQueue, ^{
         for (NSString *category in categories) {
             [self noqueue_removeOperation:operation category:category];
         }
@@ -63,8 +63,14 @@
 #pragma mark - Operation Management
 - (void)noqueue_addOperation:(INSOperation *)operation category:(NSString *)category {
     NSMutableArray *operationsWithThisCategory = _operations[category] ?: @[].mutableCopy;
-
+    
     INSOperation *last = operationsWithThisCategory.lastObject;
+    
+    NSAssert(operation != last, @"You are trying to add operation dependency of itself which is really bad.");
+    if (operation == last) {
+        return;
+    }
+    
     if (last) {
         [operation addDependency:last];
     }

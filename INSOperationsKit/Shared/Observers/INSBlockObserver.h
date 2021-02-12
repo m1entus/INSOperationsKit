@@ -25,4 +25,10 @@ typedef void(^INSBlockObserverFinishHandler)(INSOperation * _Nonnull operation, 
                                   produceHandler:(nullable INSBlockObserverProduceHandler)produceHandler
                                    finishHandler:(nullable INSBlockObserverFinishHandler)finishHandler;
 
+- (nonnull instancetype)initWithWillStartHandler:(nullable INSBlockObserverWillStartHandler)willStartHandler
+                                 didStartHandler:(nullable INSBlockObserverStartHandler)startHandler
+                                 didStartExecutingHandler:(nullable INSBlockObserverStartHandler)startExecutingHandler
+                                  produceHandler:(nullable INSBlockObserverProduceHandler)produceHandler
+                                   finishHandler:(nullable INSBlockObserverFinishHandler)finishHandler;
+
 @end

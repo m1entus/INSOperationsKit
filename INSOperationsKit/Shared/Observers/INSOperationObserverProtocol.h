@@ -23,6 +23,9 @@
 /// Invoked immediately prior to the `INSOperation`'s `execute()` method.
 - (void)operationDidStart:(nonnull INSOperation *)operation;
 
+/// Invoked immediately prior to the `INSOperation`'s `execute()` method.
+- (void)operationDidStartExecuting:(nonnull INSOperation *)operation;
+
 /// Invoked when `INSOperation.produceOperation(_:)` is executed.
 - (void)operation:(nonnull INSOperation *)operation didProduceOperation:(nonnull NSOperation *)newOperation;
 
