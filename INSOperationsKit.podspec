@@ -5,11 +5,11 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.homepage     = "http://inspace.io"
   s.author       = { "Michał Zaborowski" => "m1entus@gmail.com" }
-  s.source       = { :git => "https://github.com/inspace-io/INSOperationsKit.git", :tag => "1.4.1" }
+  s.source       = { :git => "https://github.com/m1entus/INSOperationsKit.git", :tag => "1.4.1" }
   s.requires_arc = true
 
   s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.8'
+  s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
 
   s.ios.source_files = 'INSOperationsKit/Shared/**/*.{h,m}', 'INSOperationsKit/iOS/**/*.{h,m}', 'INSOperationsKit/INSOperationsKit.h'
