@@ -55,9 +55,11 @@
     return YES;
 }
 
-- (NSHashTable <INSOperation <INSChainableOperationProtocol> *> *)chainedOperations {
-    if (!_chainedOperations) {
-        _chainedOperations = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
+- (NSHashTable<INSOperation<INSChainableOperationProtocol> *> *)chainedOperations {
+    @synchronized (self) {
+        if (!_chainedOperations) {
+            _chainedOperations = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
+        }
     }
     return _chainedOperations;
 }
