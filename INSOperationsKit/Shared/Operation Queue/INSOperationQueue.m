@@ -46,7 +46,13 @@
 }
 
 - (void)addOperation:(NSOperation *)operationToAdd {
-    if ([self.operations containsObject:operationToAdd]) {
+    __block BOOL containsOperation = false;
+
+    dispatch_sync(self.syncQueue, ^{
+        containsOperation = [self.operations containsObject:operationToAdd];
+    });
+
+    if (containsOperation) {
         return;
     }
     
@@ -117,7 +123,6 @@
                     });
                 }
             }
-            
             [self addOperation:dependency];
          }];
         
@@ -177,7 +182,10 @@
     if ([self.delegate respondsToSelector:@selector(operationQueue:willAddOperation:)]){
         [self.delegate operationQueue:self willAddOperation:operationToAdd];
     }
-    [super addOperation:operationToAdd];
+
+    dispatch_sync(self.syncQueue, ^{
+        [super addOperation:operationToAdd];
+    });
 }
 
 - (void)addOperations:(NSArray<NSOperation *> *)operations waitUntilFinished:(BOOL)wait {
@@ -190,6 +198,7 @@
             [self addOperation:operation];
         }
     }
+
     if (wait) {
         for (NSOperation *operation in operations) {
             if ([operation isKindOfClass:[NSOperation class]]) {
