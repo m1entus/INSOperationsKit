@@ -29,6 +29,14 @@
     return _chainOperationsCache;
 }
 
+- (NSArray<__kindof NSOperation *> *)operations {
+    __block NSArray<__kindof NSOperation *> *operations;
+    dispatch_sync(self.syncQueue, ^{
+        operations = [super operations];
+    });
+    return [operations copy];
+}
+
 + (INSOperationQueue *)globalQueue {
     static INSOperationQueue *instanceOfGlobalQueue;
     static dispatch_once_t onceToken;
@@ -46,13 +54,7 @@
 }
 
 - (void)addOperation:(NSOperation *)operationToAdd {
-    __block BOOL containsOperation = false;
-
-    dispatch_sync(self.syncQueue, ^{
-        containsOperation = [self.operations containsObject:operationToAdd];
-    });
-
-    if (containsOperation) {
+    if ([self.operations containsObject:operationToAdd]) {
         return;
     }
     
@@ -61,18 +63,11 @@
         
         // Chain operation cache is imporatant to be able to add any operation from chain
         // and whole chain will be added to queue
-        __block BOOL hasChainedOperations = false;
-
-        dispatch_sync(self.syncQueue, ^{
-            hasChainedOperations = operation.chainedOperations.count > 0 && ![self.chainOperationsCache containsObject:operation] && ![self.operations containsObject:operation];
-        });
+        BOOL hasChainedOperations = operation.chainedOperations.count > 0 && ![self.chainOperationsCache containsObject:operation] && ![self.operations containsObject:operation];
 
         if (hasChainedOperations) {
-            __block NSArray <INSOperation<INSChainableOperationProtocol> *> *chainedOperations;
-            dispatch_sync(self.syncQueue, ^{
-                [self.chainOperationsCache addObject:operation];
-                chainedOperations = [operation.chainedOperations allObjects];
-            });
+            NSArray <INSOperation<INSChainableOperationProtocol> *> *chainedOperations = [operation.chainedOperations allObjects];
+            [self.chainOperationsCache addObject:operation];
 
             [chainedOperations enumerateObjectsUsingBlock:^(INSOperation<INSChainableOperationProtocol> * _Nonnull chainOperation, NSUInteger idx, BOOL * _Nonnull stop) {
                 [self addOperation:chainOperation];
@@ -90,9 +85,7 @@
             [weakSelf addOperation:producedOperation];
 
         } finishHandler:^(INSOperation *operation, NSArray *errors) {
-            dispatch_sync(self.syncQueue, ^{
-                [weakSelf.chainOperationsCache removeObject:operation];
-            });
+            [weakSelf.chainOperationsCache removeObject:operation];
 
             if ([weakSelf.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]) {
                 [weakSelf.delegate operationQueue:weakSelf operationDidFinish:operation withErrors:errors];
@@ -118,9 +111,7 @@
             if ([dependency isKindOfClass:[INSOperation class]]) {
                 INSOperation *dependencyOperation = (INSOperation *)dependency;
                 if (dependencyOperation.chainedOperations.count > 0) {
-                    dispatch_sync(self.syncQueue, ^{
-                        [self.chainOperationsCache addObject:dependencyOperation];
-                    });
+                    [self.chainOperationsCache addObject:dependencyOperation];
                 }
             }
             [self addOperation:dependency];
