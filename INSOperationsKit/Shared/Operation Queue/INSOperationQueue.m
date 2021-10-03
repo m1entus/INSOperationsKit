@@ -14,6 +14,7 @@
 
 @interface INSOperationQueue ()
 @property (nonatomic, strong) NSMutableSet *chainOperationsCache;
+@property (nonatomic, strong) NSMutableSet <__kindof NSOperation *> *operationsCache;
 @property (nonatomic, strong) dispatch_queue_t syncQueue;
 @end
 
@@ -27,6 +28,26 @@
         }
     }
     return _chainOperationsCache;
+}
+
+- (NSMutableSet *)operationsCache {
+    @synchronized(self)
+    {
+        if (!_operationsCache) {
+            _operationsCache = [NSMutableSet set];
+        }
+    }
+    return _operationsCache;
+}
+
+- (NSArray<__kindof NSOperation *> *)operations {
+    __block NSArray<__kindof NSOperation *> *operations;
+
+    dispatch_sync(self.syncQueue, ^{
+        operations = [self.operationsCache allObjects];
+    });
+
+    return operations;
 }
 
 + (INSOperationQueue *)globalQueue {
@@ -46,13 +67,8 @@
 }
 
 - (void)addOperation:(NSOperation *)operationToAdd {
-    __block BOOL containsOperation = false;
 
-    dispatch_sync(self.syncQueue, ^{
-        containsOperation = [self.operations containsObject:operationToAdd];
-    });
-
-    if (containsOperation) {
+    if ([self.operations containsObject:operationToAdd]) {
         return;
     }
     
@@ -64,10 +80,10 @@
         __block BOOL hasChainedOperations = false;
 
         dispatch_sync(self.syncQueue, ^{
-            hasChainedOperations = operation.chainedOperations.count > 0 && ![self.chainOperationsCache containsObject:operation] && ![self.operations containsObject:operation];
+            hasChainedOperations = operation.chainedOperations.count > 0 && ![self.chainOperationsCache containsObject:operation];
         });
 
-        if (hasChainedOperations) {
+        if (hasChainedOperations && ![self.operations containsObject:operation]) {
             __block NSArray <INSOperation<INSChainableOperationProtocol> *> *chainedOperations;
             dispatch_sync(self.syncQueue, ^{
                 [self.chainOperationsCache addObject:operation];
@@ -91,6 +107,7 @@
 
         } finishHandler:^(INSOperation *operation, NSArray *errors) {
             dispatch_sync(self.syncQueue, ^{
+                [weakSelf.operationsCache removeObject:operation];
                 [weakSelf.chainOperationsCache removeObject:operation];
             });
 
@@ -170,6 +187,11 @@
         [operationToAdd ins_addCompletionBlock:^(INSOperation *op){
             INSOperationQueue *operationQueue = weakSelf;
             NSOperation *operation = weakOperation;
+
+            dispatch_sync(self.syncQueue, ^{
+                [operationQueue.operationsCache removeObject:operation];
+            });
+
             if (operationQueue && operation){
                 if ([operationQueue.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]){
                     [operationQueue.delegate operationQueue:operationQueue operationDidFinish:operation withErrors:nil];
@@ -184,6 +206,7 @@
     }
 
     dispatch_sync(self.syncQueue, ^{
+        [self.operationsCache addObject:operationToAdd];
         [super addOperation:operationToAdd];
     });
 }
