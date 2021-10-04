@@ -842,4 +842,23 @@
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testOperationsCount {
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * _Nonnull operation, INSBlockOperationCompletionBlock  _Nonnull completionBlock) {
+        // Operation that never finish
+    }];
+
+    XCTAssertEqual(self.operationQueue.operations.count, 0);
+
+    [self keyValueObservingExpectationForObject:self.operationQueue keyPath:@"operations" handler:^BOOL(INSOperationQueue *queue, NSDictionary *change) {
+        return queue.operations.count > 0;
+    }];
+
+    [self.operationQueue addOperation: operation];
+
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+
+    XCTAssertEqual(self.operationQueue.operations.count, 1);
+
+}
+
 @end
