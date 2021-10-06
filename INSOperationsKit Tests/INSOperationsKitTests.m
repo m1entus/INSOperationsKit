@@ -847,17 +847,21 @@
         // Operation that never finish
     }];
 
-    XCTAssertEqual(self.operationQueue.operations.count, 0);
+    XCTAssertEqual(self.operationQueue.runningOperations.count, 0);
 
     [self keyValueObservingExpectationForObject:self.operationQueue keyPath:@"operations" handler:^BOOL(INSOperationQueue *queue, NSDictionary *change) {
         return queue.operations.count > 0;
+    }];
+
+    [self keyValueObservingExpectationForObject:self.operationQueue keyPath:@"runningOperations" handler:^BOOL(INSOperationQueue *queue, NSDictionary *change) {
+        return queue.runningOperations.count > 0;
     }];
 
     [self.operationQueue addOperation: operation];
 
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
 
-    XCTAssertEqual(self.operationQueue.operations.count, 1);
+    XCTAssertEqual(self.operationQueue.runningOperations.count, 1);
 
 }
 

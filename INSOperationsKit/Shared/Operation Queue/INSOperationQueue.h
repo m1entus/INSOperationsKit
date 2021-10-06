@@ -37,5 +37,10 @@
 @interface INSOperationQueue : NSOperationQueue
 @property (nonatomic, weak, nullable) id <INSOperationQueueDelegate> delegate;
 
+@property (readonly, copy) NSArray<__kindof NSOperation *> * _Nonnull operations API_DEPRECATED("access to operations is inherently a race condition, it should not be used. Use runningOperations which is thread safe.", macos(10.5, API_TO_BE_DEPRECATED), ios(2.0, API_TO_BE_DEPRECATED), watchos(2.0, API_TO_BE_DEPRECATED), tvos(9.0, API_TO_BE_DEPRECATED));
+
+/// This is thread safe comparing to `operations` which is inherently a race condition
+@property (readonly, copy) NSArray<__kindof NSOperation *> * _Nonnull runningOperations;
+
 + (nonnull INSOperationQueue *)globalQueue;
 @end

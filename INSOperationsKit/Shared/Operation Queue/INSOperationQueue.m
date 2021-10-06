@@ -41,13 +41,17 @@
 }
 
 - (NSArray<__kindof NSOperation *> *)operations {
+    return [super operations];
+}
+
+- (nonnull NSArray<__kindof NSOperation *> *)runningOperations {
     __block NSArray<__kindof NSOperation *> *operations;
 
     dispatch_sync(self.syncQueue, ^{
         operations = [self.operationsCache allObjects];
     });
 
-    return operations;
+    return [operations copy];
 }
 
 + (INSOperationQueue *)globalQueue {
@@ -68,7 +72,7 @@
 
 - (void)addOperation:(NSOperation *)operationToAdd {
 
-    if ([self.operations containsObject:operationToAdd]) {
+    if ([self.runningOperations containsObject:operationToAdd]) {
         return;
     }
     
@@ -106,10 +110,12 @@
             [weakSelf addOperation:producedOperation];
 
         } finishHandler:^(INSOperation *operation, NSArray *errors) {
+            [weakSelf willChangeValueForKey:@"runningOperations"];
             dispatch_sync(self.syncQueue, ^{
                 [weakSelf.operationsCache removeObject:operation];
                 [weakSelf.chainOperationsCache removeObject:operation];
             });
+            [weakSelf didChangeValueForKey:@"runningOperations"];
 
             if ([weakSelf.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]) {
                 [weakSelf.delegate operationQueue:weakSelf operationDidFinish:operation withErrors:errors];
@@ -205,10 +211,12 @@
         [self.delegate operationQueue:self willAddOperation:operationToAdd];
     }
 
+    [self willChangeValueForKey:@"runningOperations"];
     dispatch_sync(self.syncQueue, ^{
         [self.operationsCache addObject:operationToAdd];
-        [super addOperation:operationToAdd];
     });
+    [self didChangeValueForKey:@"runningOperations"];
+    [super addOperation:operationToAdd];
 }
 
 - (void)addOperations:(NSArray<NSOperation *> *)operations waitUntilFinished:(BOOL)wait {
