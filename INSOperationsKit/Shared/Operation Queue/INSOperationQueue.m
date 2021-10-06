@@ -44,7 +44,7 @@
     return [super operations];
 }
 
-- (nonnull NSArray<__kindof NSOperation *> *)runningOperations {
+- (nonnull NSArray<__kindof NSOperation *> *)addedOperations {
     __block NSArray<__kindof NSOperation *> *operations;
 
     dispatch_sync(self.syncQueue, ^{
@@ -72,7 +72,7 @@
 
 - (void)addOperation:(NSOperation *)operationToAdd {
 
-    if ([self.runningOperations containsObject:operationToAdd]) {
+    if ([self.addedOperations containsObject:operationToAdd]) {
         return;
     }
     
@@ -110,12 +110,12 @@
             [weakSelf addOperation:producedOperation];
 
         } finishHandler:^(INSOperation *operation, NSArray *errors) {
-            [weakSelf willChangeValueForKey:@"runningOperations"];
+            [weakSelf willChangeValueForKey:@"addedOperations"];
             dispatch_sync(self.syncQueue, ^{
                 [weakSelf.operationsCache removeObject:operation];
                 [weakSelf.chainOperationsCache removeObject:operation];
             });
-            [weakSelf didChangeValueForKey:@"runningOperations"];
+            [weakSelf didChangeValueForKey:@"addedOperations"];
 
             if ([weakSelf.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]) {
                 [weakSelf.delegate operationQueue:weakSelf operationDidFinish:operation withErrors:errors];
@@ -194,9 +194,11 @@
             INSOperationQueue *operationQueue = weakSelf;
             NSOperation *operation = weakOperation;
 
+            [weakSelf willChangeValueForKey:@"addedOperations"];
             dispatch_sync(self.syncQueue, ^{
-                [operationQueue.operationsCache removeObject:operation];
+                [weakSelf.operationsCache removeObject:operation];
             });
+            [weakSelf didChangeValueForKey:@"addedOperations"];
 
             if (operationQueue && operation){
                 if ([operationQueue.delegate respondsToSelector:@selector(operationQueue:operationDidFinish:withErrors:)]){
@@ -211,11 +213,11 @@
         [self.delegate operationQueue:self willAddOperation:operationToAdd];
     }
 
-    [self willChangeValueForKey:@"runningOperations"];
+    [self willChangeValueForKey:@"addedOperations"];
     dispatch_sync(self.syncQueue, ^{
         [self.operationsCache addObject:operationToAdd];
     });
-    [self didChangeValueForKey:@"runningOperations"];
+    [self didChangeValueForKey:@"addedOperations"];
     [super addOperation:operationToAdd];
 }
 
