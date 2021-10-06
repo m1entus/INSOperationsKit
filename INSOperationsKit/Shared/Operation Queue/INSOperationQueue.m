@@ -87,7 +87,7 @@
             hasChainedOperations = operation.chainedOperations.count > 0 && ![self.chainOperationsCache containsObject:operation];
         });
 
-        if (hasChainedOperations && ![self.operations containsObject:operation]) {
+        if (hasChainedOperations && ![self.addedOperations containsObject:operation]) {
             __block NSArray <INSOperation<INSChainableOperationProtocol> *> *chainedOperations;
             dispatch_sync(self.syncQueue, ^{
                 [self.chainOperationsCache addObject:operation];
