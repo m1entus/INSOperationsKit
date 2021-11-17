@@ -14,7 +14,7 @@
 
 @interface INSOperationQueue ()
 @property (nonatomic, strong) NSMutableSet *chainOperationsCache;
-@property (nonatomic, strong) NSMutableSet <__kindof NSOperation *> *operationsCache;
+@property (nonatomic, strong) NSMutableArray <__kindof NSOperation *> *operationsCache;
 @property (nonatomic, strong) dispatch_queue_t syncQueue;
 @end
 
@@ -30,11 +30,11 @@
     return _chainOperationsCache;
 }
 
-- (NSMutableSet *)operationsCache {
+- (NSMutableArray *)operationsCache {
     @synchronized(self)
     {
         if (!_operationsCache) {
-            _operationsCache = [NSMutableSet set];
+            _operationsCache = [NSMutableArray array];
         }
     }
     return _operationsCache;
@@ -48,7 +48,7 @@
     __block NSArray<__kindof NSOperation *> *operations;
 
     dispatch_sync(self.syncQueue, ^{
-        operations = [self.operationsCache allObjects];
+        operations = [self.operationsCache copy];
     });
 
     return [operations copy];
