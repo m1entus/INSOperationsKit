@@ -228,12 +228,13 @@
 #pragma mark - Execution and Cancellation
 
 - (void)start {
-    NSAssert(self.state == INSOperationStateReady, @"This operation must be performed on an operation queue.");
-    
-    if (self.isCancelled) {
+    if (self.isCancelled || self.state > INSOperationStateReady) {
         [self finish];
         return;
     }
+
+    NSAssert(self.state == INSOperationStateReady, @"This operation must be performed on an operation queue.");
+
     self.state = INSOperationStateExecuting;
 
     for (NSObject<INSOperationObserverProtocol> *observer in self.observers) {
