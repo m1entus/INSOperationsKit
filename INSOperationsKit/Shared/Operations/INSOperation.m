@@ -13,7 +13,7 @@
 #import "INSBlockObserver.h"
 
 @interface INSOperation ()
-@property (atomic, assign) BOOL hasFinishedAlready;
+@property (nonatomic, assign) BOOL hasFinishedAlready;
 @property (atomic, assign) INSOperationState state;
 @property (getter=isCancelled) BOOL cancelled;
 
@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray <NSError *> *internalErrors;
 
 @property (nonatomic, strong) NSHashTable <INSOperation <INSChainableOperationProtocol> *> *chainedOperations;
+@property (nonatomic, strong) dispatch_queue_t syncQueue;
 @end
 
 @implementation INSOperation
@@ -53,6 +54,15 @@
     }
     
     return YES;
+}
+
+- (dispatch_queue_t)syncQueue {
+    @synchronized (self) {
+        if (!_syncQueue) {
+            _syncQueue = dispatch_queue_create("io.inspace.insoperationkit.insoperation.sync", DISPATCH_QUEUE_SERIAL);
+        }
+    }
+    return _syncQueue;
 }
 
 - (NSHashTable<INSOperation<INSChainableOperationProtocol> *> *)chainedOperations {
@@ -356,8 +366,18 @@
 }
 
 - (void)finishWithErrors:(NSArray <NSError *> *)errors {
-    if (!self.hasFinishedAlready) {
-        self.hasFinishedAlready = YES;
+
+    __block BOOL hasFinishedAlready = NO;
+
+    dispatch_sync(self.syncQueue, ^{
+        hasFinishedAlready = self.hasFinishedAlready;
+
+        if (!self.hasFinishedAlready) {
+            self.hasFinishedAlready = YES;
+        }
+    });
+
+    if (!hasFinishedAlready) {
         self.state = INSOperationStateFinishing;
 
         _internalErrors = [self.internalErrors arrayByAddingObjectsFromArray:errors];
