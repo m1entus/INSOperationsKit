@@ -113,8 +113,8 @@ static void INSReachabilityReleaseCallback(const void *info) {
 @property (readwrite, nonatomic, strong) id networkReachability;
 @property (readwrite, nonatomic, assign) INSReachabilityAssociation networkReachabilityAssociation;
 @property (readwrite, atomic, assign) INSReachabilityStatus networkReachabilityStatus;
-@property (readwrite, nonatomic, copy) INSReachabilityStatusBlock networkReachabilityStatusBlock;
-@property (readwrite, nonatomic, assign, getter=isMonitoring) BOOL monitoring;
+@property (readwrite, atomic, copy) INSReachabilityStatusBlock networkReachabilityStatusBlock;
+@property (readwrite, atomic, assign, getter=isMonitoring) BOOL monitoring;
 @property (nonatomic, strong) NSHashTable *blockTable;
 @property (nonatomic, strong) dispatch_queue_t syncQueue;
 @end

@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (readonly, nonatomic, assign, getter = isReachableViaWiFi) BOOL reachableViaWiFi;
 
-@property (readonly, nonatomic, assign, getter=isMonitoring) BOOL monitoring;
+@property (readonly, atomic, assign, getter=isMonitoring) BOOL monitoring;
 
 ///---------------------
 /// @name Initialization
