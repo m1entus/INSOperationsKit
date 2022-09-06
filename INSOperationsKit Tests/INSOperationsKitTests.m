@@ -865,4 +865,23 @@
 
 }
 
+- (void)testReachabilityCondition {
+    INSReachabilityCondition *condition = [INSReachabilityCondition reachabilityCondition];
+
+    INSBlockOperation *operation = [[INSBlockOperation alloc] initWithBlock:^(INSBlockOperation * _Nonnull operation, INSBlockOperationCompletionBlock  _Nonnull completionBlock) {
+        // Operation that never finish
+    }];
+
+
+    XCTestExpectation *expectation = [self expectationWithDescription:@"block"];
+
+    [condition evaluateForOperation:operation completion:^(INSOperationConditionResult * _Nonnull result) {
+        [expectation fulfill];
+
+        XCTAssertEqual(result.isSuccees, YES);
+    }];
+
+    [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 @end

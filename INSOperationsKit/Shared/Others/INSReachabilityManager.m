@@ -112,10 +112,11 @@ static void INSReachabilityReleaseCallback(const void *info) {
 @interface INSReachabilityManager ()
 @property (readwrite, nonatomic, strong) id networkReachability;
 @property (readwrite, nonatomic, assign) INSReachabilityAssociation networkReachabilityAssociation;
-@property (readwrite, nonatomic, assign) INSReachabilityStatus networkReachabilityStatus;
+@property (readwrite, atomic, assign) INSReachabilityStatus networkReachabilityStatus;
 @property (readwrite, nonatomic, copy) INSReachabilityStatusBlock networkReachabilityStatusBlock;
 @property (readwrite, nonatomic, assign, getter=isMonitoring) BOOL monitoring;
 @property (nonatomic, strong) NSHashTable *blockTable;
+@property (nonatomic, strong) dispatch_queue_t syncQueue;
 @end
 
 @implementation INSReachabilityManager
@@ -161,6 +162,7 @@ static void INSReachabilityReleaseCallback(const void *info) {
     if (!self) {
         return nil;
     }
+    self.syncQueue = dispatch_queue_create("io.inspace.insoperationkit.insreachabilitymanager.sync", DISPATCH_QUEUE_SERIAL);
     self.blockTable = [NSHashTable hashTableWithOptions:NSPointerFunctionsCopyIn];
     self.networkReachability = CFBridgingRelease(reachability);
     self.networkReachabilityStatus = INSReachabilityStatusUnknown;
@@ -211,12 +213,22 @@ static void INSReachabilityReleaseCallback(const void *info) {
         if (strongSelf.networkReachabilityStatusBlock) {
             strongSelf.networkReachabilityStatusBlock(status);
         }
-        NSArray *blockObjects = [strongSelf.blockTable allObjects];
+
+        __block NSArray *blockObjects = @[];
+
+        dispatch_sync(self.syncQueue, ^{
+            blockObjects = [[strongSelf.blockTable allObjects] copy];
+        });
+
         [blockObjects enumerateObjectsUsingBlock:^(INSReachabilityStatusBlock obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj(status);
-            [strongSelf.blockTable removeObject:obj];
         }];
-        
+
+        dispatch_sync(self.syncQueue, ^{
+            for (id obj in blockObjects) {
+                [strongSelf.blockTable removeObject:obj];
+            }
+        });
     };
     
     id networkReachability = self.networkReachability;
@@ -270,7 +282,14 @@ static void INSReachabilityReleaseCallback(const void *info) {
 }
 
 - (void)addSingleCallReachabilityStatusChangeBlock:(nonnull void (^)(INSReachabilityStatus status))block {
-    [self.blockTable addObject:block];
+
+    if (self.networkReachabilityStatus == INSReachabilityStatusUnknown) {
+        dispatch_sync(self.syncQueue, ^{
+            [self.blockTable addObject:block];
+        });
+    } else {
+        block(self.networkReachabilityStatus);
+    }
 }
 
 #pragma mark - NSKeyValueObserving
