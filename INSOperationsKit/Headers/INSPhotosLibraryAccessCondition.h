@@ -1,0 +1,1 @@
+../Classes/iOS/Conditions/INSPhotosLibraryAccessCondition.h

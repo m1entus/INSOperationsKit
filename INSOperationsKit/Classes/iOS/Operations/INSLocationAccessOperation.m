@@ -7,6 +7,8 @@
 //
 
 #import "INSLocationAccessOperation.h"
+#import "INSMutuallyExclusiveCondition.h"
+#import "INSLocationAccessCondition.h"
 
 @interface INSLocationAccessOperation () <CLLocationManagerDelegate>
 

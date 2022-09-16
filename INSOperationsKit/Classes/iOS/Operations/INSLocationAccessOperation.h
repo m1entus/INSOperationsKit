@@ -7,7 +7,7 @@
 //
 
 #import "INSLocationAccessCondition.h"
-#import <INSOperationsKit/INSOperationsKit.h>
+#import "INSOperation.h"
 
 @import CoreLocation;
 

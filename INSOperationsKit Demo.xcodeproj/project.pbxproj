@@ -554,7 +554,8 @@
 				64DFC7B51B98AA070009DB98 /* Observers */,
 				64DFC7B01B98A82F0009DB98 /* Operation Queue */,
 			);
-			path = Shared;
+			name = Shared;
+			path = Classes/Shared;
 			sourceTree = "<group>";
 		};
 		64DF7DAF1BA7533000DF24FC /* iOS */ = {
@@ -563,7 +564,8 @@
 				64DF7DB11BA7534700DF24FC /* Operations */,
 				64DF7DB01BA7533800DF24FC /* Conditions */,
 			);
-			path = iOS;
+			name = iOS;
+			path = Classes/iOS;
 			sourceTree = "<group>";
 		};
 		64DF7DB01BA7533800DF24FC /* Conditions */ = {
