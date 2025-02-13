@@ -17,6 +17,10 @@ let package = Package(
                 "Classes/iOS/Conditions",
                 "Headers/INSPhotosLibraryAccessCondition.h",
                 "Headers/INSLocationAccessCondition.h",
+                "Classes/iOS/Operations/INSLocationAccessOperation.h",
+                "Classes/iOS/Operations/INSLocationAccessOperation.m",
+                "Classes/iOS/Operations/INSPhotosLibraryAccessOperation.h",
+                "Classes/iOS/Operations/INSPhotosLibraryAccessOperation.m",
                 "Info.plist",
                 "INSOperationsKit.h",
                 "Supporting Files"
@@ -29,7 +33,11 @@ let package = Package(
             sources: [
                 "Classes/iOS/Conditions",
                 "Headers/INSPhotosLibraryAccessCondition.h",
-                "Headers/INSLocationAccessCondition.h"
+                "Headers/INSLocationAccessCondition.h",
+                "Classes/iOS/Operations/INSLocationAccessOperation.h",
+                "Classes/iOS/Operations/INSLocationAccessOperation.m",
+                "Classes/iOS/Operations/INSPhotosLibraryAccessOperation.h",
+                "Classes/iOS/Operations/INSPhotosLibraryAccessOperation.m",
             ],
             publicHeadersPath: "Headers"),
     ]
