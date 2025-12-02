@@ -38,6 +38,9 @@
 NSString * const INSReachabilityDidChangeNotification = @"io.inspace.reachability.change";
 NSString * const INSReachabilityNotificationStatusItem = @"INSReachabilityNotificationStatusItem";
 
+static NSString *_configuredDomain = nil;
+static INSReachabilityManager *_sharedManager = nil;
+
 typedef void (^INSReachabilityStatusBlock)(INSReachabilityStatus status);
 
 typedef NS_ENUM(NSUInteger, INSReachabilityAssociation) {
@@ -121,13 +124,21 @@ static void INSReachabilityReleaseCallback(const void *info) {
 
 @implementation INSReachabilityManager
 
++ (void)configureSharedManagerWithDomain:(NSString *)domain {
+    NSAssert(_sharedManager == nil, @"configureSharedManagerWithDomain: should be called before sharedManager is initialized");
+    _configuredDomain = [domain copy];
+}
+
 + (instancetype)sharedManager {
-    static INSReachabilityManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedManager = [self managerForLocalAddress];
+        if (_configuredDomain) {
+            _sharedManager = [self managerForDomain:_configuredDomain];
+        } else {
+            _sharedManager = [self managerForLocalAddress];
+        }
     });
-    
+
     return _sharedManager;
 }
 

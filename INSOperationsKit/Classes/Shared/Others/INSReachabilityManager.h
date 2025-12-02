@@ -87,6 +87,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedManager;
 
 /**
+ Configures the shared manager to monitor reachability for a specific domain instead of local address.
+ Must be called BEFORE first access to sharedManager, typically in application:didFinishLaunchingWithOptions:.
+ @param domain The domain to monitor (e.g. "api.example.com")
+ */
++ (void)configureSharedManagerWithDomain:(nonnull NSString *)domain;
+
+/**
  Creates and returns a network reachability manager for the specified domain.
  @param domain The domain used to evaluate network reachability.
  @return An initialized network reachability manager, actively monitoring the specified domain.
