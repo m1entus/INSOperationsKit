@@ -247,28 +247,17 @@ static void INSReachabilityReleaseCallback(const void *info) {
     SCNetworkReachabilitySetCallback((__bridge SCNetworkReachabilityRef)networkReachability, INSReachabilityCallback, &context);
     SCNetworkReachabilityScheduleWithRunLoop((__bridge SCNetworkReachabilityRef)networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
     
-    switch (self.networkReachabilityAssociation) {
-        case INSReachabilityForName:
-            break;
-        case INSReachabilityForAddress:
-        case INSReachabilityForAddressPair:
-        default: {
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
-                SCNetworkReachabilityFlags flags;
-                SCNetworkReachabilityGetFlags((__bridge SCNetworkReachabilityRef)networkReachability, &flags);
-                INSReachabilityStatus status = INSReachabilityStatusForFlags(flags);
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    callback(status);
-                    
-                    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
-                    [notificationCenter postNotificationName:INSReachabilityDidChangeNotification object:nil userInfo:@{ INSReachabilityNotificationStatusItem: @(status) }];
-                    
-                    
-                });
-            });
-        }
-            break;
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        SCNetworkReachabilityFlags flags;
+        SCNetworkReachabilityGetFlags((__bridge SCNetworkReachabilityRef)networkReachability, &flags);
+        INSReachabilityStatus status = INSReachabilityStatusForFlags(flags);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            callback(status);
+
+            NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+            [notificationCenter postNotificationName:INSReachabilityDidChangeNotification object:nil userInfo:@{ INSReachabilityNotificationStatusItem: @(status) }];
+        });
+    });
 }
 
 - (void)stopMonitoring {
