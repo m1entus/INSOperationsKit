@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "INSOperationsKit"
-  s.version      = "1.5.0"
+  s.version      = "1.5.5"
   s.summary      = "INSOperationsKit"
   s.license      = 'MIT'
   s.homepage     = "http://inspace.io"
